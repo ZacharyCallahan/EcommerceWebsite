@@ -5,17 +5,19 @@ import requests
 import re
 
 
-EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$') 
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
+
 
 class User:
     db = 'flask_ecommerce_website_schema'
+
     def __init__(self, data):
         self.id = data['id']
         self.first_name = data['first_name']
         self.last_name = data['last_name']
         self.email = data['email']
         self.password = data['password']
-        if 'address' in data: 
+        if 'address' in data:
             self.address = data['address']
         if 'city' in data:
             self.city = data['city']
@@ -38,13 +40,13 @@ class User:
         for user in results:
             users.append(cls(user))
         return users
-    
+
     @classmethod
     def get_one(cls, data):
         query = "SELECT * FROM users WHERE id = %(id)s;"
         results = connectToMySQL(cls.db).query_db(query, data)
         return cls(results[0])
-    
+
     @classmethod
     def sign_up(cls, data):
         query = """
@@ -54,7 +56,7 @@ class User:
         %(email)s, 
         %(password)s);"""
         return connectToMySQL(cls.db).query_db(query, data)
-    
+
     @classmethod
     def update_shipping_info(cls, data):
         query = """
@@ -67,8 +69,7 @@ class User:
         phone = %(phone)s 
         WHERE id = %(id)s;"""
         return connectToMySQL(cls.db).query_db(query, data)
-    
-    
+
     @staticmethod
     def validate_user(user):
         is_valid = True
@@ -78,7 +79,7 @@ class User:
         if len(user['last_name']) < 2:
             flash("Last name must be at least 2 characters long.")
             is_valid = False
-        
+
         # Check if email already exists in database
         query = "SELECT * FROM users WHERE email = %(email)s;"
         results = connectToMySQL(User.db).query_db(query, user)
@@ -99,7 +100,7 @@ class User:
         session['last_name'] = user['last_name']
         session['email'] = user['email']
         return is_valid
-    
+
     @classmethod
     def get_by_email(cls, data):
         query = "SELECT * FROM users WHERE email = %(email)s;"
@@ -107,7 +108,7 @@ class User:
         if len(results) < 1:
             return False
         return cls(results[0])
-    
+
     @staticmethod
     def validate_shipping_info(user):
         is_valid = True
@@ -136,4 +137,3 @@ class User:
             flash("Phone must be at least 10 characters long.")
             is_valid = False
         return is_valid
-    

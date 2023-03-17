@@ -21,6 +21,7 @@
     <title>Home</title>
 </head>
 
+
 <body>
     <nav class="navbar navbar-expand-sm d-flex justify-content-between w-100 position-fixed z-2 bg-darker-custom ">
         <a class="navbar-brand mx-5 fs-3 hover">GroovyGear</a>
@@ -38,6 +39,7 @@
                         {{session['shopping_cart']}}
                     </span>
                 </a>
+
             </li>
             <li class="nav-item ">
                 <!-- check if user is logged in -->
@@ -72,10 +74,10 @@
     </div>
     {% endif %}
     {% endwith %}
-    
-    
-    
-    
-    
+
+
+
+
+
         {% block content %}{% endblock %}
 </body>

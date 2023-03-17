@@ -11,27 +11,29 @@
 
         {%for product in data%}
         {%if product.id == 16 or product.id == 17 or product.id == 18 or product.id == 19%}
-        <div class="hover rounded-2 clickable shadow-lg container slide-element hide-element slide-out-element">
+        <a href="/product/{{product.id}}" class="text-decoration-none color text-black">
+            <div class="hover rounded-2 clickable shadow-lg container slide-element hide-element slide-out-element p-4">
 
-            <div class="d-flex align-items-center justify-content-center ">
-                <div>
-                    <h2>{{product.title}}</h2>
-                    </h2>
-                    <p>{{product.description}}</p>
-                    <p>${{product.price}}</p>
-                    <form action="/add_to_cart" method="post">
-                        <input type="hidden" name="product_id" value="{{product.id}}">
-                        <input type="hidden" name="product_price" value="{{product.price}}">
-                        <input type="hidden" name="product_quantity" value="1">
-                        <button type="submit" class="btn btn-primary">Add to Cart</button>
-                    </form>
+                <div class="d-flex align-items-center justify-content-center ">
+                    <div>
+                        <h2>{{product.title}}</h2>
+                        </h2>
+                        <p>{{product.description}}</p>
+                        <p>${{product.price}}</p>
+                        <form action="/add_to_cart" method="post">
+                            <input type="hidden" name="product_id" value="{{product.id}}">
+                            <input type="hidden" name="product_price" value="{{product.price}}">
+                            <input type="hidden" name="product_quantity" value="1">
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                        </form>
+                    </div>
+                    <img src="{{ product.image }}"
+                        class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} w-33  m-auto "
+                        alt="">
                 </div>
-                <img src="{{ product.image }}"
-                    class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} w-33  m-auto "
-                    alt="">
-            </div>
 
-        </div>
+            </div>
+        </a>
         {%endif%}
         {%endfor%}
     </div>
@@ -46,7 +48,8 @@
         <div class="d-flex justify-content-around flex-wrap mt-5">
             {%for product in data%}
             {%if product.id == 21 or product.id == 22 or product.id == 23%}
-            <div class="hover rounded-2 clickable d-flex flex-column gap-3 w-25 p-4  shadow-lg">
+            <a href="/product/{{product.id}}"
+                class="text-decoration-none color text-black hover rounded-2 clickable d-flex flex-column gap-3 w-25 p-4 shadow-lg">
                 <img src="{{product.image}}" class="img-fluid w-50 m-auto" alt="">
                 <div class="d-flex flex-column align-items-start">
                     <h3 class="fs-6">{{product.title}}</h3>
@@ -62,11 +65,9 @@
                     </form>
                     <p>${{product.price}}</p>
                 </div>
-            </div>
+            </a>
             {%endif%}
             {%endfor%}
-
-
 
         </div>
     </div>
@@ -79,7 +80,8 @@
             <!-- TODO project two exclusive offers -->
             {%for product in data%}
             {%if product.id == 28 or product.id == 30%}
-            <div class="hover rounded-2 clickable shadow-lg d-flex justify-content-between p-4 ">
+            <a href="/product/{{product.id}}"
+                class="text-decoration-none color text-black hover rounded-2 shadow-lg d-flex justify-content-between p-4 ">
                 <div class="d-flex flex-column align-items-start">
                     <h3 class="fs-6">{{product.title}}</h3>
                     <form action="/add_to_cart" method="post">
@@ -98,7 +100,7 @@
                     class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} exclusive"
                     alt="">
 
-            </div>
+            </a>
             {%endif%}
             {%endfor%}
 
@@ -113,8 +115,8 @@
 
             {% for product in data %}
             {% if product.id > 9 %}
-            <div class="hover rounded-2 clickable shadow-lg d-flex flex-column m-1 product p-4"
-                onclick="document.location='#'">
+            <a href="/product/{{product.id}}"
+                class="text-decoration-none color text-black hover rounded-2 shadow-lg d-flex flex-column m-1 product p-4">
                 <img src="{{product.image}}"
                     class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} w-50 m-auto"
                     alt="">
@@ -133,8 +135,7 @@
                     </form>
                     <p>${{product.price}}</p>
                 </div>
-            </div>
-
+            </a>
             {% endif %}
             {% endfor %}
 

@@ -1,51 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+            crossorigin="anonymous" />
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap"
+            rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{url_for('static', filename='css/style.css')}}" />
+        <script
+            defer
+            type="text/javascript"
+            src="{{url_for('static', filename='js/script.js')}}"></script>
+        <title>Home</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
-    <script defer type="text/javascript" src="{{url_for('static', filename='js/script.js')}}"></script>
-    <title>Home</title>
-</head>
-
-<body>
-    <div class="container mt-5 pt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card border-0 shadow">
-                    <div class="card-body">
-                        <h2 class="card-title mb-4">Order Confirmation</h2>
-                        <p class="card-text">Thank you for your order! Your order has been successfully placed and is
-                            being processed. A confirmation email has been sent to your email address.</p>
-                        <p class="card-text">Order Number: <strong>#123456</strong></p>
-                        <!-- Replace the order number with a dynamic value from your app -->
-                        <hr>
-                        <h3>Shipping Information</h3>
-                        <p>
-                            {{user.first_name}} {{user.last_name}}<br> <!-- Replace the shipping information with dynamic values from your app -->
-                            {{user.address}}<br>
-                            {{user.city}}, {{user.state}} {{user.zip_code}}<br>
-                            {{user.country}}<br>
-                            Phone: {{user.phone}}
-                        </p>
-                        <hr>
-                        <h3>Payment Details</h3>
-                        <p>Card: **** **** **** 1234</p>
-                        <!-- Replace the card details with dynamic values from your app -->
-                        <hr>
-                        <a href="/clear" class="btn btn-primary">Return to Home</a>
+    <body>
+        <div class="container mt-5 pt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card border-0 shadow">
+                        <div class="card-body">
+                            <h2 class="card-title mb-4">Order Confirmation</h2>
+                            <p class="card-text">
+                                Thank you for your order! Your order has been
+                                successfully placed and is being processed. A
+                                confirmation email has been sent to your email
+                                address.
+                            </p>
+                            <p class="card-text">
+                                Order Number: <strong>#123456</strong>
+                            </p>
+                            <!-- Replace the order number with a dynamic value from your app -->
+                            <hr />
+                            <h3>Shipping Information</h3>
+                            <p>
+                                {{user.first_name}} {{user.last_name}}<br />
+                                <!-- Replace the shipping information with dynamic values from your app -->
+                                {{user.address}}<br />
+                                {{user.city}}, {{user.state}}
+                                {{user.zip_code}}<br />
+                                {{user.country}}<br />
+                                Phone: {{user.phone}}
+                            </p>
+                            <hr />
+                            <h3>Payment Details</h3>
+                            <p>Card: **** **** **** 1234</p>
+                            <!-- Replace the card details with dynamic values from your app -->
+                            <hr />
+                            <a href="/clear" class="btn btn-primary"
+                                >Return to Home</a
+                            >
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
+</html>

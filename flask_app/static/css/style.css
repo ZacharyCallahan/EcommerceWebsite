@@ -91,6 +91,7 @@ h2, .navbar-brand {
 .clickable {
   cursor: pointer;
 }
+
 .hover {
   transition: 0.5s;
   transform: scale(1);
@@ -102,6 +103,14 @@ h2, .navbar-brand {
   -moz-transition: 0.5s;
   -ms-transition: 0.5s;
   -o-transition: 0.5s;
+}
+.button-hover {
+  transition: 0.5s;
+  transform: scale(1);
+}
+.button-hover:hover {
+  transition: 0.5s;
+  transform: scale(1.12);
 }
 .hover:hover {
   transition: 0.5s;

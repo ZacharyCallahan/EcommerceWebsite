@@ -1,43 +1,52 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <div class="d-flex align-items-center">
-    <button class="btn fit-content mx-5 hover" onclick="plusSlides(-1)">
+    <button class="btn fit-content mx-5 button-hover" onclick="plusSlides(-1)">
         <i class="fa fa-arrow-circle-left fa-3x" aria-hidden="true"></i>
     </button>
 
-    <div class="slideshow-container d-flex justify-content-center align-items-center flex-grow-1">
-
-        {%for product in data%}
-        {%if product.id == 16 or product.id == 17 or product.id == 18 or product.id == 19%}
-        <a href="/product/{{product.id}}" class="text-decoration-none color text-black">
-            <div class="hover rounded-2 clickable shadow-lg container slide-element hide-element slide-out-element p-4">
-
-                <div class="d-flex align-items-center justify-content-center ">
+    <div
+        class="slideshow-container d-flex justify-content-center align-items-center flex-grow-1">
+        {%for product in data%} {%if product.id == 16 or product.id == 17 or
+        product.id == 18 or product.id == 19%}
+        <a
+            href="/product/{{product.id}}"
+            class="text-decoration-none color text-black">
+            <div
+                class="hover rounded-2 clickable shadow-lg container slide-element hide-element slide-out-element p-4">
+                <div class="d-flex align-items-center justify-content-center gap-3">
                     <div>
-                        <h2>{{product.title}}</h2>
-                        </h2>
-                        <p>{{product.description}}</p>
-                        <p>${{product.price}}</p>
+                        <h2 class="fs-1">{{product.title}}</h2>
+                        <p class="fs-4">{{product.description}}</p>
+                        <p class="fs-4 fw-bolder">${{product.price}}</p>
                         <form action="/add_to_cart" method="post">
-                            <input type="hidden" name="product_id" value="{{product.id}}">
-                            <input type="hidden" name="product_price" value="{{product.price}}">
-                            <input type="hidden" name="product_quantity" value="1">
-                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            <input
+                                type="hidden"
+                                name="product_id"
+                                value="{{product.id}}" />
+                            <input
+                                type="hidden"
+                                name="product_price"
+                                value="{{product.price}}" />
+                            <input
+                                type="hidden"
+                                name="product_quantity"
+                                value="1" />
+                            <button type="submit" class="btn btn-primary button-hover">
+                                Add to Cart
+                            </button>
                         </form>
                     </div>
-                    <img src="{{ product.image }}"
-                        class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} w-33  m-auto "
-                        alt="">
+                    <img
+                        src="{{ product.image }}"
+                        class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} w-33 m-auto"
+                        alt="" />
                 </div>
-
             </div>
         </a>
-        {%endif%}
-        {%endfor%}
+        {%endif%} {%endfor%}
     </div>
-    <button class="btn fit-content  mx-5 hover" onclick="plusSlides(1)">
+    <button class="btn fit-content mx-5 button-hover" onclick="plusSlides(1)">
         <i class="fa fa-arrow-circle-right fa-3x" aria-hidden="true"></i>
     </button>
 </div>
@@ -46,65 +55,90 @@
     <div>
         <h2 class="mx-5">FEATURED PRODUCTS</h2>
         <div class="d-flex justify-content-around flex-wrap mt-5">
-            {%for product in data%}
-            {%if product.id == 21 or product.id == 22 or product.id == 23%}
-            <a href="/product/{{product.id}}"
+            {%for product in data%} {%if product.id == 21 or product.id == 22 or
+            product.id == 23%}
+            <a
+                href="/product/{{product.id}}"
                 class="text-decoration-none color text-black hover rounded-2 clickable d-flex flex-column gap-3 w-25 p-4 shadow-lg">
-                <img src="{{product.image}}" class="img-fluid w-50 m-auto" alt="">
-                <div class="d-flex flex-column align-items-start">
-                    <h3 class="fs-6">{{product.title}}</h3>
+                <img
+                    src="{{product.image}}"
+                    class="img-fluid w-50 m-auto"
+                    alt="" />
+                <div class="d-flex flex-column align-items-start gap-2 mt-5">
+                    <h3 class="fs-4">{{product.title}}</h3>
+                    <p class="fs-4 fw-bolder">${{product.price}}</p>
                     <form action="/add_to_cart" method="post">
                         {%if "user_id" in session%}
-                        <input type="hidden" name="user_id" value="{{session['user_id']}}">
+                        <input
+                            type="hidden"
+                            name="user_id"
+                            value="{{session['user_id']}}" />
                         {%endif%}
-                        <input type="hidden" name="product_id" value="{{product.id}}">
-                        <input type="hidden" name="product_price" value="{{product.price}}">
-                        <input type="hidden" name="product_quantity" value="1">
-                        <button type="submit" class="btn btn-primary">Add to cart<i class="fa fa-star"
-                                aria-hidden="true"></i></button>
+                        <input
+                            type="hidden"
+                            name="product_id"
+                            value="{{product.id}}" />
+                        <input
+                            type="hidden"
+                            name="product_price"
+                            value="{{product.price}}" />
+                        <input
+                            type="hidden"
+                            name="product_quantity"
+                            value="1" />
+                        <button type="submit" class="btn btn-primary button-hover">
+                            Add to cart
+                        </button>
                     </form>
-                    <p>${{product.price}}</p>
+                    
                 </div>
             </a>
-            {%endif%}
-            {%endfor%}
-
+            {%endif%} {%endfor%}
         </div>
     </div>
 
     <div class="mt-5">
-        <h2 class="mx-5 fit-content border-bottom border-4 border-info">EXCLUSIVE OFFERS</h2>
+        <h2 class="mx-5 fit-content">EXCLUSIVE OFFERS</h2>
 
         <div class="d-flex align-items-center justify-content-around mt-5">
-
-            <!-- TODO project two exclusive offers -->
-            {%for product in data%}
-            {%if product.id == 28 or product.id == 30%}
-            <a href="/product/{{product.id}}"
-                class="text-decoration-none color text-black hover rounded-2 shadow-lg d-flex justify-content-between p-4 ">
-                <div class="d-flex flex-column align-items-start">
-                    <h3 class="fs-6">{{product.title}}</h3>
+            {%for product in data%} {%if product.id == 28 or product.id == 30%}
+            <a
+                href="/product/{{product.id}}"
+                class="text-decoration-none color text-black hover rounded-2 shadow-lg d-flex justify-content-between p-4 gap-4 w-40">
+                <div class="d-flex flex-column align-items-start gap-2">
+                    <h3 class="fs-4">{{product.title}}</h3>
+                    <p class="fs-4 fw-bolder">${{product.price}}</p>
                     <form action="/add_to_cart" method="post">
                         {%if "user_id" in session%}
-                        <input type="hidden" name="user_id" value="{{session['user_id']}}">
+                        <input
+                            type="hidden"
+                            name="user_id"
+                            value="{{session['user_id']}}" />
                         {%endif%}
-                        <input type="hidden" name="product_id" value="{{product.id}}">
-                        <input type="hidden" name="product_price" value="{{product.price}}">
-                        <input type="hidden" name="product_quantity" value="1">
-                        <button type="submit" class="btn btn-primary">Add to cart<i class="fa fa-star"
-                                aria-hidden="true"></i></button>
+                        <input
+                            type="hidden"
+                            name="product_id"
+                            value="{{product.id}}" />
+                        <input
+                            type="hidden"
+                            name="product_price"
+                            value="{{product.price}}" />
+                        <input
+                            type="hidden"
+                            name="product_quantity"
+                            value="1" />
+                        <button type="submit" class="btn btn-primary button-hover">
+                            Add to cart
+                        </button>
                     </form>
-                    <p>${{product.price}}</p>
+                    
                 </div>
-                <img src="{{ product.image }}"
+                <img
+                    src="{{ product.image }}"
                     class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} exclusive"
-                    alt="">
-
+                    alt="" />
             </a>
-            {%endif%}
-            {%endfor%}
-
-
+            {%endif%} {%endfor%}
         </div>
     </div>
 
@@ -113,33 +147,44 @@
         <div class="d-flex justify-content-around flex-wrap mt-5 row-gap-5">
             <!-- TODO make it loop and project each product -->
 
-            {% for product in data %}
-            {% if product.id > 9 %}
-            <a href="/product/{{product.id}}"
+            {% for product in data %} {% if product.id > 9 %}
+            <a
+                href="/product/{{product.id}}"
                 class="text-decoration-none color text-black hover rounded-2 shadow-lg d-flex flex-column m-1 product p-4">
-                <img src="{{product.image}}"
+                <img
+                    src="{{product.image}}"
                     class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} w-50 m-auto"
-                    alt="">
+                    alt="" />
 
-                <div class="d-flex flex-column align-items-start">
-                    <h3 class="fs-6">{{product.title}}</h3>
+                <div class="d-flex flex-column align-items-start gap-2 mt-5">
+                    <h3 class="fs-4">{{product.title}}</h3>
+                    <p class="fs-4 fw-bolder">${{product.price}}</p>
                     <form action="/add_to_cart" method="post">
                         {%if "user_id" in session%}
-                        <input type="hidden" name="user_id" value="{{session['user_id']}}">
+                        <input
+                            type="hidden"
+                            name="user_id"
+                            value="{{session['user_id']}}" />
                         {%endif%}
-                        <input type="hidden" name="product_id" value="{{product.id}}">
-                        <input type="hidden" name="product_price" value="{{product.price}}">
-                        <input type="hidden" name="product_quantity" value="1">
-                        <button type="submit" class="btn btn-primary">Add to cart<i class="fa fa-star"
-                                aria-hidden="true"></i></button>
+                        <input
+                            type="hidden"
+                            name="product_id"
+                            value="{{product.id}}" />
+                        <input
+                            type="hidden"
+                            name="product_price"
+                            value="{{product.price}}" />
+                        <input
+                            type="hidden"
+                            name="product_quantity"
+                            value="1" />
+                        <button type="submit" class="btn btn-primary button-hover">
+                            Add to cart
+                        </button>
                     </form>
-                    <p>${{product.price}}</p>
                 </div>
             </a>
-            {% endif %}
-            {% endfor %}
-
-
+            {% endif %} {% endfor %}
         </div>
     </div>
 </div>

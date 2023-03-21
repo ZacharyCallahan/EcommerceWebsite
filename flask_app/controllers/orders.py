@@ -43,3 +43,4 @@ def clear():
     session['shopping_cart'] = 0
     session.pop('order_id')
     return redirect('/')
+

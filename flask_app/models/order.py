@@ -25,7 +25,22 @@ class Order:
         user_id = %(user_id)s, 
         total_price = %(total_price)s 
         WHERE id = %(id)s;"""
-        return connectToMySQL(cls.db).query_db(query, data)
+        return connectToMySQL(cls.db).query_db(query, data)\
+        
+    @classmethod
+    def get_all_user_orders(cls, data):
+        query = "SELECT * FROM orders WHERE user_id = %(user_id)s;"
+        results = connectToMySQL(cls.db).query_db(query, data)
+        orders = []
+        for order in results:
+            orders.append(cls(order))
+        return orders
+    
+    @classmethod
+    def get_one(cls, data):
+        query = "SELECT * FROM orders WHERE id = %(id)s;"
+        results = connectToMySQL(cls.db).query_db(query, data)
+        return cls(results[0])
 
     @classmethod
     def get_all_order_data_by_id(cls, data):
@@ -35,7 +50,7 @@ class Order:
         JOIN products ON order_items.product_id = products.id
         WHERE order_items.order_id = %(order_id)s;"""
         results = connectToMySQL(cls.db).query_db(query, data)
-
+        print(results)
         return results
 
     @classmethod

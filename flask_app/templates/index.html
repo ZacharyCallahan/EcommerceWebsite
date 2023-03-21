@@ -11,9 +11,9 @@
         product.id == 18 or product.id == 19%}
         <a
             href="/product/{{product.id}}"
-            class="text-decoration-none color text-black">
+            class="text-decoration-none color text-black ">
             <div
-                class="hover rounded-2 clickable shadow-lg container slide-element hide-element slide-out-element p-4">
+                class="hover rounded-4 clickable shadow-lg container slide-element hide-element slide-out-element p-4 bg-white">
                 <div class="d-flex align-items-center justify-content-center gap-3">
                     <div>
                         <h2 class="fs-1">{{product.title}}</h2>
@@ -59,7 +59,7 @@
             product.id == 23%}
             <a
                 href="/product/{{product.id}}"
-                class="text-decoration-none color text-black hover rounded-2 clickable d-flex flex-column gap-3 w-25 p-4 shadow-lg">
+                class="text-decoration-none color text-black hover rounded-4 clickable d-flex flex-column gap-3 w-25 p-4 shadow-lg bg-white">
                 <img
                     src="{{product.image}}"
                     class="img-fluid w-50 m-auto"
@@ -104,7 +104,7 @@
             {%for product in data%} {%if product.id == 28 or product.id == 30%}
             <a
                 href="/product/{{product.id}}"
-                class="text-decoration-none color text-black hover rounded-2 shadow-lg d-flex justify-content-between p-4 gap-4 w-40">
+                class="text-decoration-none color text-black hover rounded-4 shadow-lg d-flex justify-content-between p-4 gap-4 w-40 bg-white">
                 <div class="d-flex flex-column align-items-start gap-2">
                     <h3 class="fs-4">{{product.title}}</h3>
                     <p class="fs-4 fw-bolder">${{product.price}}</p>
@@ -150,7 +150,7 @@
             {% for product in data %} {% if product.id > 9 %}
             <a
                 href="/product/{{product.id}}"
-                class="text-decoration-none color text-black hover rounded-2 shadow-lg d-flex flex-column m-1 product p-4">
+                class="text-decoration-none color text-black hover rounded-4 shadow-lg d-flex flex-column m-1 product p-4 bg-white">
                 <img
                     src="{{product.image}}"
                     class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} w-50 m-auto"

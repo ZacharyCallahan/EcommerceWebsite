@@ -8,14 +8,15 @@ class Order:
         self.id = data['id']
         self.user_id = data['user_id']
         self.total_price = data['total_price']
+        self.status = data['status']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
     @classmethod
     def create(cls, data):
         query = """
-        INSERT INTO orders (user_id) 
-        VALUES (%(user_id)s);"""
+        INSERT INTO orders (user_id, status) 
+        VALUES (%(user_id)s, %(status)s);"""
         return connectToMySQL(cls.db).query_db(query, data)
 
     @classmethod
@@ -25,7 +26,15 @@ class Order:
         user_id = %(user_id)s, 
         total_price = %(total_price)s 
         WHERE id = %(id)s;"""
-        return connectToMySQL(cls.db).query_db(query, data)\
+        return connectToMySQL(cls.db).query_db(query, data)
+    
+    @classmethod
+    def update_status(cls, data):
+        query = """
+        UPDATE orders SET 
+        status = %(status)s 
+        WHERE id = %(id)s;"""
+        return connectToMySQL(cls.db).query_db(query, data)
         
     @classmethod
     def get_all_user_orders(cls, data):
@@ -50,7 +59,6 @@ class Order:
         JOIN products ON order_items.product_id = products.id
         WHERE order_items.order_id = %(order_id)s;"""
         results = connectToMySQL(cls.db).query_db(query, data)
-        print(results)
         return results
 
     @classmethod

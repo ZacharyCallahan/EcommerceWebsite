@@ -7,8 +7,8 @@
 
     <div
         class="slideshow-container d-flex justify-content-center align-items-center flex-grow-1">
-        {%for product in data%} {%if product.id == 16 or product.id == 17 or
-        product.id == 18 or product.id == 19%}
+        {%for product in data%} {%if product.id == 65 or product.id == 66 or
+        product.id == 67 or product.id == 68%}
         <a
             href="/product/{{product.id}}"
             class="text-decoration-none color text-black ">
@@ -55,8 +55,8 @@
     <div>
         <h2 class="mx-5">FEATURED PRODUCTS</h2>
         <div class="d-flex justify-content-around flex-wrap mt-5">
-            {%for product in data%} {%if product.id == 21 or product.id == 22 or
-            product.id == 23%}
+            {%for product in data%} {%if product.id == 56 or product.id == 57 or
+            product.id == 58%}
             <a
                 href="/product/{{product.id}}"
                 class="text-decoration-none color text-black hover rounded-4 clickable d-flex flex-column gap-3 w-25 p-4 shadow-lg bg-white">
@@ -101,7 +101,7 @@
         <h2 class="mx-5 fit-content">EXCLUSIVE OFFERS</h2>
 
         <div class="d-flex align-items-center justify-content-around mt-5">
-            {%for product in data%} {%if product.id == 28 or product.id == 30%}
+            {%for product in data%} {%if product.id == 59 or product.id == 60%}
             <a
                 href="/product/{{product.id}}"
                 class="text-decoration-none color text-black hover rounded-4 shadow-lg d-flex justify-content-between p-4 gap-4 w-40 bg-white">
@@ -147,7 +147,7 @@
         <div class="d-flex justify-content-around flex-wrap mt-5 row-gap-5">
             <!-- TODO make it loop and project each product -->
 
-            {% for product in data %} {% if product.id > 9 %}
+            {% for product in data %} {% if product.id > 61 %}
             <a
                 href="/product/{{product.id}}"
                 class="text-decoration-none color text-black hover rounded-4 shadow-lg d-flex flex-column m-1 product p-4 bg-white">

@@ -3,7 +3,8 @@ from flask_app import app
 from flask_bcrypt import Bcrypt
 from flask_app.models.user import User
 from flask_app.models.order import Order
-
+from flask_app.models.product import Product
+import requests
 bcrypt = Bcrypt(app)
 
 
@@ -26,6 +27,18 @@ def register():
 
 @app.route('/register')
 def register_form():
+
+    # url = 'https://fakestoreapi.com/products'
+
+    # response = requests.get(url)
+
+    # if response.status_code == 200:
+    #     json_data = response.json()
+    #     print(json_data)
+    #     for product in json_data:
+    #         Product.create(product)
+    # else:
+    #     print(f'Error: {response.status_code}')
 
     if 'first_name' not in session:
         session['first_name'] = ''
@@ -66,18 +79,7 @@ def logout():
     return redirect('/login')
 
 
-@app.route('/confirmation')
-def confirmation():
-    if 'user_id' not in session:
-        flash('You must be logged in to view your order confirmation')
-        return redirect('/login')
-    if 'order_id' not in session:
-        flash('Add items to your cart before checking out!')
-        return redirect('/')
 
-    session['shopping_cart'] = 0
-
-    return render_template('confirmation.html', user=User.get_one({'id': session['user_id']}))
 
 
 @app.route('/account')
@@ -101,3 +103,4 @@ def order(order_id):
                            cart_total=Order.get_total_price_by_order_id({'order_id': order_id}), 
                            user=User.get_one({'id': session['user_id']}), 
                            order_id=order_id)
+

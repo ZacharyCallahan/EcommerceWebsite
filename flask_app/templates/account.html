@@ -71,14 +71,16 @@
                         </thead>
                         <tbody>
                             {% for order in orders %}
+                            {% if order.status != 'in_cart'%}
                             <tr>
-                                <th scope="row">{{ order.id }}</th>
+                                <th scope="row">{{ order.id }} </th>
                                 <td>${{ order.total_price }}</td>
                                 <td>{{ order.created_at }}</td>
                                 <td>
                                     <a href="/order/{{order.id}}">View Order</a>
                                 </td>
                             </tr>
+                            {% endif %}
                             {% endfor %}
                         </tbody>
                     </table>

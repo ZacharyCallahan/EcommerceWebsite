@@ -12,7 +12,7 @@ def add_to_cart():
 
     if 'order_id' not in session:
         session['order_id'] = Order.create(
-            {'user_id': session['user_id']})
+            {'user_id': session['user_id'], 'status': 'in_cart'})
 
     data = {
         'order_id': session['order_id'],

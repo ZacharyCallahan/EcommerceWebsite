@@ -31,3 +31,10 @@ class Product:
         result = connectToMySQL('flask_ecommerce_website_schema').query_db(query, data)
         return cls(result[0])
     
+    # @classmethod
+    # def create(cls, data):
+    #     query = """
+    #     INSERT INTO products (title, description, price, image, quantity) 
+    #     VALUES (%(title)s, %(description)s, %(price)s, %(image)s, 1);"""
+    #     return connectToMySQL('flask_ecommerce_website_schema').query_db(query, data)
+    

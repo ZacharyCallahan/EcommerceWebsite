@@ -33,14 +33,23 @@ def process_checkout():
         'country': request.form['country'],
         'phone': request.form['phone']
     }
+    Order.update_status({'id': session['order_id'], 'status': 'shipped'})
     User.update_shipping_info(data)
     
     return redirect('/confirmation')
 
 
-@app.route('/clear')
-def clear():
+@app.route('/confirmation')
+def confirmation():
+    if 'user_id' not in session:
+        flash('You must be logged in to view your order confirmation')
+        return redirect('/login')
+    if 'order_id' not in session:
+        flash('Add items to your cart before checking out!')
+        return redirect('/')
+
     session['shopping_cart'] = 0
     session.pop('order_id')
-    return redirect('/')
+
+    return render_template('confirmation.html', user=User.get_one({'id': session['user_id']}))
 

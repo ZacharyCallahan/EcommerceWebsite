@@ -78,6 +78,8 @@
                                 <td>{{ order.created_at }}</td>
                                 <td>
                                     <a href="/order/{{order.id}}">View Order</a>
+                                    |
+                                    <a href="/reorder/{{order.id}}">Order Again</a>
                                 </td>
                             </tr>
                             {% endif %}

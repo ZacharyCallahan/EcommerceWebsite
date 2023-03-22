@@ -71,6 +71,9 @@
 .w-40 {
     width: 40%;
 }
+.w-15 {
+    width: 15%;
+}
 .fit-content {
     width: fit-content;
     height: fit-content;

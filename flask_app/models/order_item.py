@@ -57,5 +57,3 @@ class OrderItem:
             return connectToMySQL(cls.db).query_db(query, data)
         
         
- 
-    

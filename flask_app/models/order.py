@@ -73,3 +73,24 @@ class Order:
         query = """
         UPDATE orders SET total_price = (SELECT SUM(price) FROM order_items WHERE order_id = %(order_id)s) WHERE id = %(order_id)s;"""
         return connectToMySQL(cls.db).query_db(query, data)
+
+
+    @classmethod
+    def reorder(cls, data):
+        # create a new order with the same order items from the previous order
+        query = """
+        INSERT INTO orders (user_id, total_price, status) 
+        SELECT user_id, total_price, status FROM orders WHERE id = %(order_id)s;"""
+        new_order_id = connectToMySQL(cls.db).query_db(query, data)
+        print(f"THIS IS THE NEW ORDER ID - {new_order_id}")
+        # create new order items for the new order
+
+        query = """
+        INSERT INTO order_items (order_id, product_id, quantity, price) 
+        SELECT %(new_order_id)s, product_id, quantity, price FROM order_items WHERE order_id = %(order_id)s;"""
+       
+        data['new_order_id'] = new_order_id
+        connectToMySQL(cls.db).query_db(query, data)
+        cls.update_status({'id': new_order_id, 'status': 'in_cart'})
+        
+        return new_order_id

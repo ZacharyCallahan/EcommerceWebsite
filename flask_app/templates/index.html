@@ -5,13 +5,10 @@
         <i class="fa fa-arrow-circle-left fa-3x" aria-hidden="true"></i>
     </button>
 
-    <div
-        class="slideshow-container d-flex justify-content-center align-items-center flex-grow-1">
+    <div class="slideshow-container d-flex justify-content-center align-items-center flex-grow-1">
         {%for product in data%} {%if product.id == 65 or product.id == 66 or
         product.id == 67 or product.id == 68%}
-        <a
-            href="/product/{{product.id}}"
-            class="text-decoration-none color text-black ">
+        <a href="/product/{{product.id}}" class="text-decoration-none color text-black ">
             <div
                 class="hover rounded-4 clickable shadow-lg container slide-element hide-element slide-out-element p-4 bg-white">
                 <div class="d-flex align-items-center justify-content-center gap-3">
@@ -20,25 +17,15 @@
                         <p class="fs-4">{{product.description}}</p>
                         <p class="fs-4 fw-bolder">${{product.price}}</p>
                         <form action="/add_to_cart" method="post">
-                            <input
-                                type="hidden"
-                                name="product_id"
-                                value="{{product.id}}" />
-                            <input
-                                type="hidden"
-                                name="product_price"
-                                value="{{product.price}}" />
-                            <input
-                                type="hidden"
-                                name="product_quantity"
-                                value="1" />
+                            <input type="hidden" name="product_id" value="{{product.id}}" />
+                            <input type="hidden" name="product_price" value="{{product.price}}" />
+                            <input type="hidden" name="product_quantity" value="1" />
                             <button type="submit" class="btn btn-primary button-hover">
                                 Add to Cart
                             </button>
                         </form>
                     </div>
-                    <img
-                        src="{{ product.image }}"
+                    <img src="{{ product.image }}"
                         class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} w-33 m-auto"
                         alt="" />
                 </div>
@@ -57,40 +44,24 @@
         <div class="d-flex justify-content-around flex-wrap mt-5">
             {%for product in data%} {%if product.id == 56 or product.id == 57 or
             product.id == 58%}
-            <a
-                href="/product/{{product.id}}"
+            <a href="/product/{{product.id}}"
                 class="text-decoration-none color text-black hover rounded-4 clickable d-flex flex-column gap-3 w-25 p-4 shadow-lg bg-white">
-                <img
-                    src="{{product.image}}"
-                    class="img-fluid w-50 m-auto"
-                    alt="" />
+                <img src="{{product.image}}" class="img-fluid w-50 m-auto" alt="" />
                 <div class="d-flex flex-column align-items-start gap-2 mt-5">
                     <h3 class="fs-4">{{product.title}}</h3>
                     <p class="fs-4 fw-bolder">${{product.price}}</p>
                     <form action="/add_to_cart" method="post">
                         {%if "user_id" in session%}
-                        <input
-                            type="hidden"
-                            name="user_id"
-                            value="{{session['user_id']}}" />
+                        <input type="hidden" name="user_id" value="{{session['user_id']}}" />
                         {%endif%}
-                        <input
-                            type="hidden"
-                            name="product_id"
-                            value="{{product.id}}" />
-                        <input
-                            type="hidden"
-                            name="product_price"
-                            value="{{product.price}}" />
-                        <input
-                            type="hidden"
-                            name="product_quantity"
-                            value="1" />
+                        <input type="hidden" name="product_id" value="{{product.id}}" />
+                        <input type="hidden" name="product_price" value="{{product.price}}" />
+                        <input type="hidden" name="product_quantity" value="1" />
                         <button type="submit" class="btn btn-primary button-hover">
                             Add to cart
                         </button>
                     </form>
-                    
+
                 </div>
             </a>
             {%endif%} {%endfor%}
@@ -102,39 +73,25 @@
 
         <div class="d-flex align-items-center justify-content-around mt-5">
             {%for product in data%} {%if product.id == 59 or product.id == 60%}
-            <a
-                href="/product/{{product.id}}"
+            <a href="/product/{{product.id}}"
                 class="text-decoration-none color text-black hover rounded-4 shadow-lg d-flex justify-content-between p-4 gap-4 w-40 bg-white">
                 <div class="d-flex flex-column align-items-start gap-2">
                     <h3 class="fs-4">{{product.title}}</h3>
                     <p class="fs-4 fw-bolder">${{product.price}}</p>
                     <form action="/add_to_cart" method="post">
                         {%if "user_id" in session%}
-                        <input
-                            type="hidden"
-                            name="user_id"
-                            value="{{session['user_id']}}" />
+                        <input type="hidden" name="user_id" value="{{session['user_id']}}" />
                         {%endif%}
-                        <input
-                            type="hidden"
-                            name="product_id"
-                            value="{{product.id}}" />
-                        <input
-                            type="hidden"
-                            name="product_price"
-                            value="{{product.price}}" />
-                        <input
-                            type="hidden"
-                            name="product_quantity"
-                            value="1" />
+                        <input type="hidden" name="product_id" value="{{product.id}}" />
+                        <input type="hidden" name="product_price" value="{{product.price}}" />
+                        <input type="hidden" name="product_quantity" value="1" />
                         <button type="submit" class="btn btn-primary button-hover">
                             Add to cart
                         </button>
                     </form>
-                    
+
                 </div>
-                <img
-                    src="{{ product.image }}"
+                <img src="{{ product.image }}"
                     class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} exclusive"
                     alt="" />
             </a>
@@ -148,11 +105,9 @@
             <!-- TODO make it loop and project each product -->
 
             {% for product in data %} {% if product.id > 61 %}
-            <a
-                href="/product/{{product.id}}"
+            <a href="/product/{{product.id}}"
                 class="text-decoration-none color text-black hover rounded-4 shadow-lg d-flex flex-column m-1 product p-4 bg-white">
-                <img
-                    src="{{product.image}}"
+                <img src="{{product.image}}"
                     class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} w-50 m-auto"
                     alt="" />
 
@@ -161,23 +116,11 @@
                     <p class="fs-4 fw-bolder">${{product.price}}</p>
                     <form action="/add_to_cart" method="post">
                         {%if "user_id" in session%}
-                        <input
-                            type="hidden"
-                            name="user_id"
-                            value="{{session['user_id']}}" />
+                        <input type="hidden" name="user_id" value="{{session['user_id']}}" />
                         {%endif%}
-                        <input
-                            type="hidden"
-                            name="product_id"
-                            value="{{product.id}}" />
-                        <input
-                            type="hidden"
-                            name="product_price"
-                            value="{{product.price}}" />
-                        <input
-                            type="hidden"
-                            name="product_quantity"
-                            value="1" />
+                        <input type="hidden" name="product_id" value="{{product.id}}" />
+                        <input type="hidden" name="product_price" value="{{product.price}}" />
+                        <input type="hidden" name="product_quantity" value="1" />
                         <button type="submit" class="btn btn-primary button-hover">
                             Add to cart
                         </button>

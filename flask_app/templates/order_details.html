@@ -5,10 +5,10 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Order Details</h5>
-                    <p class="card-text"><strong>Order ID:</strong> {{order_id}}</p>
+                    <h1 class="card-title">Order Details</h1>
+                    <hr>
+                    <p class="card-text"><strong>Order Number:</strong> {{order_id}}</p>
                     <p class="card-text"><strong>Order Date:</strong> {{ order.created_at}}</p>
-
                     <table class="table table-hover my-3">
                         <thead>
                             <tr>
@@ -31,10 +31,13 @@
                                 <td>${{ item.price }}</td>
                             </tr>
                             {% endfor %}
-                            
+
                         </tbody>
                     </table>
-                    <p class="card-text"><strong>Total Price:</strong> ${{ order.total_price }}</p>
+                    <div class="d-flex justify-content-between">
+                        <p class="card-text"><strong>Total Price:</strong> ${{ order.total_price }}</p>
+                        <a href="/reorder/{{order_id}}" class="btn btn-primary">Order Again</a>
+                    </div>
                 </div>
             </div>
         </div>

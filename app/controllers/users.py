@@ -90,6 +90,21 @@ def account():
 
     return render_template('account-details.html', user=User.get_one({'id': session['user_id']}), orders=Order.get_all_user_orders({'user_id': session['user_id']}))
 
+@app.route('/account/orders')
+def account_orders():
+    if 'user_id' not in session:
+        flash('You must be logged in to view your orders')
+        return redirect('/login')
+
+    return render_template('account-orders.html', orders=Order.get_all_user_orders({'user_id': session['user_id']}))
+
+@app.route('/account/password')
+def account_password():
+    if 'user_id' not in session:
+        flash('You must be logged in to view your password')
+        return redirect('/login')
+
+    return render_template('account-password.html', user=User.get_one({'id': session['user_id']}))  
 
 @app.route('/order/<int:order_id>')
 def order(order_id):

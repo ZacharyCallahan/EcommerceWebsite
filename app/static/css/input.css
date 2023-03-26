@@ -48,3 +48,8 @@
     background-size: cover;
     background-position: center;
 }
+
+.table-row:nth-child(odd) {
+    @apply bg-gray-100;
+}
+

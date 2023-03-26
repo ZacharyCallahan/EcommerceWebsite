@@ -10,7 +10,7 @@
         <tr class="">
             <th class=" py-4">Order Number</th>
             <th class=" py-4">Total</th>
-            <th class=" py-4">Date Ordepurple</th>
+            <th class=" py-4">Date Ordered</th>
             <th class=" py-4">Actions</th>
         </tr>
     </thead>
@@ -21,9 +21,9 @@
             <td class=" py-4">${{order.total_price}}</td>
             <td class=" py-4">{{order.created_at}}</td>
             <td class=" py-4">
-                <a href="/order/{{order.id}}" class="text-groovy-purple">View Order</a>
+                <a href="/order/{{order.id}}" class="text-groovy-red">View Order</a>
                 |
-                <a href="/reorder/{{order.id}}" class="text-groovy-purple">Order Again</a>
+                <a href="/reorder/{{order.id}}" class="text-groovy-red">Order Again</a>
             </td>
         </tr>
         {% endfor %}

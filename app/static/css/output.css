@@ -1259,6 +1259,11 @@ video {
   --tw-ring-color: rgb(186 97 250 / var(--tw-ring-opacity));
 }
 
+.focus\:ring-groovy-red:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(208 81 92 / var(--tw-ring-opacity));
+}
+
 .group:hover .group-hover\:opacity-75 {
   opacity: 0.75;
 }

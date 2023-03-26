@@ -88,7 +88,7 @@ def account():
         flash('You must be logged in to view your account')
         return redirect('/login')
 
-    return render_template('account.html', user=User.get_one({'id': session['user_id']}), orders=Order.get_all_user_orders({'user_id': session['user_id']}))
+    return render_template('account-details.html', user=User.get_one({'id': session['user_id']}), orders=Order.get_all_user_orders({'user_id': session['user_id']}))
 
 
 @app.route('/order/<int:order_id>')

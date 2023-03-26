@@ -1,76 +1,57 @@
 {% extends "base.html" %} {% block content %}
 <main class="bg-gray-100 ">
-    <div class="container m-auto flex py-4">
-        <ul class="flex grow flex-col gap-5">
-            <li>
-                <i class="fa fa-user text-2xl mr-3"></i>
-                <a href="" class="text-2xl">Account</a>
+    <div class="container m-auto flex py-4 gap-5">
+        <ul class="flex grow flex-col gap-5 bg-white rounded-md shadow-md active pt-5">
+            <!-- TODO change this when I mess with the routing in Flask -->
+            {% if request.path == '/account' %}
+            <li
+                class="bg-groovy-red bg-opacity-25 border-l-4 border-groovy-red border-opacity-100 rounded-md w-full py-1 transition-all">
+                <i class="fa fa-user text-2xl ml-5 mr-3"></i>
+                <a href="" class="text-2xl ">Account</a>
             </li>
-            <li>
-                <i class="fa fa-bookmark text-2xl mr-3"></i>
+            {% else %}
+            <li
+                class="hover:bg-groovy-red hover:bg-opacity-25 hover:border-opacity-100 hover:border-groovy-red border-l-4 border-opacity-0 border-white hover:rounded-md hover:w-full py-1 transition-all">
+                <i class="fa fa-user text-2xl ml-5 mr-3"></i>
+                <a href="" class="text-2xl ">Account</a>
+            </li>
+            {% endif %}
+
+
+            {% if request.path == '/account/orders' %}
+            <li
+                class="bg-groovy-red bg-opacity-25 border-l-4 border-groovy-red border-opacity-100 rounded-md w-full py-1 transition-all">
+                <i class="fa fa-bookmark text-2xl ml-5 mr-3"></i>
                 <a href="" class="text-2xl">My Orders</a>
             </li>
-            <li>
-                <i class="fa fa-lock text-2xl mr-3"></i>
+            {% else %}
+            <li
+                class="hover:bg-groovy-red hover:bg-opacity-25 hover:border-opacity-100 hover:border-groovy-red border-l-4 border-opacity-0 border-white hover:rounded-md hover:w-full py-1 transition-all">
+                <i class="fa fa-bookmark text-2xl ml-5 mr-3"></i>
+                <a href="" class="text-2xl">My Orders</a>
+            </li>
+            {% endif %}
+
+
+            {% if request.path == '/account/password' %}
+            <li
+                class="bg-groovy-red bg-opacity-25 border-l-4 border-groovy-red border-opacity-100 rounded-md w-full py-1 transition-all">
+                <i class="fa fa-lock text-2xl ml-5 mr-3"></i>
                 <a href="" class="text-2xl">Password</a>
             </li>
+            {% else %}
+            <li
+                class="hover:bg-groovy-red hover:bg-opacity-25 hover:border-opacity-100 hover:border-groovy-red border-l-4 border-opacity-0 border-white hover:rounded-md hover:w-full py-1 transition-all">
+                <i class="fa fa-lock text-2xl ml-5 mr-3"></i>
+                <a href="" class="text-2xl">Password</a>
+            </li>
+            {% endif %}
         </ul>
-        <div class="flex grow-[2] flex-col bg-white p-5 rounded-md shadow-md">
-            <h1>Account Details</h1>
-            <p>Update your account detail.</p>
-            <form action="" class="">
-                <div class="flex items-center gap-5">
-                    <div class="w-1/3 flex flex-col">
-                        <label for="name">First Name:</label>
-                        <input type="email" name="email" id="email" placeholder="johndoe@gmail.com"
-                            class="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-purple ring-1 ring-slate-200">
-                    </div>
-                    <div class="w-1/3  flex flex-col">
-                        <label for="name">Last Name:</label>
-                        <input type="text" name="name" id="name" placeholder="John Doe"
-                            class="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-purple ring-1 ring-slate-200">
-                    </div>
-                    <div class="w-1/3 flex flex-col">
-                        <label for="name">Email:</label>
-                        <input type="email" name="email" id="email" placeholder="johndoe@gmail.com"
-                            class="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-purple ring-1 ring-slate-200">
-                    </div>
-                </div>
-                <div class="flex items-center gap-5">
-                    <div class="w-1/2  flex flex-col">
-                        <label for="name">Address:</label>
-                        <input type="text" name="name" id="name" placeholder="John Doe"
-                            class="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-purple ring-1 ring-slate-200">
-                    </div>
-                    <div class="w-1/4  flex flex-col">
-                        <label for="name">City:</label>
-                        <input type="text" name="name" id="name" placeholder="John Doe"
-                            class="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-purple ring-1 ring-slate-200">
-                    </div>
-                    <div class="w-1/4  flex flex-col">
-                        <label for="name">State:</label>
-                        <input type="text" name="name" id="name" placeholder="John Doe"
-                            class="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-purple ring-1 ring-slate-200">
-                    </div>
-                </div>
-                <div class="flex items-center gap-5">
-                    <div class="w-1/2  flex flex-col">
-                        <label for="name">Country:</label>
-                        <input type="text" name="name" id="name" placeholder="John Doe"
-                            class="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-purple ring-1 ring-slate-200">
-                    </div>
-                    <div class="w-1/2  flex flex-col">
-                        <label for="name">Zip Code:</label>
-                        <input type="text" name="name" id="name" placeholder="John Doe"
-                            class="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-purple ring-1 ring-slate-200">
-                    </div>
-                    <div class="w-1/2  flex flex-col">
-                        <label for="name">Phone:</label>
-                        <input type="text" name="name" id="name" placeholder="John Doe"
-                            class="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-purple ring-1 ring-slate-200">
-                    </div>
-                </div>
-            </form>
+        <div class="flex grow-[3] flex-col bg-white p-5 rounded-md shadow-md gap-5">
+            {%block account_content%}
+
+
+            {%endblock%}
         </div>
     </div>
 </main>

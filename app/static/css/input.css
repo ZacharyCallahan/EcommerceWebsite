@@ -48,7 +48,9 @@
     background-size: cover;
     background-position: center;
 }
-
+.bg-cover {
+    background-image: url(../img/beach-work.jpg);
+}
 .table-row:nth-child(odd) {
     @apply bg-gray-100;
 }

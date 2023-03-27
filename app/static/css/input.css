@@ -42,6 +42,22 @@
     font-family: "Rubik", sans-serif;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.247);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.521);
+}
+
 .bg-image {
     background-image: url(../img/uuunion.svg);
     background-repeat: no-repeat;
@@ -58,4 +74,3 @@
 .selected-size {
     @apply border-groovy-red;
 }
-

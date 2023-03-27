@@ -120,10 +120,10 @@
                 <h1 class="text-2xl font-bold">Have a question? Shoot us a message.</h1>
                 <p>We are here 24/7 to support you.</p>
             </div>
-            <form action="">
+            <form action="/send/message" method="post">
                 <div class="flex flex-col mb-5">
-                    <label for="name">Full Name:</label>
-                    <input type="email" name="name" id="name" placeholder="John Doe"
+                    <label for="full_name">Full Name:</label>
+                    <input type="text" name="full_name" id="full_name" placeholder="John Doe"
                         class="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
                         required>
                 </div>

@@ -12,6 +12,8 @@ Features -
 6. Birthday rewards
     - would need to redesign the registration page
 
+7. change footer bottom Information to about us and FAQs
+
 
 Task - 
 1. Admin page
@@ -19,3 +21,11 @@ Task -
 
 QOL feature -
 1. Make it so when you add an item to cart it stays on the product page.
+
+
+TODO:
+2. Different pages (Womens, mens, kids, Accessories) then make the "Shop Now" work
+3. Account features. Make updating data work
+4. Make the footer buttons work. SECTION (DONE)
+5. Add stripe support
+6. create admin pages

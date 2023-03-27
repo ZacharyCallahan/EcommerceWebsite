@@ -128,6 +128,38 @@ def account_password():
 
     return render_template('account-password.html', user=User.get_one({'id': session['user_id']}))  
 
+@app.route('/account/password/update', methods=['POST'])
+def account_password_update():
+    if 'user_id' not in session:
+        flash('You must be logged in to view your password')
+        return redirect('/login')
+
+    data = {
+        'id': session['user_id'],
+        'old_password': request.form['old_password'],
+        'new_password': request.form['new_password'],
+        'confirm_password': request.form['confirm_password']
+    }
+
+    if not User.validate_password(data):
+        return redirect('/account/password')
+
+    user_in_db = User.get_one(data)
+
+    if not bcrypt.check_password_hash(user_in_db.password, request.form['old_password']):
+        flash("Incorrect password")
+        return redirect('/account/password')
+    
+    pw_hash = bcrypt.generate_password_hash(request.form['new_password'])
+    data = {
+        'id': session['user_id'],
+        'password': pw_hash
+    }
+
+    User.update_password(data)
+    flash("Password updated successfully")
+    return redirect('/account/password')
+
 @app.route('/order/<int:order_id>')
 def order(order_id):
     if 'user_id' not in session:

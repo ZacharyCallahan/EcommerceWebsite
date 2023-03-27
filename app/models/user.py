@@ -76,6 +76,12 @@ class User:
         WHERE id = %(id)s;"""
         return connectToMySQL(cls.db).query_db(query, data)
 
+    @classmethod
+    def update_password(cls, data):
+        query = """
+        UPDATE users SET password = %(password)s WHERE id = %(id)s;"""
+        return connectToMySQL(cls.db).query_db(query, data)
+
     @staticmethod
     def validate_user(user):
         is_valid = True
@@ -105,6 +111,17 @@ class User:
         session['first_name'] = user['first_name']
         session['last_name'] = user['last_name']
         session['email'] = user['email']
+        return is_valid
+    
+    @staticmethod
+    def validate_password(user):
+        is_valid = True
+        if len(user['new_password']) < 8:
+            flash("Password must be at least 8 characters long.")
+            is_valid = False
+        if user['new_password'] != user['confirm_password']:
+            flash("Passwords must match.")
+            is_valid = False
         return is_valid
 
     @classmethod

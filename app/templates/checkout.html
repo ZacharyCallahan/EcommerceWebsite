@@ -1,57 +1,61 @@
 {% extends "base.html" %} {% block content %}
 <section class="bg-gray-100  space-y-32 pb-32">
-    <form class="container m-auto grid grid-cols-2 py-16 gap-5">
+    <form action="/process_checkout" method="post" class="container m-auto grid grid-cols-2 py-16 gap-5">
         <div>
             <h2 class="mb-5 font-bold text-2xl">Contact Information</h2>
             <div>
                 <div class="border-b-2 mb-5 pb-5">
                     <div class="flex flex-col mb-5">
-                        <label for="">Email address:</label>
-                        <input type="email" name="" id=""
+                        <label for="email">Email address:</label>
+                        <input type="email" name="email" id="email" value="{{ user.email }}"
+                            placeholder="johndoe@gmail.com"
                             class="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200">
                     </div>
                     <div class="flex flex-col">
-                        <label for="">Phone number:</label>
-                        <input type="text" name="" id=""
+                        <label for="phone">Phone number:</label>
+                        <input type="text" name="phone" id="phone" placeholder="123-456-7890" value="{{ user.phone }}"
                             class="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200">
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-5">
                     <div class="flex flex-col mb-5">
-                        <label for="">First name:</label>
-                        <input type="text" name="" id=""
+                        <label for="first_name">First name:</label>
+                        <input type="text" name="first_name" id="first_name" value="{{ user.first_name }}"
+                            placeholder="John"
                             class="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200">
                     </div>
                     <div class="flex flex-col mb-5">
-                        <label for="">Last name:</label>
-                        <input type="text" name="" id=""
+                        <label for="last_name">Last name:</label>
+                        <input type="text" name="last_name" id="last_name" value="{{ user.last_name }}"
+                            placeholder="Doe"
                             class="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200">
                     </div>
                 </div>
                 <div class="flex flex-col mb-5">
-                    <label for="">Address:</label>
-                    <input type="text" name="" id=""
+                    <label for="address">Address:</label>
+                    <input type="text" name="address" id="address" value="{{ user.address }}" placeholder="1234 Main St"
                         class="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200">
                 </div>
                 <div class="grid grid-cols-2 gap-5">
                     <div class="flex flex-col">
-                        <label for="">City:</label>
-                        <input type="text" name="" id=""
+                        <label for="city">City:</label>
+                        <input type="text" name="city" id="city" value="{{ user.city }}" placeholder="New York"
                             class="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200">
                     </div>
                     <div class="flex flex-col">
-                        <label for="">State:</label>
-                        <input type="text" name="" id=""
+                        <label for="state">State:</label>
+                        <input type="text" name="state" id="state" value="{{ user.state }}" placeholder="NY"
                             class="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200">
                     </div>
                     <div class="flex flex-col">
-                        <label for="">Zip code:</label>
-                        <input type="text" name="" id=""
+                        <label for="zip_code">Zip code:</label>
+                        <input type="text" name="zip_code" id="zip_code" value="{{ user.zip_code }}" placeholder="10001"
                             class="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200">
                     </div>
                     <div class="flex flex-col">
-                        <label for="">Country:</label>
-                        <input type="text" name="" id=""
+                        <label for="country">Country:</label>
+                        <input type="text" name="country" id="country" value="{{ user.country }}"
+                            placeholder="United States"
                             class="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200">
                     </div>
                 </div>
@@ -61,56 +65,44 @@
         <div>
             <h2 class="mb-5 font-bold text-2xl">Order summary</h2>
             <div class="bg-white p-4 rounded-md shadow-md">
-                <div class="space-y-5">
-                    <!-- TODO make it a forloop for products -->
-                    <div class="flex justify-between border-b-2 pb-5">
-                        <div class="flex">
-                            <img src="https://images.unsplash.com/photo-1611181928379-8b8b0b0b5b1f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                                alt="" class="w-20 h-20 object-cover rounded-md">
-                            <div class="ml-3">
-                                <h3 class="font-bold text-lg">Product name</h3>
+                <ul class="space-y-5">
+                    {% for item in order_data %}
+                    <li class="flex justify-between border-b-2 pb-5">
+                        <div class="flex gap-5">
+                            <img src="{{item.image}}" alt="" class="w-20 h-20 object-cover rounded-md">
+                            <div class="w-1/2">
+                                <h3 class="font-bold text-lg">{{item.title}}</h3>
                                 <p class="text-sm text-gray-500">Size: 10</p>
                             </div>
                         </div>
-                        <div class="flex flex-col">
-                            <p class="font-bold text-lg">$100</p>
-                            <p class="text-sm text-gray-500">Quantity: 1</p>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-between border-b-2 pb-5">
-                        <div class="flex">
-                            <img src="https://images.unsplash.com/photo-1611181928379-8b8b0b0b5b1f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                                alt="" class="w-20 h-20 object-cover rounded-md">
-                            <div class="ml-3">
-                                <h3 class="font-bold text-lg">Product name</h3>
-                                <p class="text-sm text-gray-500">Size: 10</p>
+                        <div class="flex flex-col justify-between text-right w-1/2">
+                            <div>
+                                <p class="font-bold text-lg">${{item.price}}</p>
+                                <p class="text-sm text-gray-500">Quantity: {{item.quantity}}</p>
                             </div>
+                            <a href="/remove_item/{{item.product_id}}" class="hover:text-groovy-red">Remove</a>
                         </div>
-                        <div class="flex flex-col">
-                            <p class="font-bold text-lg">$100</p>
-                            <p class="text-sm text-gray-500">Quantity: 1</p>
-                        </div>
-                    </div>
+                    </li>
+                    {% endfor %}
 
 
-                </div>
+
+
+                </ul>
                 <div class="space-y-5">
                     <div class="border-b-2 pb-5">
                         <div class="flex justify-between mt-5">
                             <p class="text-md">Subtotal</p>
-                            <p class="text-md">$200</p>
+                            <p class="text-md">${{cart_total or '0.00'}}</p>
                         </div>
-                        <div class="flex justify-between mt-5">
-                            <p class="text-md">Shipping</p>
-                            <p class="text-md">$10</p>
-                        </div>
+
                     </div>
                     <div class="flex justify-between pb-5 border-b-2">
                         <p class="font-bold text-lg">Total</p>
-                        <p class="font-bold text-lg">$210</p>
+                        <p class="font-bold text-lg">${{cart_total or '0.00'}}</p>
                     </div>
-                    <button type="submit" class="py-2 bg-groovy-red rounded-md w-full shadow-md text-white">Checkout</button>
+                    <button type="submit"
+                        class="py-2 bg-groovy-red rounded-md w-full shadow-md text-white">Checkout</button>
                 </div>
             </div>
 

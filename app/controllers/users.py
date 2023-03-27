@@ -111,7 +111,7 @@ def order(order_id):
         flash('You must be logged in to view your order')
         return redirect('/login')
 
-    return render_template('order_details.html', 
+    return render_template('order-details.html', 
                            order = Order.get_one({'id': order_id}),
                            orders=Order.get_all_order_data_by_id({'order_id': order_id}), 
                            cart_total=Order.get_total_price_by_order_id({'order_id': order_id}), 

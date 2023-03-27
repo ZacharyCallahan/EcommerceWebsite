@@ -46,12 +46,15 @@
                     <img src="{{ product.image }}" alt="" class="w-full h-[300px] object-cover rounded-t-lg">
                 </a>
                 <h3 class="text-xl">{{ product.title }}</h3>
-                <div class="flex justify-between items-center">
+                <form action="/add_to_cart" method="post" class="flex justify-between items-center">
                     <p class="font-bold text-xl">${{ product.price }}</p>
-                    <a href="/shop/{{ product.category }}/{{ product.id }}"
+                    <input type="hidden" name="product_id" value="{{product.id}}" />
+                    <input type="hidden" name="product_price" value="{{product.price}}" />
+                    <input type="hidden" name="product_quantity" value="1" />
+                    <button type="submit"
                         class="p-2 bg-groovy-red rounded-md shadow-md w-fit font-bold  text-white text-center">Add
-                        to Cart</a>
-                </div>
+                        to Cart</button>
+                </form>
             </div>
             {% endif %}
             {% endfor %}
@@ -95,12 +98,15 @@
                         <img src="{{ product.image }}" alt="" class="w-full h-[300px] object-cover rounded-t-lg">
                     </a>
                     <h3 class="text-xl">{{ product.title }}</h3>
-                    <div class="flex justify-between items-center">
+                    <form action="/add_to_cart" method="post" class="flex justify-between items-center">
                         <p class="font-bold text-xl">${{ product.price }}</p>
-                        <a href="/shop/{{ product.category }}/{{ product.id }}"
+                        <input type="hidden" name="product_id" value="{{product.id}}" />
+                        <input type="hidden" name="product_price" value="{{product.price}}" />
+                        <input type="hidden" name="product_quantity" value="1" />
+                        <button type="submit"
                             class="p-2 bg-groovy-red rounded-md shadow-md w-fit font-bold  text-white text-center">Add
-                            to Cart</a>
-                    </div>
+                            to Cart</button>
+                    </form>
                 </div>
                 {% endif %}
                 {% endfor %}

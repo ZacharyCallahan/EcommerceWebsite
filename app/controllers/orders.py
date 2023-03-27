@@ -9,13 +9,13 @@ def checkout():
     if 'user_id' not in session:
         flash('You must be logged in to checkout')
         return redirect('/login')
-    if 'order_id' not in session:
-        flash('Add items to your cart before checking out!')
-        return redirect('/')
+    # if 'order_id' not in session:
+    #     flash('Add items to your cart before checking out!')
+    #     return redirect('/')
     
     
-    return render_template('checkout.html', order_data=Order.get_all_order_data_by_id({'order_id': session['order_id']}), cart_total=Order.get_total_price_by_order_id({'order_id': session['order_id']}), user=User.get_one({'id': session['user_id']}))
-
+    # return render_template('checkout.html', order_data=Order.get_all_order_data_by_id({'order_id': session['order_id']}), cart_total=Order.get_total_price_by_order_id({'order_id': session['order_id']}), user=User.get_one({'id': session['user_id']}))
+    return render_template('checkout.html')
 
 
 @app.route('/process_checkout', methods=['POST'])

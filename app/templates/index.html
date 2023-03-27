@@ -3,7 +3,7 @@
 <div class="bg-white space-y-32 mb-32">
     <div class="bg-cover bg-no-repeat bg-center h-[640px]">
         <div class="relative top-[40%] left-0 w-3/12 bg-black bg-opacity-75 p-4 rounded-r-md">
-            <h1 class="text-white text-5xl mb-7 leading-snug">New men's fashion wear</h1>
+            <h1 class="text-white text-5xl mb-7 leading-snug">New women's fashion wear</h1>
             <a href="/shop/mens" class="text-groovy-red font-semi text-xl">SHOP NOW</a>
         </div>
     </div>
@@ -42,13 +42,15 @@
             {% for product in data %}
             {% if product.id == 71 or product.id == 72 or product.id == 73%}
             <div class="p-4 flex justify-between flex-col h-full bg-gray-100 shadow-md rounded-md gap-5">
-                <img src="{{ product.image }}" alt="" class="w-full h-[300px] object-cover rounded-t-lg">
+                <a href="/product/{{product.id}}">
+                    <img src="{{ product.image }}" alt="" class="w-full h-[300px] object-cover rounded-t-lg">
+                </a>
                 <h3 class="text-xl">{{ product.title }}</h3>
                 <div class="flex justify-between items-center">
                     <p class="font-bold text-xl">${{ product.price }}</p>
                     <a href="/shop/{{ product.category }}/{{ product.id }}"
-                        class="p-2 bg-groovy-red rounded-md shadow-md w-fit font-bold text-white text-center">Add to
-                        Cart</a>
+                        class="p-2 bg-groovy-red rounded-md shadow-md w-fit font-bold  text-white text-center">Add
+                        to Cart</a>
                 </div>
             </div>
             {% endif %}
@@ -89,7 +91,9 @@
                 {% if product.id == 66 or product.id == 67 or product.id == 68 or product.id == 69 or product.id == 70
                 or product.id == 71 or product.id == 72 or product.id == 73%}
                 <div class="p-4 flex justify-between flex-col h-full bg-gray-100 shadow-md rounded-md gap-5">
-                    <img src="{{ product.image }}" alt="" class="w-full h-[300px] object-cover rounded-t-lg">
+                    <a href="/product/{{product.id}}">
+                        <img src="{{ product.image }}" alt="" class="w-full h-[300px] object-cover rounded-t-lg">
+                    </a>
                     <h3 class="text-xl">{{ product.title }}</h3>
                     <div class="flex justify-between items-center">
                         <p class="font-bold text-xl">${{ product.price }}</p>
@@ -144,7 +148,7 @@
 
             </form>
         </div>
-        <div class="bg-gray-100 shadow-md rounded-md p-4 space-y-5 grow h-fit">
+        <div class="bg-gray-100 rounded-md p-4 space-y-5 grow h-fit">
             <div class="flex items-center gap-3">
                 <i class="fa fa-location-arrow text-2xl w-8"></i>
                 <p>Returns/Exchange, 124 Main St Los Angeles, CA 12345, USA</p>

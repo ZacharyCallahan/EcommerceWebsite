@@ -55,3 +55,7 @@
     @apply bg-gray-100;
 }
 
+.selected-size {
+    @apply border-groovy-red;
+}
+

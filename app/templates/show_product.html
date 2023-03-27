@@ -1,0 +1,183 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container m-auto ">
+    <div class="py-16 border-b-2">
+        <div class="grid grid-cols-3 gap-5">
+            <div class="aspect-w-3 aspect-h-4">
+                <img src="https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg" alt=""
+                    class="rounded-md">
+            </div>
+            <div class="grid gap-5">
+                <div class="aspect-w-3 aspect-h-2">
+                    <img src="https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg"
+                        alt="" class="rounded-md">
+                </div>
+                <div class="aspect-w-3 aspect-h-2">
+                    <img src="https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg"
+                        alt="" class="rounded-md">
+                </div>
+            </div>
+            <div class="aspect-w-3 aspect-h-4">
+                <img src="https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg" alt=""
+                    class="rounded-md">
+            </div>
+        </div>
+        <div class="grid grid-cols-[2fr,1fr] gap-5 pt-16">
+            <div class="w-full border-r-[1px] pr-5 space-y-10">
+                <div>
+                    <h2 class="text-2xl font-bold mb-5">{{product.title}}</h2>
+                    <p>{{product.description}}</p>
+                </div>
+                <div>
+                    <p class="mb-3 font-semibold">Highlights</p>
+                    <ul class="list-disc pl-4">
+                        <li class="text-gray-500">Hand cut and sewn locally</li>
+                        <li class="text-gray-500">Dyed with our proprietary colors</li>
+                        <li class="text-gray-500">Pre-washed & pre-shrunk</li>
+                        <li class="text-gray-500">Ultra-soft 100% cotton</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="w-full">
+                <div>
+                    <h2 class="text-2xl">${{product.price}}</h2>
+                    <p class="text-sm text-gray-500">In stock</p>
+                    <p class="text-sm text-gray-500">Free shipping</p>
+                    <!-- Reviews -->
+                    <div class="flex items-center my-5">
+                        <div class="flex items-center h-full">
+                            <!-- Active: "text-gray-900", Default: "text-gray-200" -->
+                            <svg class="text-gray-900 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                                aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                            <svg class="text-gray-900 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                                aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                            <svg class="text-gray-900 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                                aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                            <svg class="text-gray-900 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                                aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                            <svg class="text-gray-200 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                                aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                        </div>
+                        <a href="#" class="ml-3 text-sm font-medium  hover:text-groovy-red"> 117
+                            reviews</a>
+                    </div>
+                    <form action="" class="w-full space-y-5">
+                        <div class="flex flex-col">
+                            <label for="quantity">Quantity:</label>
+                            <input type="number" name="quantity" id="quantity" min="1" max="10" value="1"
+                                class="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 w-20 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200">
+                        </div>
+                        <div id="size-buttons" class="w-full space-y-5">
+                            <label for="">Size:</label>
+                            <!-- Make them Buttons with the size in the center of the button -->
+                            <div class="flex w-full gap-5">
+                                <button type="button" name="size"
+                                    class="bg-white hover:bg-gray-100  border-2 rounded-md w-full h-20  transition"
+                                    value="S">S</button>
+                                <button type="button" name="size"
+                                    class="bg-white hover:bg-gray-100  border-2 rounded-md w-full h-20  transition selected-size"
+                                    value="M">M</button>
+                                <button type="button" name="size"
+                                    class="bg-white hover:bg-gray-100  border-2 rounded-md w-full h-20 transition"
+                                    value="L">L</button>
+                                <button type="button" name="size"
+                                    class="bg-white hover:bg-gray-100  border-2 rounded-md w-full h-20 transition"
+                                    value="XL">XL</button>
+                            </div>
+                            <button type="submit" class="py-3 bg-groovy-red rounded-md w-full shadow-md text-white">Add
+                                to
+                                Cart</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-16 container m-auto ">
+        <h2 class="text-2xl font-bold border-b-2 pb-5">Recent reviews</h2>
+        <!-- TODO add the for loop for all reviews -->
+        <div class="grid grid-cols-3 py-5 border-b-2">
+            <div >
+                <h3 class="font-bold mb-3">Risaka M</h3>
+                <p class="text-gray-500">May 16, 2021</p>
+            </div>
+            <div class="my-5">
+                <div class="flex items-center">
+                    <!-- Active: "text-gray-900", Default: "text-gray-200" -->
+                    <svg class="text-gray-900 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                            clip-rule="evenodd" />
+                    </svg>
+
+                    <svg class="text-gray-900 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                            clip-rule="evenodd" />
+                    </svg>
+
+                    <svg class="text-gray-900 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                            clip-rule="evenodd" />
+                    </svg>
+
+                    <svg class="text-gray-900 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                            clip-rule="evenodd" />
+                    </svg>
+
+                    <svg class="text-gray-200 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                            clip-rule="evenodd" />
+                    </svg>
+
+                </div>
+            </div>
+            <div>
+                <h3 class="font-bold mb-3">Can't say enough things</h3>
+                <p class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt assumenda dignissimos debitis sapiente
+                    aliquid quasi, necessitatibus fuga inventore accusamus nemo vitae obcaecati nam, voluptate quod!
+                    Suscipit voluptate nam ut tenetur!</p>
+            </div>
+        </div>
+        
+        <a href="/review/{{product.id}}" class="block text-right pt-5 hover:text-groovy-red">Write a review</a>
+
+        
+    </div>
+</div>
+
+{% endblock%}

@@ -20,9 +20,18 @@
         <div class="container m-auto">
             <div class=" flex items-center justify-between border-b-2 border-opacity-20 py-4">
                 <button class="text-lg font-medium cursor-pointer" onclick="scrollToBottom()">CONTACT</button>
-                <a href="/" class="flex items-center">
-                    <img src="{{url_for('static', filename='img/icon.png')}}" alt="" class="w-12 mr-3">
-                    <h1 class="text-3xl font-bold">GROOVY GEAR</h1>
+                <a href="/" class="flex items-center flex-col">
+                    <div class="flex items-center mb-4">
+                        <img src="{{url_for('static', filename='img/icon.png')}}" alt="" class="w-12 mr-3">
+                        <h1 class="text-3xl font-bold">GROOVY GEAR</h1>
+                    </div>
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p class="text-groovy-purple font-semibold">{{message}}</p>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
                 </a>
                 <a class="text-lg font-medium" href="/">HOME</a>
             </div>

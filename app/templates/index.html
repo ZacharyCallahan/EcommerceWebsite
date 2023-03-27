@@ -40,7 +40,7 @@
         <h2 class="text-4xl font-bold mb-14 text-center">New Arrivals</h2>
         <div class="grid grid-cols-3 gap-5">
             {% for product in data %}
-            {% if product.id == 71 or product.id == 72 or product.id == 73%}
+            {% if product.id > 23  and product.id <27 %}
             <div class="p-4 flex justify-between flex-col h-full bg-gray-100 shadow-md rounded-md gap-5">
                 <a href="/product/{{product.id}}" class="flex justify-center">
                     <img src="{{ product.image }}" alt="" class=" h-[300px] rounded-t-lg">
@@ -91,8 +91,7 @@
             <h2 class="text-4xl font-bold mb-14 text-center">Best Sellers</h2>
             <div class="grid grid-cols-4 gap-5">
                 {% for product in data %}
-                {% if product.id == 66 or product.id == 67 or product.id == 68 or product.id == 69 or product.id == 70
-                or product.id == 71 or product.id == 72 or product.id == 73%}
+                {% if product.id < 24%}
                 <div class="p-4 flex justify-between flex-col h-full bg-gray-100 shadow-md rounded-md gap-5">
                     <a href="/product/{{product.id}}" class="flex justify-center">
                         <img src="{{ product.image }}" alt="" class=" h-[300px] rounded-t-lg">

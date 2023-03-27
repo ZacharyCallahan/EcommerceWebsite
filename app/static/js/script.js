@@ -5,7 +5,6 @@
 // }, 5000);
 // showSlides(slideIndex);
 
-
 // function plusSlides(n) {
 //     clearInterval(slideInterval);
 //     slideInterval = setInterval(function () {
@@ -38,6 +37,17 @@
 //             });
 //     });
 // });
+$(document).ready(function () {
+    $(".slider").slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true, // Enable autoplay
+        autoplaySpeed: 3000, // Set autoplay speed (in milliseconds)
+    });
+});
 
 document.addEventListener("DOMContentLoaded", function () {
     const sizeButtons = document.querySelectorAll("#size-buttons button");
@@ -50,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
 
 function scrollToBottom() {
     // Check if the user is already on the home page
@@ -65,7 +74,6 @@ function scrollToBottom() {
         });
     }
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
     const urlParams = new URLSearchParams(window.location.search);

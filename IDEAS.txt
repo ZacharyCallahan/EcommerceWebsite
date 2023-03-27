@@ -25,7 +25,6 @@ QOL feature -
 
 TODO:
 2. Different pages (Womens, mens, kids, Accessories) then make the "Shop Now" work
-3. Account features. Make updating data work
-4. Make the footer buttons work. SECTION (DONE)
 5. Add stripe support
 6. create admin pages
+7. make the front header switch between photos

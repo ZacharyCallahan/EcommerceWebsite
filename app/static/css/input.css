@@ -64,9 +64,20 @@
     background-size: cover;
     background-position: center;
 }
-.bg-cover {
-    background-image: url(../img/beach-work.jpg);
+.bg-cover-1 {
+    background-image: url(../img/beach-work-1.jpg);
 }
+.bg-cover-2 {
+    background-image: url(../img/beach-work-2.jpg);
+    transform: rotateY(180deg)
+}
+.bg-cover-3 {
+    background-image: url(../img/beach-work-3.jpg);
+}
+.bg-fix {
+    transform: rotateY(180deg)
+}
+
 .table-row:nth-child(odd) {
     @apply bg-gray-100;
 }

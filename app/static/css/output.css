@@ -599,6 +599,34 @@ video {
   top: 40%;
 }
 
+.right-0 {
+  right: 0px;
+}
+
+.left-\[100\] {
+  left: 100;
+}
+
+.left-\[100\%\] {
+  left: 100%;
+}
+
+.left-\[50\%\] {
+  left: 50%;
+}
+
+.left-\[70\%\] {
+  left: 70%;
+}
+
+.left-\[80\%\] {
+  left: 80%;
+}
+
+.left-\[75\%\] {
+  left: 75%;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -622,6 +650,10 @@ video {
 
 .mb-32 {
   margin-bottom: 8rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
 .mb-5 {
@@ -666,10 +698,6 @@ video {
 
 .mt-7 {
   margin-top: 1.75rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
 }
 
 .block {
@@ -733,8 +761,20 @@ video {
   height: 100vh;
 }
 
-.h-1\/2 {
-  height: 50%;
+.h-\[700px\] {
+  height: 700px;
+}
+
+.h-\[7px\] {
+  height: 7px;
+}
+
+.h-\[750px\] {
+  height: 750px;
+}
+
+.h-\[730px\] {
+  height: 730px;
 }
 
 .w-1\/2 {
@@ -790,10 +830,6 @@ video {
   width: 100%;
 }
 
-.w-\[300px\] {
-  width: 300px;
-}
-
 .flex-shrink-0 {
   flex-shrink: 0;
 }
@@ -812,6 +848,10 @@ video {
 
 .grow-\[3\] {
   flex-grow: 3;
+}
+
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .cursor-pointer {
@@ -914,6 +954,10 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
 .rounded-full {
@@ -1025,8 +1069,16 @@ video {
   background-size: cover;
 }
 
+.bg-bottom {
+  background-position: bottom;
+}
+
 .bg-center {
   background-position: center;
+}
+
+.bg-right-bottom {
+  background-position: right bottom;
 }
 
 .bg-no-repeat {
@@ -1207,6 +1259,11 @@ video {
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
+.text-groovy-purple {
+  --tw-text-opacity: 1;
+  color: rgb(186 97 250 / var(--tw-text-opacity));
+}
+
 .text-groovy-red {
   --tw-text-opacity: 1;
   color: rgb(208 81 92 / var(--tw-text-opacity));
@@ -1220,11 +1277,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-groovy-purple {
-  --tw-text-opacity: 1;
-  color: rgb(186 97 250 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -1328,8 +1380,21 @@ video {
   background-position: center;
 }
 
-.bg-cover {
-  background-image: url(../img/beach-work.jpg);
+.bg-cover-1 {
+  background-image: url(../img/beach-work-1.jpg);
+}
+
+.bg-cover-2 {
+  background-image: url(../img/beach-work-2.jpg);
+  transform: rotateY(180deg)
+}
+
+.bg-cover-3 {
+  background-image: url(../img/beach-work-3.jpg);
+}
+
+.bg-fix {
+  transform: rotateY(180deg)
 }
 
 .table-row:nth-child(odd) {

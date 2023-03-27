@@ -42,8 +42,8 @@
             {% for product in data %}
             {% if product.id == 71 or product.id == 72 or product.id == 73%}
             <div class="p-4 flex justify-between flex-col h-full bg-gray-100 shadow-md rounded-md gap-5">
-                <a href="/product/{{product.id}}">
-                    <img src="{{ product.image }}" alt="" class="w-full h-[300px] object-cover rounded-t-lg">
+                <a href="/product/{{product.id}}" class="flex justify-center">
+                    <img src="{{ product.image }}" alt="" class=" h-[300px] rounded-t-lg">
                 </a>
                 <h3 class="text-xl">{{ product.title }}</h3>
                 <form action="/add_to_cart" method="post" class="flex justify-between items-center">
@@ -94,8 +94,8 @@
                 {% if product.id == 66 or product.id == 67 or product.id == 68 or product.id == 69 or product.id == 70
                 or product.id == 71 or product.id == 72 or product.id == 73%}
                 <div class="p-4 flex justify-between flex-col h-full bg-gray-100 shadow-md rounded-md gap-5">
-                    <a href="/product/{{product.id}}">
-                        <img src="{{ product.image }}" alt="" class="w-full h-[300px] object-cover rounded-t-lg">
+                    <a href="/product/{{product.id}}" class="flex justify-center">
+                        <img src="{{ product.image }}" alt="" class=" h-[300px] rounded-t-lg">
                     </a>
                     <h3 class="text-xl">{{ product.title }}</h3>
                     <form action="/add_to_cart" method="post" class="flex justify-between items-center">

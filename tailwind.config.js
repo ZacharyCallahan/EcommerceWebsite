@@ -9,6 +9,7 @@ module.exports = {
                 "groovy-purple": "#BA61FA",
                 "groovy-orange": "#F89C5E",
                 "groovy-red": "#D0515C",
+                "groovy-red-dark": "#a33e47",
                 "groovy-green": "#28F780",
             },
         },

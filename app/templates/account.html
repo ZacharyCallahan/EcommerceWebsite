@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block content %}
-<section class="bg-gray-100 ">
-    <div class="container m-auto flex py-4 gap-5 shrink-0">
-        <ul class="flex grow flex-col gap-5 bg-white rounded-md shadow-md active pt-5">
+<section class="bg-gray-100">
+    <div class="container m-auto flex py-4 gap-5 shrink-0 ">
+        <ul class="flex w-80 flex-col gap-5 bg-white rounded-md shadow-md active pt-5  h-96">
             <!-- TODO change this when I mess with the routing in Flask -->
             {% if request.path == '/account' %}
             <li
@@ -53,7 +53,7 @@
             </li>
             {% endif %}
         </ul>
-        <div class="flex grow-[3] flex-col bg-white p-5 rounded-md shadow-md gap-5">
+        <div class="flex grow-[3] flex-col bg-white p-5 rounded-md shadow-md gap-5 h-fit">
             {%block account_content%}
 
 

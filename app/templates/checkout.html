@@ -68,8 +68,8 @@
                 <ul class="space-y-5">
                     {% for item in order_data %}
                     <li class="flex justify-between border-b-2 pb-5">
-                        <div class="flex gap-5">
-                            <img src="{{item.image}}" alt="" class="w-20 h-20 object-cover rounded-md">
+                        <div class="flex gap-5 h-fit">
+                            <img src="{{item.image}}" alt="" class="w-20 rounded-md">
                             <div class="w-1/2">
                                 <h3 class="font-bold text-lg">{{item.title}}</h3>
                                 <p class="text-sm text-gray-500">Size: 10</p>

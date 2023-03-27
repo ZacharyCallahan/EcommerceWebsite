@@ -89,6 +89,29 @@ def account():
 
     return render_template('account-details.html', user=User.get_one({'id': session['user_id']}), orders=Order.get_all_user_orders({'user_id': session['user_id']}))
 
+@app.route('/account/details/update', methods=['POST'])
+def account_details_update():
+    if 'user_id' not in session:
+        flash('You must be logged in to view your account')
+        return redirect('/login')
+
+    data = {
+        'id': session['user_id'],
+        'first_name': request.form['first_name'],
+        'last_name': request.form['last_name'],
+        'email': request.form['email'],
+        'address': request.form['address'],
+        'city': request.form['city'],
+        'state': request.form['state'],
+        'country': request.form['country'],
+        'zip_code': request.form['zip_code'],
+        'phone': request.form['phone']
+
+    }
+    User.update_user_info(data)
+
+    return redirect('/account')
+
 @app.route('/account/orders')
 def account_orders():
     if 'user_id' not in session:

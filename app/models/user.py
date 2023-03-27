@@ -58,6 +58,12 @@ class User:
         return connectToMySQL(cls.db).query_db(query, data)
 
     @classmethod
+    def update_user_info(cls, data):
+        query = """
+        UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, address = %(address)s, city = %(city)s, state = %(state)s, country = %(country)s, zip_code = %(zip_code)s, phone = %(phone)s WHERE id = %(id)s;"""
+        return connectToMySQL(cls.db).query_db(query, data)
+
+    @classmethod
     def update_shipping_info(cls, data):
         query = """
         UPDATE users SET 

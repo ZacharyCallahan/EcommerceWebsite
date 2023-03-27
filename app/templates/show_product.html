@@ -88,9 +88,10 @@
                     </div>
                     <form action="/add_to_cart" method="post" class="w-full space-y-5">
                         <input type="hidden" name="product_id" value="{{product.id}}" />
+                        <input type="hidden" name="product_price" value="{{product.price}}" />
                         <div class="flex flex-col">
-                            <label for="product_id">Quantity:</label>
-                            <input type="number" name="product_id" id="product_id" min="1" max="10" value="1"
+                            <label for="product_quantity">Quantity:</label>
+                            <input type="number" name="product_quantity" id="product_quantity" min="1" max="10" value="1"
                                 class="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 w-20 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200">
                         </div>
                         <div id="size-buttons" class="w-full space-y-5">

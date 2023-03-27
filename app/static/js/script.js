@@ -50,3 +50,28 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+function scrollToBottom() {
+    // Check if the user is already on the home page
+    if (window.location.pathname !== "/") {
+        // If not, navigate to the home page and add a parameter to indicate the need for scrolling
+        window.location.href = "/?scrollToBottom=true";
+    } else {
+        // If already on the home page, just scroll to the bottom
+        window.scrollTo({
+            top: 4300,
+            behavior: "smooth",
+        });
+    }
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const scrollToBottomParam = urlParams.get("scrollToBottom");
+
+    if (scrollToBottomParam === "true") {
+        scrollToBottom();
+    }
+});

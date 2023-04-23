@@ -3,3 +3,30 @@
 @tailwind utilities;
 
 
+.bg-image {
+    background-image: url(../public/loginregBG.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.bg-cover-1 {
+    background-image: url(../public/beach-work-1.jpg);
+    background-position-y: 80%;
+}
+.bg-cover-2 {
+    background-image: url(../public/beach-work-2.jpg);
+    background-position-y: 75%;
+}
+.bg-cover-3 {
+    background-image: url(../public/beach-work-3.jpg);
+    background-position-y: 80%;
+}
+
+
+.table-row:nth-child(odd) {
+    @apply bg-gray-100;
+}
+
+.selected-size {
+    @apply border-groovy-red;
+}

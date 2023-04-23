@@ -1,6 +1,4 @@
-import { Children, cloneElement } from "react";
-import Button from "../Button";
-import ListHeader from "./ListHeader";
+import { Children } from "react";
 import ListItem from "./ListItem";
 import { ListIcon } from "./ListIcon";
 

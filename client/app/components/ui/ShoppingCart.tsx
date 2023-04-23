@@ -1,6 +1,7 @@
 import Image from "next/image";
 import cart from "../../../public/shopping-cart.svg";
 import Button from "./Button";
+
 export default function ShoppingCart() {
     return (
         <Button link="/checkout" className="relative">

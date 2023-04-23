@@ -1,6 +1,4 @@
-import Button from "../ui/Button";
 import Copyright from "../ui/Copyright";
-import Icon from "../ui/Icon";
 import Logo from "../ui/Logo";
 import List from "../ui/lists/List";
 import ListHeader from "../ui/lists/ListHeader";

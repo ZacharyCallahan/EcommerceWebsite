@@ -1,9 +1,9 @@
 import Copyright from "../ui/Copyright";
 import Logo from "../ui/Logo";
 import List from "../ui/lists/List";
-import ListHeader from "../ui/lists/ListHeader";
-import { ListIcon } from "../ui/lists/ListIcon";
+import Header from "../ui/Header";
 import ListItem from "../ui/lists/ListItem";
+import Icon from "../ui/Icon";
 
 export default function Footer() {
     return (
@@ -11,23 +11,23 @@ export default function Footer() {
             <div className="container m-auto">
                 <div className="flex items-center justify-between  border-b-2 border-opacity-20">
                     <List className="flex flex-row gap-3 py-7">
-                        <ListHeader>Follow us:</ListHeader>
-                        <ListIcon icon="facebook" />
-                        <ListIcon icon="twitter" />
-                        <ListIcon icon="instagram" />
-                        <ListIcon icon="pinterest" />
+                        <Header>Follow us:</Header>
+                        <Icon icon="facebook" color="groovy-red" />
+                        <Icon icon="twitter" color="groovy-red" />
+                        <Icon icon="instagram" color="groovy-red" />
+                        <Icon icon="pinterest" color="groovy-red" />
                     </List>
                     <Logo headerClass="text-xl" imageClass="w-8" />
                 </div>
                 <div className="flex justify-between mt-7">
                     <List>
-                        <ListHeader>Information</ListHeader>
+                        <Header>Information</Header>
                         <ListItem link="/checkout" name="Checkout" />
                         <ListItem link="/register" name="Register" />
                     </List>
 
                     <List>
-                        <ListHeader>Categories</ListHeader>
+                        <Header>Categories</Header>
                         <ListItem link="/category/women" name="Women" />
                         <ListItem link="/category/mens" name="Mens" />
                         <ListItem link="/category/kids" name="Kids" />
@@ -38,7 +38,7 @@ export default function Footer() {
                     </List>
 
                     <List>
-                        <ListHeader>My Account</ListHeader>
+                        <Header>My Account</Header>
                         <ListItem link="/account/orders" name="My Orders" />
                         <ListItem link="/account" name="Account Details" />
                         <ListItem link="/logout" name="Logout" />

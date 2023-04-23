@@ -21,7 +21,11 @@ module.exports = {
         "groovy-red-dark": "#a33e47",
         "groovy-green": "#28F780",
       },
+      gridTemplateColumns: {
+        'fluid': 'repeat(auto-fit, minmax(16rem, 1fr))',
+
+      },
     },
   },
-  plugins: [],
+plugins: [],
 }

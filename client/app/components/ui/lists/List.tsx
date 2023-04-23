@@ -1,6 +1,5 @@
 import { Children } from "react";
 import ListItem from "./ListItem";
-import { ListIcon } from "./ListIcon";
 
 interface ListProps {
     children?: React.ReactNode;
@@ -16,8 +15,6 @@ export default function List({ children, className }: ListProps) {
                 {childArray.map((child: any, index: number) => {
                     if (child.type === ListItem) {
                         return <ListItem key={index} {...child.props} />;
-                    } else if (child.type === ListIcon) {
-                        return <ListIcon key={index} {...child.props} />;
                     } else {
                         return <li key={index}>{child}</li>;
                     }

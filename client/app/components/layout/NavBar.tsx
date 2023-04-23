@@ -5,7 +5,7 @@ import Logo from "../ui/Logo";
 import ShoppingCart from "../ui/ShoppingCart";
 import ListItem from "../ui/lists/ListItem";
 import List from "../ui/lists/List";
-import { ListIcon } from "../ui/lists/ListIcon";
+import Icon from "../ui/Icon";
 
 const NavBar = () => {
     return (
@@ -30,7 +30,7 @@ const NavBar = () => {
                         <ListItem>
                             <LoginLogout />
                         </ListItem>
-                        <ListIcon link="/account" icon="user" size="2x" color="black" />
+                        <Icon link="/account" icon="user" size="2x" color="black" />
                         <ListItem>
                             <ShoppingCart />
                         </ListItem>

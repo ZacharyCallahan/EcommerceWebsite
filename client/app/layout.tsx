@@ -7,10 +7,6 @@ import { createTheme, ThemeProvider } from "@material-ui/core";
 
 const rubik = Rubik({ subsets: ["cyrillic"] });
 
-export const metadata = {
-    title: "Groovy Gear",
-    description: "Groovy Gear",
-};
 
 const theme = createTheme({});
 

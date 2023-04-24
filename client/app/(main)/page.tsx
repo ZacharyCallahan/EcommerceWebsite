@@ -1,24 +1,24 @@
 import Image from "next/image";
-import watchOne from "../public/watch-1.png";
-import watchTwo from "../public/watch-2.png";
-import Header from "./components/ui/Header";
-import Icon from "./components/ui/Icon";
-import Product from "./components/ui/Product";
-import Details from "./components/ui/details/Details";
-import DetailsItem from "./components/ui/details/DetailsItem";
-import MainSection from "./components/ui/section/MainSection";
-import MainSectionItem from "./components/ui/section/MainSectionItem";
-import Section from "./components/ui/section/Section";
-import Slider from "./components/ui/slider/Slider";
-import SliderImage from "./components/ui/slider/SliderImage";
-import SliderLogo from "./components/ui/slider/SliderLogo";
+import Header from "../components/ui/Header";
+import Icon from "../components/ui/Icon";
+import Product from "../components/ui/Product";
+import Details from "../components/ui/details/Details";
+import DetailsItem from "../components/ui/details/DetailsItem";
+import MainSection from "../components/ui/section/MainSection";
+import MainSectionItem from "../components/ui/section/MainSectionItem";
+import Section from "../components/ui/section/Section";
+import Slider from "../components/ui/slider/Slider";
+import SliderImage from "../components/ui/slider/SliderImage";
+import SliderLogo from "../components/ui/slider/SliderLogo";
+import watchOne from "../../public/watch-1.png";
+import watchTwo from "../../public/watch-2.png";
 
 export default function Home() {
     return (
         <main>
             <div className="bg-white space-y-32 mb-32 overflow-x-hidden">
                 <Slider>
-                    <SliderImage imageCSSClass="bg-cover-1">
+                    <SliderImage imageCSSClass="bg-cover-1 " >
                         <SliderLogo
                             link="/category/womens"
                             headerContent="New women's fashion wear"
@@ -26,14 +26,14 @@ export default function Home() {
                     </SliderImage>
                     <SliderImage imageCSSClass="bg-cover-2">
                         <SliderLogo
-                            link="/category/womens"
-                            headerContent="New women's fashion wear"
+                            link="/category/mens"
+                            headerContent="New men's fashion wear"
                         />
                     </SliderImage>
                     <SliderImage imageCSSClass="bg-cover-3">
                         <SliderLogo
-                            link="/category/womens"
-                            headerContent="New women's fashion wear"
+                            link="/category/kids"
+                            headerContent="New kid's fashion wear"
                         />
                     </SliderImage>
                 </Slider>
@@ -108,7 +108,7 @@ export default function Home() {
                     </MainSectionItem>
                     <MainSectionItem
                         imageALT="watch"
-                        imageSRC={watchOne}
+                        imageSRC={watchTwo}
                         imageSide="left">
                         <Header className="text-2xl">
                             ONE OF A KIND ROLEX

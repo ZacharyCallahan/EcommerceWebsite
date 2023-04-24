@@ -1,12 +1,8 @@
-import Header from "@/app/components/ui/Header";
 import AccountPassword from "@/app/components/ui/account/AccountPassword";
+import Header from "@/app/components/ui/Header";
 
 const page = () => {
-
-
-    return (
-        <AccountPassword />
-    );
+    return <AccountPassword />;
 };
 
 export default page;

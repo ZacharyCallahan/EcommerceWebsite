@@ -1,12 +1,11 @@
-"use client"
-import { Rubik } from "next/font/google";
-import NavBar from "./components/layout/NavBar";
-import "./globals.css";
-import Footer from "./components/layout/Footer";
+"use client";
 import { createTheme, ThemeProvider } from "@material-ui/core";
+import { Rubik } from "next/font/google";
+import Footer from "../components/layout/Footer";
+import NavBar from "../components/layout/NavBar";
+import "../globals.css";
 
 const rubik = Rubik({ subsets: ["cyrillic"] });
-
 
 const theme = createTheme({});
 

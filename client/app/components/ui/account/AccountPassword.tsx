@@ -1,11 +1,11 @@
-'use client'
+"use client";
 import Header from "../Header";
 
 const AccountPassword = () => {
-        const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-            e.preventDefault();
-            console.log("Submitted");
-        };
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log("Submitted");
+    };
     return (
         <div className="flex grow-[3] flex-col bg-white p-5 rounded-md shadow-md gap-5 h-fit">
             <Header className="space-y-2">
@@ -64,6 +64,6 @@ const AccountPassword = () => {
             </form>
         </div>
     );
-}
+};
 
 export default AccountPassword;

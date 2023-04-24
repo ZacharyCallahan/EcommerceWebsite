@@ -1,9 +1,7 @@
 import AccountOrders from "@/app/components/ui/account/AccountOrders";
 
 const page = () => {
-    return (
-        <AccountOrders />
-    );
+    return <AccountOrders />;
 };
 
 export default page;

@@ -7,7 +7,8 @@ export default function SliderImage( { imageCSSClass, children }: SliderImagePro
     
 
     return (
-        <div className={`${imageCSSClass} bg-cover bg-no-repeat bg-center h-[730px]`}>
+        <div
+            className={`${imageCSSClass} bg-cover bg-no-repeat bg-center h-[730px] shadow-lg`}>
             {children}
         </div>
     );

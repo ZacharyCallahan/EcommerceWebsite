@@ -41,6 +41,6 @@ const AccountOrders = () => {
             </table>
         </div>
     );
-}
+};
 
 export default AccountOrders;

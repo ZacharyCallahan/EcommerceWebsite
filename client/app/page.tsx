@@ -1,18 +1,17 @@
 import Image from "next/image";
+import watchOne from "../public/watch-1.png";
+import watchTwo from "../public/watch-2.png";
+import Header from "./components/ui/Header";
+import Icon from "./components/ui/Icon";
+import Product from "./components/ui/Product";
+import Details from "./components/ui/details/Details";
+import DetailsItem from "./components/ui/details/DetailsItem";
+import MainSection from "./components/ui/section/MainSection";
+import MainSectionItem from "./components/ui/section/MainSectionItem";
+import Section from "./components/ui/section/Section";
 import Slider from "./components/ui/slider/Slider";
 import SliderImage from "./components/ui/slider/SliderImage";
 import SliderLogo from "./components/ui/slider/SliderLogo";
-import Details from "./components/ui/details/Details";
-import DetailsItem from "./components/ui/details/DetailsItem";
-import Header from "./components/ui/Header";
-import Icon from "./components/ui/Icon";
-import Section from "./components/ui/section/Section";
-import Product from "./components/ui/Product";
-import MainSection from "./components/ui/section/MainSection";
-import MainSectionItem from "./components/ui/section/MainSectionItem";
-import watchOne from "../public/watch-1.png";
-import watchTwo from "../public/watch-2.png";
-
 
 export default function Home() {
     return (
@@ -39,7 +38,7 @@ export default function Home() {
                     </SliderImage>
                 </Slider>
                 {/* <!-- * SHOPPING DETAILS --> */}
-                <div className="container m-auto flex justify-center flex-row">
+                <div className="flex flex-col w-5/6 m-auto items-center gap-8 sm:flex-row sm:items-start sm:justify-center xl:gap-64">
                     <Details>
                         <DetailsItem>
                             <Icon icon="truck" size="3x" color="groovy-red" />

@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .bg-image {
     background-image: url(../public/loginregBG.svg);
     background-repeat: no-repeat;
@@ -22,11 +21,57 @@
     background-position-y: 80%;
 }
 
-
 .table-row:nth-child(odd) {
     @apply bg-gray-100;
 }
 
 .selected-size {
     @apply border-groovy-red;
+}
+.hamburger-button {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+    transform: translateY(0) rotate(0);
+}
+
+.hamburger span:nth-child(3) {
+    transform: translateY(0) rotate(0);
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }

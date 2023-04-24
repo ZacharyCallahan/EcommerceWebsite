@@ -1,4 +1,4 @@
-import Header from "../Header"
+import Header from "../Header";
 import SectionHeader from "./SectionHeader";
 
 interface SectionProps {
@@ -6,15 +6,11 @@ interface SectionProps {
     name: string;
 }
 
-export default function Section( { children, name }: SectionProps) {
-    
-
+export default function Section({ children, name }: SectionProps) {
     return (
-        <div className="container m-auto">
+        <div className="w-5/6 m-auto">
             <SectionHeader name={name} />
-            <div className="grid grid-cols-fluid gap-5 ">
-                {children}
-            </div>
+            <div className="grid grid-cols-fluid gap-5 ">{children}</div>
         </div>
     );
 }

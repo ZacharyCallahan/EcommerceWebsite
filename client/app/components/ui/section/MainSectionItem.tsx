@@ -19,7 +19,7 @@ export default function MainSectionItem({
     return (
         <>
             {imageSide === "right" ? (
-                <div className="container m-auto flex justify-between items-center">
+                <div className="md:w-5/6 m-auto flex justify-between items-center">
                     <Details>
                         <DetailsItem className="text-left w-1/2">
                             {children}
@@ -36,7 +36,7 @@ export default function MainSectionItem({
                     )}
                 </div>
             ) : (
-                <div className="container m-auto flex justify-between items-center">
+                <div className="md:w-5/6 m-auto flex justify-between items-center">
                     {imageSRC && imageALT && (
                         <Image
                             src={imageSRC}

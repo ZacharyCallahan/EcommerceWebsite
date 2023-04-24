@@ -1,6 +1,6 @@
 export default function () {
     return (
-        <div className="container m-auto flex gap-5">
+        <div className="w-5/6 m-auto flex gap-5">
             <div className="bg-gray-100 shadow-md rounded-md p-4 space-y-5 grow-[2]">
                 <div className="space-y-2">
                     <h1 className="text-2xl font-bold">

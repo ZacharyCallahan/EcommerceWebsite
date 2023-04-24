@@ -1,7 +1,9 @@
+"use client"
 import { Rubik } from "next/font/google";
 import NavBar from "./components/layout/NavBar";
 import "./globals.css";
 import Footer from "./components/layout/Footer";
+import { createTheme, ThemeProvider } from "@material-ui/core";
 
 const rubik = Rubik({ subsets: ["cyrillic"] });
 
@@ -9,6 +11,8 @@ export const metadata = {
     title: "Groovy Gear",
     description: "Groovy Gear",
 };
+
+const theme = createTheme({});
 
 export default function RootLayout({
     children,
@@ -24,9 +28,11 @@ export default function RootLayout({
                 />
             </head>
             <body className={`${rubik.className}`}>
-                <NavBar />
-                {children}
-                <Footer />
+                <ThemeProvider theme={theme}>
+                    <NavBar />
+                    {children}
+                    <Footer />
+                </ThemeProvider>
             </body>
         </html>
     );

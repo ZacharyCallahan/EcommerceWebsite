@@ -5,11 +5,12 @@ import Button from "./Button";
 interface LogoProps {
     imageClass?: string;
     headerClass?: string;
+    className?: string;
 }
 
-export default function Logo({ imageClass, headerClass }: LogoProps) {
+export default function Logo({ imageClass, headerClass, className }: LogoProps) {
     return (
-        <Button link="/" className="flex items-center flex-col">
+        <Button link="/" className={`flex items-center flex-col ${className}`}>
             <div className="flex items-center mb-4">
                 <Image
                     src={logo}
@@ -18,7 +19,7 @@ export default function Logo({ imageClass, headerClass }: LogoProps) {
                     height={1000}
                     className={`w-12 mr-3 ${imageClass}`}
                 />
-                <h1 className={`text-3xl font-bold ${headerClass}`}>
+                <h1 className={`text-2xl font-bold ${headerClass}`}>
                     GROOVY GEAR
                 </h1>
             </div>

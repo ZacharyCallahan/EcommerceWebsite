@@ -1,14 +1,14 @@
 import Copyright from "../ui/Copyright";
+import Header from "../ui/Header";
+import Icon from "../ui/Icon";
 import Logo from "../ui/Logo";
 import List from "../ui/lists/List";
-import Header from "../ui/Header";
 import ListItem from "../ui/lists/ListItem";
-import Icon from "../ui/Icon";
 
 export default function Footer() {
     return (
         <footer className="bg-gray-100 rounded-tl-xl rounded-tr-xl shadow-md">
-            <div className="container m-auto">
+            <div className="w-5/6 m-auto">
                 <div className="flex items-center justify-between  border-b-2 border-opacity-20">
                     <List className="flex flex-row gap-3 py-7">
                         <Header>Follow us:</Header>

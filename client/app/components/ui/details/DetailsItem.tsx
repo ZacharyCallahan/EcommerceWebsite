@@ -9,7 +9,7 @@ export default function DetailsItem({ children, className }: DetailsItemProps) {
             {className ? (
                 <div className={className}>{children}</div>
             ) : (
-                <div className={`text-center w-1/3 space-y-3`}>{children}</div>
+                <div className={`text-center space-y-3`}>{children}</div>
             )}
         </>
     );

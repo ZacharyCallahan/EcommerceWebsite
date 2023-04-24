@@ -22,7 +22,7 @@ module.exports = {
         "groovy-green": "#28F780",
       },
       gridTemplateColumns: {
-        'fluid': 'repeat(auto-fit, minmax(16rem, 1fr))',
+        'fluid': 'repeat(auto-fit, minmax(15rem, 2fr))',
 
       },
     },

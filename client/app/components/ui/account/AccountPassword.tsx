@@ -17,48 +17,50 @@ const AccountPassword = () => {
             </Header>
 
             <form onSubmit={handleSubmit}>
-                <div className="flex flex-col mb-5">
-                    <label htmlFor="old_password" className="font-bold">
-                        Current Password:
-                    </label>
-                    <input
-                        type="password"
-                        name="old_password"
-                        id="old_password"
-                        placeholder="Abcd123!@#"
-                        className="w-1/3 mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
-                        required
-                    />
-                </div>
-                <div className="flex flex-col mb-5">
-                    <label htmlFor="new_password" className="font-bold">
-                        New Password:
-                    </label>
-                    <input
-                        type="password"
-                        name="new_password"
-                        id="new_password"
-                        placeholder="Abcd123!@#"
-                        className="w-1/3 mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
-                        required
-                    />
-                </div>
-                <div className="flex flex-col mb-5">
-                    <label htmlFor="confirm_password" className="font-bold">
-                        Confirm Password:
-                    </label>
-                    <input
-                        type="password"
-                        name="confirm_password"
-                        id="confirm_password"
-                        placeholder="Abcd123!@#"
-                        className="w-1/3 mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
-                        required
-                    />
+                <div className="grid grid-cols-fluid gap-5">
+                    <div className="flex flex-col mb-5">
+                        <label htmlFor="old_password" className="font-bold">
+                            Current Password:
+                        </label>
+                        <input
+                            type="password"
+                            name="old_password"
+                            id="old_password"
+                            placeholder="Abcd123!@#"
+                            className=" mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            required
+                        />
+                    </div>
+                    <div className="flex flex-col mb-5">
+                        <label htmlFor="new_password" className="font-bold">
+                            New Password:
+                        </label>
+                        <input
+                            type="password"
+                            name="new_password"
+                            id="new_password"
+                            placeholder="Abcd123!@#"
+                            className=" mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            required
+                        />
+                    </div>
+                    <div className="flex flex-col mb-5">
+                        <label htmlFor="confirm_password" className="font-bold">
+                            Confirm Password:
+                        </label>
+                        <input
+                            type="password"
+                            name="confirm_password"
+                            id="confirm_password"
+                            placeholder="Abcd123!@#"
+                            className=" mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            required
+                        />
+                    </div>
                 </div>
                 <button
                     type="submit"
-                    className="bg-groovy-red text-white rounded-md px-3 py-2 shadow-md hover:bg-groovy-red-dark focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200">
+                    className="bg-groovy-red text-white rounded-md h-10 px-3 py-2 shadow-md hover:bg-groovy-red-dark focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200">
                     Update Password
                 </button>
             </form>

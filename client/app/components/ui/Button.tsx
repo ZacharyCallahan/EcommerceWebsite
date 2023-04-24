@@ -11,7 +11,7 @@ export default function Button({ children, link, className, onClick }: ButtonPro
     //className is used to add additional classes to the button if needed
     if (link) {
         return (
-            <Link href={link} className={`text-lg font-medium ${className}`}>
+            <Link href={link} className={`text-lg ${className}`}>
                 {children}
             </Link>
         );

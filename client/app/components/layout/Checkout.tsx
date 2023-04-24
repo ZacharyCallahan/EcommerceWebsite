@@ -4,7 +4,7 @@ const Checkout = () => {
             <form
                 action="/process_checkout"
                 method="post"
-                className="container m-auto grid grid-cols-2 py-16 gap-5">
+                className="w-5/6 m-auto grid grid-cols-2 py-16 gap-5">
                 <div>
                     <h2 className="mb-5 font-bold text-2xl">
                         Contact Information

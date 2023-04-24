@@ -1,7 +1,8 @@
+"use client";
 import Image, { StaticImageData } from "next/image";
-import watchTwo from "../../../../public/watch-2.png";
 import Details from "../details/Details";
 import DetailsItem from "../details/DetailsItem";
+import { useMediaQuery } from "@material-ui/core";
 
 interface MainSectionProps {
     children?: React.ReactNode;
@@ -16,12 +17,13 @@ export default function MainSectionItem({
     imageALT,
     imageSide,
 }: MainSectionProps) {
+    const isSmallScreen = useMediaQuery("(min-width: 640px)");
     return (
         <>
             {imageSide === "right" ? (
-                <div className="md:w-5/6 m-auto flex justify-between items-center">
+                <div className="w-5/6 m-auto sm:flex sm:gap-8 sm:items-center">
                     <Details>
-                        <DetailsItem className="text-left w-1/2">
+                        <DetailsItem className="text-center sm:text-left ">
                             {children}
                         </DetailsItem>
                     </Details>
@@ -31,26 +33,43 @@ export default function MainSectionItem({
                             alt={imageALT}
                             width={1000}
                             height={1000}
-                            className="w-1/3 h-full"
+                            className="w-full sm:w-1/3 sm:h-full"
                         />
                     )}
                 </div>
-            ) : (
-                <div className="md:w-5/6 m-auto flex justify-between items-center">
+            ) : isSmallScreen ? (
+                <div className="w-5/6 m-auto sm:flex sm:gap-8 sm:items-center">
                     {imageSRC && imageALT && (
                         <Image
                             src={imageSRC}
                             alt={imageALT}
                             width={1000}
                             height={1000}
-                            className="w-1/3 h-full"
+                            className="w-full sm:w-1/3 sm:h-full"
                         />
                     )}
                     <Details>
-                        <DetailsItem className="text-left w-1/2">
+                        <DetailsItem className="text-center sm:text-left ">
                             {children}
                         </DetailsItem>
                     </Details>
+                </div>
+            ) : (
+                <div className="w-5/6 m-auto sm:flex sm:gap-8 sm:items-center">
+                    <Details>
+                        <DetailsItem className="text-center sm:text-left ">
+                            {children}
+                        </DetailsItem>
+                    </Details>
+                    {imageSRC && imageALT && (
+                        <Image
+                            src={imageSRC}
+                            alt={imageALT}
+                            width={1000}
+                            height={1000}
+                            className="w-full sm:w-1/3 sm:h-full mt-20"
+                        />
+                    )}
                 </div>
             )}
         </>

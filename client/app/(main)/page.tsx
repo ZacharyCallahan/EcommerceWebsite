@@ -18,7 +18,7 @@ export default function Home() {
         <main>
             <div className="bg-white space-y-32 mb-32 overflow-x-hidden">
                 <Slider>
-                    <SliderImage imageCSSClass="bg-cover-1 " >
+                    <SliderImage imageCSSClass="bg-cover-1 ">
                         <SliderLogo
                             link="/category/womens"
                             headerContent="New women's fashion wear"
@@ -38,7 +38,7 @@ export default function Home() {
                     </SliderImage>
                 </Slider>
                 {/* <!-- * SHOPPING DETAILS --> */}
-                <div className="flex flex-col w-5/6 m-auto items-center gap-8 sm:flex-row sm:items-start sm:justify-center xl:gap-64">
+                <div className="w-5/6 space-y-24 m-auto sm:space-y-0 sm:grid sm:grid-cols-3 sm:justify-center sm:gap-x-5">
                     <Details>
                         <DetailsItem>
                             <Icon icon="truck" size="3x" color="groovy-red" />
@@ -94,13 +94,13 @@ export default function Home() {
                         imageALT="watch"
                         imageSRC={watchOne}
                         imageSide="right">
-                        <Header className="text-2xl">
+                        <Header className="text-xl sm:text-3xl lg:text-4xl">
                             ONE OF A KIND ROLEX
                         </Header>
-                        <Header className="text-5xl leading-snug mb-7 mt-4">
+                        <Header className="text-3xl sm:text-4xl lg:text-5xl leading-snug mb-7 mt-4 font-medium">
                             Always telling the time when you need it too
                         </Header>
-                        <p className="text-xl">
+                        <p className="text-lg sm:text-xl lg:text-2xl">
                             Oculus Go is our all-in-one VR headset that’s
                             portable and easy to use. Experience entertainment
                             on the go with no PC, wires or hassles.
@@ -110,13 +110,13 @@ export default function Home() {
                         imageALT="watch"
                         imageSRC={watchTwo}
                         imageSide="left">
-                        <Header className="text-2xl">
+                        <Header className="text-xl sm:text-3xl lg:text-4xl">
                             ONE OF A KIND ROLEX
                         </Header>
-                        <Header className="text-5xl leading-snug mb-7 mt-4">
+                        <Header className="text-3xl sm:text-4xl lg:text-5xl leading-snug mb-7 mt-4 font-medium">
                             Always telling the time when you need it too
                         </Header>
-                        <p className="text-xl">
+                        <p className="text-lg sm:text-xl lg:text-2xl">
                             Oculus Go is our all-in-one VR headset that’s
                             portable and easy to use. Experience entertainment
                             on the go with no PC, wires or hassles.
@@ -132,7 +132,6 @@ export default function Home() {
                     <Product />
                     <Product />
                 </Section>
-                {/* <!-- * CONTACT --> */}
             </div>
         </main>
     );

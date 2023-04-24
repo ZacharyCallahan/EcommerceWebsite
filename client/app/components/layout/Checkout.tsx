@@ -4,7 +4,7 @@ const Checkout = () => {
             <form
                 action="/process_checkout"
                 method="post"
-                className="w-5/6 m-auto grid grid-cols-2 py-16 gap-5">
+                className="w-5/6 m-auto space-y-12 py-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-5">
                 <div>
                     <h2 className="mb-5 font-bold text-2xl">
                         Contact Information
@@ -34,7 +34,7 @@ const Checkout = () => {
                                 />
                             </div>
                         </div>
-                        <div className="grid grid-cols-2 gap-5">
+                        <div className="sm:grid sm:grid-cols-2 sm:gap-5">
                             <div className="flex flex-col mb-5">
                                 <label htmlFor="first_name">First name:</label>
                                 <input
@@ -69,7 +69,7 @@ const Checkout = () => {
                                 className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
                             />
                         </div>
-                        <div className="grid grid-cols-2 gap-5">
+                        <div className="space-y-5 sm:grid sm:grid-cols-2 sm:gap-5  sm:space-y-0">
                             <div className="flex flex-col">
                                 <label htmlFor="city">City:</label>
                                 <input

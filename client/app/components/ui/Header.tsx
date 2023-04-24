@@ -1,19 +1,18 @@
 interface ListHeaderProps {
     children?: React.ReactNode;
     className?: string;
+    headerClass?: string;
+    name?: string;
 }
 
-export default function Header({ children, className }: ListHeaderProps) {
+export default function Header({ children, className, name, headerClass }: ListHeaderProps) {
     return (
         <>
-            {
-                className ? (
-                    <h2 className={`font-bold ${className}`}>{children}</h2>
-                ) : (
-                    <h2 className={`mb-3 text-xl`}>{children}</h2>
-                )
-            }
-        
+
+                <div className={`${className}`}>
+                    <h2 className={`font-bold ${headerClass}`}>{name}</h2>
+                    {children}
+                </div>
         </>
     );
 }

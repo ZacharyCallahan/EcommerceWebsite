@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../ui/Button";
 import Logo from "../ui/Logo";
 import { useMediaQuery } from "@material-ui/core";
@@ -15,15 +15,38 @@ const NavBar = () => {
     const isMediumScreen = useMediaQuery("(min-width: 768px)");
 
     const [hamOpen, setHamOpen] = React.useState(false);
+    const [contactOpen, setContactOpen] = React.useState(false);
 
-    console.log(hamOpen);
+    useEffect(() => {
+        if (contactOpen)
+            document.body.style.overflow = "hidden";
+        else
+            document.body.style.overflow = "unset";
+    }, [contactOpen]);
 
     return (
         <nav className="bg-gray-100 rounded-bl-xl rounded-br-xl shadow-md">
+            {
+                //contact form
+                contactOpen && (
+                    <div className="fixed top-0 left-0 w-full h-full z-50 flex items-center justify-center backdrop-blur-md backdrop-brightness-50">
+                        <div className="absolute bg-white w-full max-w-md rounded-lg p-6">
+                            //contact form content here
+                            <Button
+                                className="absolute top-2 right-2 text-gray-500"
+                                onClick={() => setContactOpen(false)}>
+                                <Icon icon="times" size="" />
+                            </Button>
+                        </div>
+                    </div>
+                )
+            }
             <div className="m-auto w-5/6">
                 {isMediumScreen ? (
                     <div className=" flex items-center justify-between border-b-2 border-opacity-20 py-4">
-                        <Button>CONTACT</Button>
+                        <Button onClick={() => setContactOpen(!contactOpen)}>
+                            CONTACT
+                        </Button>
                         <Logo />
                         <Button link="/">HOME</Button>
                     </div>
@@ -97,7 +120,11 @@ const NavBar = () => {
                         </List>
                         <List className="flex flex-col items-end w-fit">
                             <ListItem link="/" name="HOME" />
-                            <ListItem link="/contact" name="CONTACT" />
+                            <ListItem
+                                name="CONTACT"
+                                button={true}
+                                onClick={() => setContactOpen(!contactOpen)}/>
+                                
                             <ListItem>
                                 <LoginLogout />
                             </ListItem>

@@ -4,9 +4,10 @@ interface ButtonProps {
     children?: React.ReactNode;
     link?: string;
     className?: string;
+    onClick?: () => void;
 }
 
-export default function Button({ children, link, className }: ButtonProps) {
+export default function Button({ children, link, className, onClick }: ButtonProps) {
     //className is used to add additional classes to the button if needed
     if (link) {
         return (
@@ -15,6 +16,6 @@ export default function Button({ children, link, className }: ButtonProps) {
             </Link>
         );
     } else {
-        return <button className={`text-lg font-medium ${className}`}>{children}</button>;
+        return <button onClick={onClick} className={`text-lg font-medium ${className}`}>{children}</button>;
     }
 }

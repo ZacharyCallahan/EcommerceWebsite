@@ -4,19 +4,44 @@ interface ListItemProps {
     name?: string;
     link?: string;
     children?: React.ReactNode;
+    className?: string;
+    button?: boolean;
+    onClick?: () => void;
 }
 
-export default function ListItem({ name, link, children }: ListItemProps) {
-    if (children) {
+export default function ListItem({
+    name,
+    link,
+    children,
+    className,
+    button,
+    onClick,
+}: ListItemProps) {
+
+    if (button) {
         return (
-            <li className="mb-1">
-                {children}
+            <li className={`mb-1`}>
+                <Button link={link} className={className} onClick={onClick}>
+                    {children}
+                    {name}
+                </Button>
             </li>
         );
-    } else {
+    }
+    if (children) {
+        return (
+            <li className={`mb-1 ${className}`}>
+                {children}
+                {name}
+            </li>
+        );
+    }  
+    else {
         return (
             <li className="mb-1">
-                <Button link={link}>{name}</Button>
+                <Button link={link}>
+                    {name}
+                </Button>
             </li>
         );
     }

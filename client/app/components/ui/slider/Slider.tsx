@@ -19,7 +19,7 @@ function Slider({ children }: SliderProps) {
     useEffect(() => {
         const intervalId = setInterval(() => {
             setCurrentSlideIndex((currentSlideIndex + 1) % childArray.length);
-        }, 10000);
+        }, 5000);
         return () => clearInterval(intervalId);
     }, [currentSlideIndex]);
 

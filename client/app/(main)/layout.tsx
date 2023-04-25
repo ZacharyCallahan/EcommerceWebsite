@@ -21,6 +21,7 @@ export default function RootLayout({
                     rel="stylesheet"
                     href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
                 />
+                <title>Groovy Gear</title>
             </head>
             <body className={`${rubik.className}`}>
                 <ThemeProvider theme={theme}>

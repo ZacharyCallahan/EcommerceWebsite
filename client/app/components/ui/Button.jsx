@@ -1,13 +1,6 @@
 import Link from "next/link";
 
-interface ButtonProps {
-    children?: React.ReactNode;
-    link?: string;
-    className?: string;
-    onClick?: () => void;
-}
-
-export default function Button({ children, link, className, onClick }: ButtonProps) {
+export default function Button({ children, link, className, onClick }) {
     //className is used to add additional classes to the button if needed
     if (link) {
         return (

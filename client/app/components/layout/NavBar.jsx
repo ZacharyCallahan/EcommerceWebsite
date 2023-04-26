@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import Button from "../ui/Button";
 import Logo from "../ui/Logo";
-import { useMediaQuery } from "@material-ui/core";
+import { useMediaQuery } from "@mui/material";
 import List from "../ui/lists/List";
 import ListItem from "../ui/lists/ListItem";
 import Hamburger from "../ui/hamburger/Hamburger";
@@ -26,9 +26,9 @@ const NavBar = () => {
 
     return (
         <nav className="bg-gray-100 rounded-bl-xl rounded-br-xl shadow-md">
-            // What displays when the contact form is open
+            {/* What displays when the contact form is open */}
             {
-                //contact form
+                
                 contactOpen && (
                     <div className="fixed top-0 left-0 w-full h-full z-50 flex items-center justify-center backdrop-blur-md backdrop-brightness-50">
                         <div className="absolute bg-white w-full max-w-md rounded-lg p-6">
@@ -43,7 +43,7 @@ const NavBar = () => {
                 )
             }
             <div className="m-auto w-5/6">
-                // Responsive navbar removes HOME and CONTACT buttons from the top
+                {/* // Responsive navbar removes HOME and CONTACT buttons from the top */}
                 {isMediumScreen ? (
                     <div className=" flex items-center justify-between border-b-2 border-opacity-20 py-4">
                         <Button onClick={() => setContactOpen(!contactOpen)}>
@@ -58,7 +58,7 @@ const NavBar = () => {
                         headerClass="w-fit"
                     />
                 )}
-                // Responsive shows the hamburger menu on small screens
+                {/* // Responsive shows the hamburger menu on small screens */}
                 <div className="py-4 flex justify-between items-center border-b-2 border-opacity-20 ">
                     {isMediumScreen ? (
                         <>
@@ -110,7 +110,7 @@ const NavBar = () => {
                     )}
                 </div>
 
-                // What displays when the hamburger menu is open
+                {/* // What displays when the hamburger menu is open */}
                 {hamOpen && (
                     <div
                         className={`flex justify-between border-b-2 transition-all duration-500 transform mt-4`}>

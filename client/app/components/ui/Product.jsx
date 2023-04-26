@@ -1,8 +1,12 @@
+"use client";
 import Image from "next/image";
 import Button from "./Button";
+import { useContext } from "react";
+
 
 export default function Product() {
 
+    
     return (
         <div className="p-4 flex justify-between flex-col h-full bg-gray-100 shadow-lg rounded-md gap-5">
             <Button link="/product/id" className="flex justify-center">

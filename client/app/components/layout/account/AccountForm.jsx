@@ -1,5 +1,5 @@
 "use client";
-import { useMediaQuery } from "@material-ui/core";
+import { useMediaQuery } from "@mui/material";
 import { ReactEventHandler, useState } from "react";
 import Header from "../../ui/Header";
 
@@ -29,7 +29,7 @@ export default function AccountForm() {
         phone: "",
     });
 
-    const handleChange = (e: any) => {
+    const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
@@ -37,7 +37,7 @@ export default function AccountForm() {
         }));
     };
 
-    const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    const submitHandler = (e) => {
         e.preventDefault();
         if (!validateForm()) {
             console.log(errors);

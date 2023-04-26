@@ -1,10 +1,7 @@
 import "../globals.css";
 
-interface layoutProps {
-    children?: React.ReactNode;
-}
 
-const layout = ({ children }: layoutProps) => {
+const layout = ({ children }) => {
     return (
         <body className="bg-image">
             {children}

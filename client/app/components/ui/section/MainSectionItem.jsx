@@ -1,22 +1,16 @@
 "use client";
-import { useMediaQuery } from "@material-ui/core";
+import { useMediaQuery } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import Details from "../details/Details";
 import DetailsItem from "../details/DetailsItem";
 
-interface MainSectionProps {
-    children?: React.ReactNode;
-    imageSRC?: StaticImageData;
-    imageALT?: string;
-    imageSide?: string;
-}
 
 export default function MainSectionItem({
     children,
     imageSRC,
     imageALT,
     imageSide,
-}: MainSectionProps) {
+}) {
     const isSmallScreen = useMediaQuery("(min-width: 640px)");
     return (
         <>

@@ -1,19 +1,16 @@
 "use client";
-import { createTheme, ThemeProvider } from "@material-ui/core";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Rubik } from "next/font/google";
 import Footer from "../components/layout/Footer";
 import NavBar from "../components/layout/NavBar";
 import "../globals.css";
+import { AppStateProvider } from "../AppStateContext";
 
 const rubik = Rubik({ subsets: ["cyrillic"] });
 
 const theme = createTheme({});
 
-export default function RootLayout({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <head>
@@ -25,9 +22,11 @@ export default function RootLayout({
             </head>
             <body className={`${rubik.className}`}>
                 <ThemeProvider theme={theme}>
-                    <NavBar />
-                    {children}
-                    <Footer />
+                    <AppStateProvider>
+                        <NavBar />
+                        {children}
+                        <Footer />
+                    </AppStateProvider>
                 </ThemeProvider>
             </body>
         </html>

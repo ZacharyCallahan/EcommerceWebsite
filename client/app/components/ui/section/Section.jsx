@@ -1,12 +1,7 @@
 import Header from "../Header";
 import SectionHeader from "./SectionHeader";
 
-interface SectionProps {
-    children?: React.ReactNode;
-    name: string;
-}
-
-export default function Section({ children, name }: SectionProps) {
+export default function Section({ children, name }) {
     return (
         <div className="w-5/6 m-auto">
             <SectionHeader name={name} />

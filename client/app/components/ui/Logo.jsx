@@ -2,13 +2,7 @@ import Image from "next/image";
 import logo from "../../../public/icon.png";
 import Button from "./Button";
 
-interface LogoProps {
-    imageClass?: string;
-    headerClass?: string;
-    className?: string;
-}
-
-export default function Logo({ imageClass, headerClass, className }: LogoProps) {
+export default function Logo({ imageClass, headerClass, className }) {
     return (
         <Button link="/" className={`flex items-center flex-col ${className}`}>
             <div className="flex items-center mb-4">

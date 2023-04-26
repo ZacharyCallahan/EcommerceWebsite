@@ -1,9 +1,5 @@
-interface DetailsItemProps {
-    children?: React.ReactNode;
-    className?: string;
-}
 
-export default function DetailsItem({ children, className }: DetailsItemProps) {
+export default function DetailsItem({ children, className }) {
     return (
         <>
             {className ? (

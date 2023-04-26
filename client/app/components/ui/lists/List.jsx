@@ -1,18 +1,13 @@
 import { Children } from "react";
 import ListItem from "./ListItem";
 
-interface ListProps {
-    children?: React.ReactNode;
-    className?: string;
-}
-
-export default function List({ children, className }: ListProps) {
+export default function List({ children, className }) {
     const childArray = Children.toArray(children);
 
     return (
         <>
             <ul className={`${className}`}>
-                {childArray.map((child: any, index: number) => {
+                {childArray.map((child, index) => {
                     if (child.type === ListItem) {
                         return <ListItem key={index} {...child.props} />;
                     } else {

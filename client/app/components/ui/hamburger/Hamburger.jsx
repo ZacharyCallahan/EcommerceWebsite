@@ -2,11 +2,7 @@
 import { useState } from "react";
 
 
-interface Props {
-    onClick: () => void;
-}
-
-export default function Hamburger({ onClick }: Props) {
+export default function Hamburger({ onClick }) {
     const [open, setOpen] = useState(false);
 
     const handleClick = () => {

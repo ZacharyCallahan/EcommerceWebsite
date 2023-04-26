@@ -2,7 +2,7 @@
 import Header from "../../ui/Header";
 
 const AccountPassword = () => {
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Submitted");
     };

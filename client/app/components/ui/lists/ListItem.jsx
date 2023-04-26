@@ -1,14 +1,5 @@
 import Button from "../Button";
 
-interface ListItemProps {
-    name?: string;
-    link?: string;
-    children?: React.ReactNode;
-    className?: string;
-    button?: boolean;
-    onClick?: () => void;
-}
-
 export default function ListItem({
     name,
     link,
@@ -16,7 +7,7 @@ export default function ListItem({
     className,
     button,
     onClick,
-}: ListItemProps) {
+} ) {
 
     if (button) {
         return (

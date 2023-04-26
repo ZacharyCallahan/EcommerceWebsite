@@ -1,5 +1,5 @@
 "use client";
-import Header from "../Header";
+import Header from "../../ui/Header";
 
 const AccountPassword = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

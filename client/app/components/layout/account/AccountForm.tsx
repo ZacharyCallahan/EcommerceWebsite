@@ -1,7 +1,7 @@
 "use client";
-import { ReactEventHandler, useState } from "react";
-import Header from "../Header";
 import { useMediaQuery } from "@material-ui/core";
+import { ReactEventHandler, useState } from "react";
+import Header from "../../ui/Header";
 
 export default function AccountForm() {
     const isSmallScreen = useMediaQuery("(min-width: 640px)");

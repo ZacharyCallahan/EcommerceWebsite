@@ -1,4 +1,4 @@
-import AccountForm from "../../components/ui/account/AccountForm";
+import AccountForm from "../../components/layout/account/AccountForm";
 
 export default function Account() {
     return (

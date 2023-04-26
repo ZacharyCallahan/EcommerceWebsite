@@ -15,6 +15,7 @@ export default function Hamburger({ onClick }: Props) {
     };
 
     return (
+        
         <button className="hamburger-button" onClick={handleClick}>
             <div className={`hamburger ${open ? "open" : ""}`}>
                 <span></span>

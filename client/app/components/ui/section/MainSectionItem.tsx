@@ -1,8 +1,8 @@
 "use client";
+import { useMediaQuery } from "@material-ui/core";
 import Image, { StaticImageData } from "next/image";
 import Details from "../details/Details";
 import DetailsItem from "../details/DetailsItem";
-import { useMediaQuery } from "@material-ui/core";
 
 interface MainSectionProps {
     children?: React.ReactNode;

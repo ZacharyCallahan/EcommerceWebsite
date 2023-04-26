@@ -1,4 +1,4 @@
-import AccountNav from "../../components/ui/account/AccountNav";
+import AccountNav from "../../components/layout/account/AccountNav";
 
 export default function AccountLayout({
     children,

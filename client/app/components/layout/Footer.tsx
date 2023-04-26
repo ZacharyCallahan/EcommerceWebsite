@@ -1,4 +1,3 @@
-import Copyright from "../ui/Copyright";
 import Header from "../ui/Header";
 import Icon from "../ui/Icon";
 import Logo from "../ui/Logo";
@@ -55,7 +54,9 @@ export default function Footer() {
                     </List>
                 </div>
             </div>
-            <Copyright />
+            <p className="text-center py-16">
+                Made by Zachary Callahan. Copyright © 2023
+            </p>
         </footer>
     );
 }

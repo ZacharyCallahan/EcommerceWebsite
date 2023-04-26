@@ -26,6 +26,7 @@ const NavBar = () => {
 
     return (
         <nav className="bg-gray-100 rounded-bl-xl rounded-br-xl shadow-md">
+            // What displays when the contact form is open
             {
                 //contact form
                 contactOpen && (
@@ -42,6 +43,7 @@ const NavBar = () => {
                 )
             }
             <div className="m-auto w-5/6">
+                // Responsive navbar removes HOME and CONTACT buttons from the top
                 {isMediumScreen ? (
                     <div className=" flex items-center justify-between border-b-2 border-opacity-20 py-4">
                         <Button onClick={() => setContactOpen(!contactOpen)}>
@@ -56,6 +58,7 @@ const NavBar = () => {
                         headerClass="w-fit"
                     />
                 )}
+                // Responsive shows the hamburger menu on small screens
                 <div className="py-4 flex justify-between items-center border-b-2 border-opacity-20 ">
                     {isMediumScreen ? (
                         <>
@@ -106,6 +109,8 @@ const NavBar = () => {
                         </>
                     )}
                 </div>
+
+                // What displays when the hamburger menu is open
                 {hamOpen && (
                     <div
                         className={`flex justify-between border-b-2 transition-all duration-500 transform mt-4`}>

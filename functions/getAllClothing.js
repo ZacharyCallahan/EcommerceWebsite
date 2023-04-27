@@ -3,7 +3,7 @@ exports = async function({ query, headers, body }, response) {
   const result = await context.services
     .get('mongodb-atlas')
     .db("groovygear")
-    .collection("clothing")
+    .collection("")
     .find({})
     .toArray();
 

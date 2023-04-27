@@ -86,11 +86,20 @@ export default function Home() {
                 {/* <!-- * PRODUCT SECTION ONE --> */}
                 <Section name="New Arrivals">
                     {products.map((product) => {
-
                         if (
-                            product.gender === "Men" &&
-                            product.masterCategory === "Apparel" &&
-                            product.image !== "undefined"
+                            (product.gender === "Women" &&
+                                product.masterCategory === "Apparel" &&
+                                product.season === "Summer" &&
+                                product.subCategory === "Topwear" &&
+                                product.usage === "Casual" &&
+                                product.baseColour === "Blue" &&
+                                product.price < 25) ||
+                            (product.gender === "Boys" &&
+                                product.masterCategory === "Apparel" &&
+                                product.season === "Summer" &&
+                                product.subCategory === "Topwear" &&
+                                product.baseColour === "Blue" &&
+                                product.price < 50)
                         )
                             return (
                                 <Product key={product._id} product={product} />

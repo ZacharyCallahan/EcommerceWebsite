@@ -37,7 +37,7 @@ export const AppStateProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const [loading, setLoading] = useState(true);
 
-    {* useEffect(() => {
+    {/* useEffect(() => {
         axios("http://localhost:8000/api/clothing")
             .then((res) => {
                 dispatch({ type: "SET_PRODUCTS", payload: res.data });
@@ -45,7 +45,7 @@ export const AppStateProvider = ({ children }) => {
             })
             .catch((err) => console.log(err));
 
-    }, []); *}
+    }, []); */}
     return (
         <AppStateContext.Provider value={{ state, dispatch }}>
             {loading ? <h1>Loading...</h1> : children }

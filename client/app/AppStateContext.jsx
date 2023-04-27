@@ -1,4 +1,5 @@
 'use client'
+import axios from "axios";
 import React, { createContext, useReducer, useEffect } from "react";
 
 const initialState = {
@@ -20,6 +21,11 @@ const reducer = (state, action) => {
                     (product) => product.id !== action.payload
                 ),
             };
+        case "SET_PRODUCTS":
+            return {
+                ...state,
+                products: action.payload,
+            };
         default:
             return state;
     }
@@ -31,15 +37,13 @@ export const AppStateProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     useEffect(() => {
-        fetch("https://fakestoreapi.com/products")
-            .then((res) => res.json())
-            .then((data) => {
-                dispatch({ type: "SET_PRODUCTS", payload: data });
+        axios("https://fakestoreapi.com/products")
+            .then((res) => {
+                dispatch({ type: "SET_PRODUCTS", payload: res.data });
             })
             .catch((err) => console.log(err));
 
     }, []);
-        console.log(state.products);
     return (
         <AppStateContext.Provider value={{ state, dispatch }}>
             {children}

@@ -1,17 +1,16 @@
 "use client";
 import Image from "next/image";
-import Button from "./Button";
 import { useContext } from "react";
+import { AppStateContext } from "../../AppStateContext";
+import Button from "./Button";
 
+export default function Product({ imageSRC }) {
 
-export default function Product() {
-
-    
     return (
         <div className="p-4 flex justify-between flex-col h-full bg-gray-100 shadow-lg rounded-md gap-5">
             <Button link="/product/id" className="flex justify-center">
                 <Image
-                    src={"/mage"}
+                    src={imageSRC}
                     alt=""
                     width={300}
                     height={300}

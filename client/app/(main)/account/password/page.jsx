@@ -1,4 +1,4 @@
-import AccountPassword from "@/app/components/layout/account/AccountPassword";
+import AccountPassword from "../../../components/layout/account/AccountPassword";
 
 const page = () => {
     return <AccountPassword />;

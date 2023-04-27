@@ -1,4 +1,5 @@
-import Image from "next/image";
+'use client'
+import React, { useContext } from "react";
 import watchOne from "../../public/watch-1.png";
 import watchTwo from "../../public/watch-2.png";
 import Header from "../components/ui/Header";
@@ -12,8 +13,12 @@ import Section from "../components/ui/section/Section";
 import Slider from "../components/ui/slider/Slider";
 import SliderImage from "../components/ui/slider/SliderImage";
 import SliderLogo from "../components/ui/slider/SliderLogo";
+import { AppStateContext } from "../AppStateContext";
 
 export default function Home() {
+    const { state, dispatch } = useContext(AppStateContext);
+    const { products } = state;
+
     return (
         <main>
             <div className="bg-white space-y-32 mb-32 overflow-x-hidden">
@@ -80,12 +85,9 @@ export default function Home() {
                 </div>
                 {/* <!-- * PRODUCT SECTION ONE --> */}
                 <Section name="New Arrivals">
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
+                    {products.map((product) => {
+                        return <Product key={product.id} imageSRC={product.image} />;
+                    })}
                 </Section>
                 {/* main product */}
 

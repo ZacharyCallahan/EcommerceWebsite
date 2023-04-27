@@ -2,8 +2,6 @@ import AccountNav from "../../components/layout/account/AccountNav";
 
 export default function AccountLayout({
     children,
-}: {
-    children: React.ReactNode;
 }) {
     return (
         <section className="bg-gray-100">

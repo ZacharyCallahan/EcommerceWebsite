@@ -1,4 +1,3 @@
-import { useMediaQuery } from "@material-ui/core";
 import Icon from "../../ui/Icon";
 import List from "../../ui/lists/List";
 import ListItem from "../../ui/lists/ListItem";

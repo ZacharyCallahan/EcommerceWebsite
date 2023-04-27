@@ -1,4 +1,4 @@
-import AccountOrders from "@/app/components/layout/account/AccountOrders";
+import AccountOrders from "../../../components/layout/account/AccountOrders";
 
 const page = () => {
     return <AccountOrders />;

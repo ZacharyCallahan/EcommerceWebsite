@@ -1,0 +1,8 @@
+{
+    "app_id": "application-0-umlzo",
+    "config_version": 20210101,
+    "name": "Application-0",
+    "location": "IE",
+    "provider_region": "aws-eu-west-1",
+    "deployment_model": "LOCAL"
+}

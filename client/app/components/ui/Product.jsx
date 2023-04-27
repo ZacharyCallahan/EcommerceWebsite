@@ -4,8 +4,15 @@ import { useContext } from "react";
 import { AppStateContext } from "../../AppStateContext";
 import Button from "./Button";
 
-export default function Product({ product }) {
+export default function Product() {
     
+    const product = {
+        _id: "1636381",
+        image: "/test",
+        productDisplayName: "placeholder title",
+        price: 25,
+        
+    }
 
     return (
         <div className="p-4 grid grid-cols-1 content-between h-full bg-gray-100 shadow-lg rounded-md gap-5">

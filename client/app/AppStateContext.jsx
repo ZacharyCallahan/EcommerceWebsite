@@ -35,7 +35,7 @@ export const AppStateContext = createContext();
 
 export const AppStateProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     {/* useEffect(() => {
         axios("http://localhost:8000/api/clothing")

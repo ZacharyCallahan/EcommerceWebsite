@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['fakestoreapi.com'],
+    domains: ['assets.myntassets.com'],
   }
 }
 

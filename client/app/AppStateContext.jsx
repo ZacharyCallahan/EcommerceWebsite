@@ -1,6 +1,6 @@
 'use client'
 import axios from "axios";
-import React, { createContext, useReducer, useEffect } from "react";
+import React, { createContext, useReducer, useEffect, useState } from "react";
 
 const initialState = {
     products: [],
@@ -35,18 +35,20 @@ export const AppStateContext = createContext();
 
 export const AppStateProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios("https://fakestoreapi.com/products")
+        axios("http://localhost:8000/api/clothing")
             .then((res) => {
                 dispatch({ type: "SET_PRODUCTS", payload: res.data });
+                setLoading(false);
             })
             .catch((err) => console.log(err));
 
     }, []);
     return (
         <AppStateContext.Provider value={{ state, dispatch }}>
-            {children}
+            {loading ? <h1>Loading...</h1> : children }
         </AppStateContext.Provider>
     );
 };

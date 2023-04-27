@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useContext } from "react";
 import watchOne from "../../public/watch-1.png";
 import watchTwo from "../../public/watch-2.png";
@@ -86,7 +86,15 @@ export default function Home() {
                 {/* <!-- * PRODUCT SECTION ONE --> */}
                 <Section name="New Arrivals">
                     {products.map((product) => {
-                        return <Product key={product.id} imageSRC={product.image} />;
+
+                        if (
+                            product.gender === "Men" &&
+                            product.masterCategory === "Apparel" &&
+                            product.image !== "undefined"
+                        )
+                            return (
+                                <Product key={product._id} product={product} />
+                            );
                     })}
                 </Section>
                 {/* main product */}
@@ -126,14 +134,7 @@ export default function Home() {
                     </MainSectionItem>
                 </MainSection>
                 {/* <!-- * PRODUCT SECTION TWO --> */}
-                <Section name="Best Sellers">
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                </Section>
+                <Section name="Best Sellers"></Section>
             </div>
         </main>
     );

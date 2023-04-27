@@ -85,26 +85,12 @@ export default function Home() {
                 </div>
                 {/* <!-- * PRODUCT SECTION ONE --> */}
                 <Section name="New Arrivals">
-                    {products.map((product) => {
-                        if (
-                            (product.gender === "Women" &&
-                                product.masterCategory === "Apparel" &&
-                                product.season === "Summer" &&
-                                product.subCategory === "Topwear" &&
-                                product.usage === "Casual" &&
-                                product.baseColour === "Blue" &&
-                                product.price < 25) ||
-                            (product.gender === "Boys" &&
-                                product.masterCategory === "Apparel" &&
-                                product.season === "Summer" &&
-                                product.subCategory === "Topwear" &&
-                                product.baseColour === "Blue" &&
-                                product.price < 50)
-                        )
-                            return (
-                                <Product key={product._id} product={product} />
-                            );
-                    })}
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
                 </Section>
                 {/* main product */}
 
@@ -143,7 +129,14 @@ export default function Home() {
                     </MainSectionItem>
                 </MainSection>
                 {/* <!-- * PRODUCT SECTION TWO --> */}
-                <Section name="Best Sellers"></Section>
+                <Section name="Best Sellers">
+                            <Product />
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
+                    </Section>
             </div>
         </main>
     );

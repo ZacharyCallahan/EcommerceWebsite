@@ -12,6 +12,7 @@ import ShoppingCart from "../ui/ShoppingCart";
 import Icon from "../ui/Icon";
 import PopupForm from "../ui/PopupForm";
 import Contact from "./contact/Contact";
+import { CSSTransition } from "react-transition-group";
 
 const NavBar = () => {
     const isMediumScreen = useMediaQuery("(min-width: 768px)");
@@ -101,10 +102,16 @@ const NavBar = () => {
                 </div>
 
                 {/* // What displays when the hamburger menu is open */}
-                {hamOpen && (
+                <CSSTransition
+                    in={hamOpen === true}
+                    timeout={500}
+                    classNames="height"
+                    unmountOnExit>
                     <div
-                        className="flex justify-between pt-4 border-t-2 border-opacity-20">
-                        <List className="flex flex-col gap-6 w-fit border-b-2 border-opacity-20">
+                        className={`${
+                            hamOpen && "h-fit border-t-2 border-opacity-2"
+                        }  flex justify-between `}>
+                        <List className="flex flex-col gap-5 border-opacity-20">
                             <ListItem link="/category/womens" name="WOMENS" />
                             <ListItem link="/category/mens" name="MENS" />
                             <ListItem link="/category/kids" name="KIDS" />
@@ -113,7 +120,7 @@ const NavBar = () => {
                                 name="ACCESSORIES"
                             />
                         </List>
-                        <List className="flex flex-col items-end w-fit">
+                        <List className="flex flex-col items-end">
                             <ListItem link="/" name="HOME" />
                             <ListItem
                                 name="CONTACT"
@@ -126,7 +133,7 @@ const NavBar = () => {
                             </ListItem>
                         </List>
                     </div>
-                )}
+                </CSSTransition>
             </div>
         </nav>
     );

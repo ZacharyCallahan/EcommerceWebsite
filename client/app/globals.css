@@ -21,7 +21,6 @@
     background-position-y: 80%;
 }
 
-
 .table-row:nth-child(odd) {
     @apply bg-gray-100;
 }
@@ -59,7 +58,6 @@
 
 .hamburger span:nth-child(1) {
     transform: translateY(0) rotate(0);
-    
 }
 
 .hamburger span:nth-child(3) {
@@ -76,4 +74,68 @@
 
 .hamburger.open span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
+}
+
+.width-enter {
+    width: 83.2px;
+}
+
+.width-enter-active {
+    width: 100%;
+    transition: width 300ms ease-in-out;
+}
+
+.width-exit {
+    width: 100%;
+}
+
+.width-exit-active {
+    width: 83.2px;
+    transition: width 300ms ease-in-out;
+}
+
+.reset-enter {
+    opacity: 0;
+}
+
+.reset-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
+}
+
+.reset-exit {
+    opacity: 1;
+}
+
+.reset-exit-active {
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+
+.height-enter {
+    opacity: 0;
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.height-enter-active {
+    opacity: 1;
+    height: 190px;
+    padding-top: 5;
+    padding-bottom: 5;
+    transition: height 300ms ease-in-out, padding 300ms ease-in-out, opacity 500ms ease-in-out;
+}
+
+.height-exit {
+    opacity: 1;
+    height: 190px;
+    padding-top: 5;
+    padding-bottom: 5;
+}
+
+.height-exit-active {
+    opacity: 0;
+    height: 0;
+    transition: height 300ms ease-in-out, padding 300ms ease-in-out, opacity 150ms ease-in-out;
 }

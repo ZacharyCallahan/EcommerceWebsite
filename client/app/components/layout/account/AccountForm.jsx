@@ -139,7 +139,7 @@ export default function AccountForm() {
                             value={formData.email}
                             onChange={(e) => handleChange(e)}
                             placeholder="johndoe@email.com"
-                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                         />
                     </div>
                 </div>
@@ -153,7 +153,7 @@ export default function AccountForm() {
                             value={formData.first_name}
                             onChange={(e) => handleChange(e)}
                             placeholder="John"
-                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                         />
                     </div>
                     <div className="w-1/2  flex flex-col">
@@ -165,7 +165,7 @@ export default function AccountForm() {
                             value={formData.last_name}
                             onChange={(e) => handleChange(e)}
                             placeholder="Doe"
-                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                         />
                     </div>
                 </div>
@@ -179,7 +179,7 @@ export default function AccountForm() {
                             value={formData.address}
                             placeholder="1234 Main St"
                             onChange={(e) => handleChange(e)}
-                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                         />
                     </div>
                 </div>
@@ -193,7 +193,7 @@ export default function AccountForm() {
                             value={formData.city}
                             onChange={(e) => handleChange(e)}
                             placeholder="Los Angeles"
-                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                         />
                     </div>
                     <div className="w-1/2  flex flex-col">
@@ -205,7 +205,7 @@ export default function AccountForm() {
                             value={formData.zip_code}
                             onChange={(e) => handleChange(e)}
                             placeholder="12345"
-                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                         />
                     </div>
                 </div>
@@ -219,7 +219,7 @@ export default function AccountForm() {
                             value={formData.country}
                             onChange={(e) => handleChange(e)}
                             placeholder="United States"
-                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                         />
                     </div>
                     <div className="w-1/3  flex flex-col">
@@ -231,7 +231,7 @@ export default function AccountForm() {
                             value={formData.state}
                             onChange={(e) => handleChange(e)}
                             placeholder="California"
-                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                         />
                     </div>
 
@@ -244,7 +244,7 @@ export default function AccountForm() {
                             value={formData.phone}
                             onChange={(e) => handleChange(e)}
                             placeholder="123-456-7890"
-                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                         />
                     </div>
                 </div>
@@ -286,7 +286,7 @@ export default function AccountForm() {
                         value={formData.email}
                         onChange={(e) => handleChange(e)}
                         placeholder="johndoe@email.com"
-                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                     />
                 </div>
 
@@ -299,7 +299,7 @@ export default function AccountForm() {
                         value={formData.first_name}
                         onChange={(e) => handleChange(e)}
                         placeholder="John"
-                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                     />
                 </div>
                 <div>
@@ -311,7 +311,7 @@ export default function AccountForm() {
                         value={formData.last_name}
                         onChange={(e) => handleChange(e)}
                         placeholder="Doe"
-                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                     />
                 </div>
 
@@ -324,7 +324,7 @@ export default function AccountForm() {
                         value={formData.address}
                         placeholder="1234 Main St"
                         onChange={(e) => handleChange(e)}
-                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                     />
                 </div>
 
@@ -337,7 +337,7 @@ export default function AccountForm() {
                         value={formData.city}
                         onChange={(e) => handleChange(e)}
                         placeholder="Los Angeles"
-                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                     />
                 </div>
                 <div>
@@ -349,7 +349,7 @@ export default function AccountForm() {
                         value={formData.zip_code}
                         onChange={(e) => handleChange(e)}
                         placeholder="12345"
-                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                     />
                 </div>
 
@@ -362,7 +362,7 @@ export default function AccountForm() {
                         value={formData.country}
                         onChange={(e) => handleChange(e)}
                         placeholder="United States"
-                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                     />
                 </div>
                 <div>
@@ -374,7 +374,7 @@ export default function AccountForm() {
                         value={formData.state}
                         onChange={(e) => handleChange(e)}
                         placeholder="California"
-                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                     />
                 </div>
 
@@ -387,7 +387,7 @@ export default function AccountForm() {
                         value={formData.phone}
                         onChange={(e) => handleChange(e)}
                         placeholder="123-456-7890"
-                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                        className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                     />
                 </div>
                 <hr />

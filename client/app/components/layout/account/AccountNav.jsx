@@ -9,14 +9,14 @@ export default function AccountNav() {
                 name={"Account"}
                 link="/account"
                 button={true}
-                className="bg-groovy-red bg-opacity-25 border-l-4 border-groovy-red border-opacity-100 rounded-md w-full py-1 transition-all text-2xl flex items-center px-5">
+                className="bg-groovy-red bg-opacity-20 border-l-4 border-groovy-red border-opacity-100 shadow-md rounded-r-lg w-full py-1 transition-all text-2xl flex items-center px-5">
                 <Icon icon="user" size="2x" color="black" className="mr-3" />
             </ListItem>
             <ListItem
                 name={"Orders"}
                 link="/account/orders"
                 button={true}
-                className="bg-groovy-red bg-opacity-25 border-l-4 border-groovy-red border-opacity-100 rounded-md w-full py-1 transition-all text-2xl flex items-center px-5">
+                className="bg-groovy-red bg-opacity-20 border-l-4 border-groovy-red border-opacity-100 shadow-md rounded-r-lg  w-full py-1 transition-all text-2xl flex items-center px-5">
                 <Icon
                     icon="bookmark"
                     size="2x"
@@ -28,7 +28,7 @@ export default function AccountNav() {
                 link="/account/password"
                 name={"Password"}
                 button={true}
-                className="bg-groovy-red bg-opacity-25 border-l-4 border-groovy-red border-opacity-100 rounded-md w-full py-1 transition-all text-2xl flex items-center px-5">
+                className="bg-groovy-red bg-opacity-20 border-l-4 border-groovy-red border-opacity-100  shadow-md rounded-r-md w-full py-1 transition-all text-2xl flex items-center px-5">
                 <Icon icon="lock" size="2x" color="black" className="mr-3" />
             </ListItem>
         </List>

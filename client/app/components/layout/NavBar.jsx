@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../ui/Button";
 import Logo from "../ui/Logo";
 import { useMediaQuery } from "@mui/material";
@@ -10,12 +10,14 @@ import Hamburger from "../ui/hamburger/Hamburger";
 import LoginLogout from "../ui/LoginLogout";
 import ShoppingCart from "../ui/ShoppingCart";
 import Icon from "../ui/Icon";
+import PopupForm from "../ui/PopupForm";
+import Contact from "./contact/Contact";
 
 const NavBar = () => {
     const isMediumScreen = useMediaQuery("(min-width: 768px)");
 
-    const [hamOpen, setHamOpen] = React.useState(false);
-    const [contactOpen, setContactOpen] = React.useState(false);
+    const [hamOpen, setHamOpen] = useState(false);
+    const [contactOpen, setContactOpen] = useState(false);
 
     useEffect(() => {
         if (contactOpen)
@@ -27,21 +29,9 @@ const NavBar = () => {
     return (
         <nav className="bg-gray-100 rounded-bl-xl rounded-br-xl shadow-md">
             {/* What displays when the contact form is open */}
-            {
-                
-                contactOpen && (
-                    <div className="fixed top-0 left-0 w-full h-full z-50 flex items-center justify-center backdrop-blur-md backdrop-brightness-50">
-                        <div className="absolute bg-white w-full max-w-md rounded-lg p-6">
-                            //contact form content here
-                            <Button
-                                className="absolute top-2 right-2 text-gray-500"
-                                onClick={() => setContactOpen(false)}>
-                                <Icon icon="times" size="" />
-                            </Button>
-                        </div>
-                    </div>
-                )
-            }
+            {contactOpen && (
+                <Contact onClick={() => setContactOpen(!contactOpen)} />
+            )}
             <div className="m-auto w-5/6">
                 {/* // Responsive navbar removes HOME and CONTACT buttons from the top */}
                 {isMediumScreen ? (
@@ -59,7 +49,7 @@ const NavBar = () => {
                     />
                 )}
                 {/* // Responsive shows the hamburger menu on small screens */}
-                <div className="py-4 flex justify-between items-center border-b-2 border-opacity-20 ">
+                <div className="py-4 flex justify-between items-center  ">
                     {isMediumScreen ? (
                         <>
                             <List className="flex gap-6 ">
@@ -93,7 +83,7 @@ const NavBar = () => {
                     ) : (
                         <>
                             <Hamburger onClick={() => setHamOpen(!hamOpen)} />
-                            <List className="flex items-center gap-6">
+                            <List className="flex items-center gap-6 ">
                                 <ListItem>
                                     <Icon
                                         link="/account"
@@ -113,8 +103,8 @@ const NavBar = () => {
                 {/* // What displays when the hamburger menu is open */}
                 {hamOpen && (
                     <div
-                        className={`flex justify-between border-b-2 transition-all duration-500 transform mt-4`}>
-                        <List className="flex flex-col gap-6 w-fit">
+                        className="flex justify-between pt-4 border-t-2 border-opacity-20">
+                        <List className="flex flex-col gap-6 w-fit border-b-2 border-opacity-20">
                             <ListItem link="/category/womens" name="WOMENS" />
                             <ListItem link="/category/mens" name="MENS" />
                             <ListItem link="/category/kids" name="KIDS" />
@@ -128,8 +118,9 @@ const NavBar = () => {
                             <ListItem
                                 name="CONTACT"
                                 button={true}
-                                onClick={() => setContactOpen(!contactOpen)}/>
-                                
+                                onClick={() => setContactOpen(!contactOpen)}
+                            />
+
                             <ListItem>
                                 <LoginLogout />
                             </ListItem>

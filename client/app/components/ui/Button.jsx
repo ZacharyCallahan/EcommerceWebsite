@@ -9,6 +9,6 @@ export default function Button({ children, link, className, onClick }) {
             </Link>
         );
     } else {
-        return <button onClick={onClick} className={`text-lg font-medium ${className}`}>{children}</button>;
+        return <button onClick={onClick} className={`text-lg ${className}`}>{children}</button>;
     }
 }

@@ -19,7 +19,7 @@ const Checkout = () => {
                                     id="email"
                                     value="{{ user.email or '' }}"
                                     placeholder="johndoe@gmail.com"
-                                    className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                                    className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                 />
                             </div>
                             <div className="flex flex-col">
@@ -30,7 +30,7 @@ const Checkout = () => {
                                     id="phone"
                                     placeholder="123-456-7890"
                                     value="{{ user.phone or '' }}"
-                                    className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                                    className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                 />
                             </div>
                         </div>
@@ -43,7 +43,7 @@ const Checkout = () => {
                                     id="first_name"
                                     value="{{ user.first_name or '' }}"
                                     placeholder="John"
-                                    className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                                    className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                 />
                             </div>
                             <div className="flex flex-col mb-5">
@@ -54,7 +54,7 @@ const Checkout = () => {
                                     id="last_name"
                                     value="{{ user.last_name or '' }}"
                                     placeholder="Doe"
-                                    className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                                    className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                 />
                             </div>
                         </div>
@@ -66,7 +66,7 @@ const Checkout = () => {
                                 id="address"
                                 value="{{ user.address or ''}}"
                                 placeholder="1234 Main St"
-                                className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                                className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                             />
                         </div>
                         <div className="space-y-5 sm:grid sm:grid-cols-2 sm:gap-5  sm:space-y-0">
@@ -78,7 +78,7 @@ const Checkout = () => {
                                     id="city"
                                     value="{{ user.city or '' }}"
                                     placeholder="New York"
-                                    className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                                    className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                 />
                             </div>
                             <div className="flex flex-col">
@@ -89,7 +89,7 @@ const Checkout = () => {
                                     id="state"
                                     value="{{ user.state or '' }}"
                                     placeholder="NY"
-                                    className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                                    className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                 />
                             </div>
                             <div className="flex flex-col">
@@ -100,7 +100,7 @@ const Checkout = () => {
                                     id="zip_code"
                                     value="{{ user.zip_code or '' }}"
                                     placeholder="10001"
-                                    className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                                    className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                 />
                             </div>
                             <div className="flex flex-col">
@@ -111,7 +111,7 @@ const Checkout = () => {
                                     id="country"
                                     value="{{ user.country or '' }}"
                                     placeholder="United States"
-                                    className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                                    className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                 />
                             </div>
                         </div>

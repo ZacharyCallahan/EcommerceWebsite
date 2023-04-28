@@ -4,7 +4,8 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['assets.myntassets.com'],
+    domains: ['assets.myntassets.com', 'tailwindui.com'],
+
   }
 }
 

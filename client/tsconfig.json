@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "app/components/ui/slider/SliderImage.jsx", "app/components/ui/slider/Slider.jsx", "app/components/ui/slider/SliderLogo.jsx"  ],
+, "app/components/ui/slider/SliderImage.jsx", "app/components/ui/slider/Slider.jsx", "app/components/ui/slider/SliderLogo.jsx", "app/(main)/product/[id]/page.jsx", "app/components/layout/contact/Contact.jsx"  ],
   "exclude": [
     "node_modules"
   ]

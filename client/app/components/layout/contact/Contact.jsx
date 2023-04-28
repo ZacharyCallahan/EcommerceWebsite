@@ -1,9 +1,11 @@
-export default function () {
+import PopupForm from "../../ui/PopupForm";
+
+export default function ({ onClick }) {
     return (
-        <div className="w-5/6 m-auto flex gap-5">
-            <div className="bg-gray-100 shadow-md rounded-md p-4 space-y-5 grow-[2]">
-                <div className="space-y-2">
-                    <h1 className="text-2xl font-bold">
+        <PopupForm onClick={onClick}>
+            <div className="rounded-md space-y-5 ">
+                <div className="space-y-2 w-fit">
+                    <h1 className="text-xl sm:text-2xl font-bold">
                         Have a question? Shoot us a message.
                     </h1>
                     <p>We are here 24/7 to support you.</p>
@@ -16,7 +18,7 @@ export default function () {
                             name="full_name"
                             id="full_name"
                             placeholder="John Doe"
-                            className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                             required
                         />
                     </div>
@@ -27,7 +29,7 @@ export default function () {
                             name="email"
                             id="email"
                             placeholder="johndoe@gmail.com"
-                            className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                             required
                         />
                     </div>
@@ -36,7 +38,7 @@ export default function () {
                         <select
                             name="subject"
                             id="subject"
-                            className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200">
+                            className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -49,7 +51,7 @@ export default function () {
                             id="message"
                             cols={30}
                             rows={10}
-                            className="mt-2 text-slate-900 bg-white rounded-md px-3 h-20 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"></textarea>
+                            className="mt-2 text-slate-900 bg-white rounded-md px-3 h-20 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"></textarea>
                     </div>
                     <button
                         type="submit"
@@ -58,27 +60,6 @@ export default function () {
                     </button>
                 </form>
             </div>
-            <div className="bg-gray-100 rounded-md shadow-md p-4 space-y-5 grow h-fit">
-                <div className="flex items-center gap-3">
-                    <i className="fa fa-location-arrow text-2xl w-8"></i>
-                    <p>
-                        Returns/Exchange, 124 Main St Los Angeles, CA 12345, USA
-                    </p>
-                </div>
-                <div className="flex items-center gap-3">
-                    <i className="fa fa-envelope text-2xl w-8"></i>
-                    <p>example@company.com</p>
-                </div>
-                <div className="flex items-center gap-3">
-                    <i className="fa fa-phone text-2xl w-8"></i>
-                    <p>123-456-7890</p>
-                </div>
-
-                <div className="space-y-2">
-                    <h1 className="text-2xl font-bold">Contact Us</h1>
-                    <p>We are will have your back 24/7. Don't worry!</p>
-                </div>
-            </div>
-        </div>
+        </PopupForm>
     );
 }

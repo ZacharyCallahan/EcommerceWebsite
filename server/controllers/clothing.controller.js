@@ -11,7 +11,7 @@ const createNewClothing = (req, res) => {
 };
 
 const getAllClothings = (req, res) => {
-    Clothing.find()
+    Clothing.find({})
         .then((clothings) => {
             res.json(clothings);
         })
@@ -29,8 +29,13 @@ const getOneClothing = (req, res) => {
             res.status(400).json({ err });
         });
 };
+const sendData = (req, res) => {
+    res.send("Working");
+};
+
 module.exports = {
     createNewClothing,
     getAllClothings,
     getOneClothing,
+    sendData
 };

@@ -6,7 +6,7 @@ export default function AccountLayout({
     return (
         <section className="bg-gray-100">
             {/* <div className="w-5/6 m-auto flex py-4 gap-5 shrink-0 "> */}
-            <div className="w-5/6 m-auto py-4 space-y-12 sm:flex sm:space-y-0  sm:gap-5 ">
+            <div className="w-5/6 m-auto py-4 space-y-5 sm:flex sm:space-y-0  sm:gap-5 ">
                 <AccountNav />
 
                 {children}

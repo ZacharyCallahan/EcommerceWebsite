@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
+    }
+  ],
+  "env": {
+    "MONGODB_URI": "mongodb+srv://groovygear:9jUS0Y9p2pfGJ3II@groovygear.gm99cr5.mongodb.net/?retryWrites=true&w=majority"
+  },
+  "build": {
+    "env": {
+      "NODE_OPTIONS": "--loader ts-node/esm"
+    }
+  }
+}

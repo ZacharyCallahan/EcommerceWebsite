@@ -15,7 +15,7 @@ const page = () => {
                         name="email"
                         id="email"
                         placeholder="johndoe@gmail.com"
-                        className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-purple ring-1 ring-slate-200"
+                        className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-purple ring-1 ring-slate-200 appearance-none"
                         required
                     />
                 </div>
@@ -28,7 +28,7 @@ const page = () => {
                         name="password"
                         id="password"
                         placeholder="Abcd123!@#"
-                        className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-purple ring-1 ring-slate-200"
+                        className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-purple ring-1 ring-slate-200 appearance-none"
                         required
                     />
                 </div>
@@ -48,6 +48,6 @@ const page = () => {
             </p>
         </main>
     );
-}
+};
 
 export default page;

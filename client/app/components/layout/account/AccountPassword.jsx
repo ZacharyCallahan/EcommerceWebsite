@@ -17,8 +17,8 @@ const AccountPassword = () => {
             </Header>
 
             <form onSubmit={handleSubmit}>
-                <div className="grid grid-cols-fluid gap-5">
-                    <div className="flex flex-col mb-5">
+                <div className="grid grid-cols-fluid gap-5 mb-5">
+                    <div className="flex flex-col">
                         <label htmlFor="old_password" className="font-bold">
                             Current Password:
                         </label>
@@ -27,11 +27,11 @@ const AccountPassword = () => {
                             name="old_password"
                             id="old_password"
                             placeholder="Abcd123!@#"
-                            className=" mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            className=" mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                             required
                         />
                     </div>
-                    <div className="flex flex-col mb-5">
+                    <div className="flex flex-col">
                         <label htmlFor="new_password" className="font-bold">
                             New Password:
                         </label>
@@ -40,11 +40,11 @@ const AccountPassword = () => {
                             name="new_password"
                             id="new_password"
                             placeholder="Abcd123!@#"
-                            className=" mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            className=" mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                             required
                         />
                     </div>
-                    <div className="flex flex-col mb-5">
+                    <div className="flex flex-col">
                         <label htmlFor="confirm_password" className="font-bold">
                             Confirm Password:
                         </label>
@@ -53,14 +53,15 @@ const AccountPassword = () => {
                             name="confirm_password"
                             id="confirm_password"
                             placeholder="Abcd123!@#"
-                            className=" mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200"
+                            className=" mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                             required
                         />
                     </div>
                 </div>
+                <hr />
                 <button
                     type="submit"
-                    className="bg-groovy-red text-white rounded-md h-10 px-3 py-2 shadow-md hover:bg-groovy-red-dark focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200">
+                    className="bg-groovy-red mt-5 text-white rounded-md h-10 px-3 py-2 shadow-md hover:bg-groovy-red-dark focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none">
                     Update Password
                 </button>
             </form>

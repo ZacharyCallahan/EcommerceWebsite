@@ -115,27 +115,29 @@
 .height-enter {
     opacity: 0;
     height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0;
 }
 
 .height-enter-active {
     opacity: 1;
-    height: 190px;
-    padding-top: 5;
-    padding-bottom: 5;
-    transition: height 300ms ease-in-out, padding 300ms ease-in-out, opacity 500ms ease-in-out;
+    height: 230px;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    transition: height 300ms ease-in-out, padding 300ms ease-in-out,
+        opacity 500ms ease-in-out;
 }
 
 .height-exit {
     opacity: 1;
-    height: 190px;
-    padding-top: 5;
-    padding-bottom: 5;
+    height: 230px;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
 }
 
 .height-exit-active {
     opacity: 0;
     height: 0;
-    transition: height 300ms ease-in-out, padding 300ms ease-in-out, opacity 150ms ease-in-out;
+    padding: 0;
+    transition: height 300ms ease-in-out, padding 300ms ease-in-out,
+        opacity 150ms ease-in-out;
 }

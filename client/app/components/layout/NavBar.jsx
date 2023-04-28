@@ -109,7 +109,7 @@ const NavBar = () => {
                     unmountOnExit>
                     <div
                         className={`${
-                            hamOpen && "h-fit border-t-2 border-opacity-2"
+                            hamOpen && "h-fit border-t-2 border-opacity-2 py-5"
                         }  flex justify-between `}>
                         <List className="flex flex-col gap-5 border-opacity-20">
                             <ListItem link="/category/womens" name="WOMENS" />

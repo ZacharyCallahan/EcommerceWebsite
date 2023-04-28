@@ -21,6 +21,51 @@
     background-position-y: 80%;
 }
 
+.women-cover-1 {
+    background-image: url(../public/women-1.jpg);
+    background-position-y: 0%;
+}
+.women-cover-2 {
+    background-image: url(../public/women-2.webp);
+    background-position-y: 20%;
+}
+.women-cover-3 {
+    background-image: url(../public/women-3.webp);
+    background-position-y: 20%;
+}
+.women-cover-4 {
+    background-image: url(../public/women-4.webp);
+    background-position-y: 0%;
+}
+
+.product-cover-1 {
+    background-image: url(../public/women-product-1.jpg);
+    background-position-y: 50%;
+    background-position-x: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.product-cover-2 {
+    background-image: url(../public/women-product-2.jpg);
+    background-position-y: 0%;
+    background-position-x: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.product-cover-3 {
+    background-image: url(../public/women-product-3.webp);
+    background-position-y: 0%;
+    background-position-x: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.product-cover-4 {
+    background-image: url(../public/women-product-4.jpg);
+    background-position-y: 50%;
+    background-position-x: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .table-row:nth-child(odd) {
     @apply bg-gray-100;
 }
@@ -76,6 +121,23 @@
     transform: translateY(-8px) rotate(-45deg);
 }
 
+.filter-enter {
+    width: 0;
+}
+
+.filter-enter-active {
+    width: 100%;
+    transition: width 300ms ease-in-out;
+}
+
+.filter-exit {
+    width: 100%;
+}
+
+.filter-exit-active {
+    width: 0;
+    transition: width 300ms ease-in-out;
+}
 .width-enter {
     width: 83.2px;
 }

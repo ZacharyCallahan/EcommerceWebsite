@@ -1,7 +1,7 @@
-'use client'
+"use client";
 import { Children, useState, useEffect } from "react";
 
-function Slider({ children }) {
+function Slider({ children, className }) {
     const childArray = Children.toArray(children);
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
@@ -15,9 +15,8 @@ function Slider({ children }) {
     const currentSlide = childArray[currentSlideIndex];
 
     return (
-        <div className="relative slider transition">
-    
-                {currentSlide}
+        <div className={`relative slider transition ${className}`}>
+            {currentSlide}
         </div>
     );
 }

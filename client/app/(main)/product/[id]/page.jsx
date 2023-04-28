@@ -215,7 +215,7 @@ const page = () => {
                     </div>
                 </div>
             </div>
-            <div className="py-16 w-5/6 m-auto ">
+            <div className="py-16">
                 <h2 className="text-2xl font-bold border-b-2 pb-5">
                     Recent reviews
                 </h2>

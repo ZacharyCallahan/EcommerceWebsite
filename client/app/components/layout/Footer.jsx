@@ -8,7 +8,7 @@ export default function Footer() {
     return (
         <footer className="bg-gray-100 rounded-tl-xl rounded-tr-xl shadow-md">
             <div className="w-5/6 m-auto">
-                <div className="border-b-2 border-opacity-20 py-7 sm:flex sm:justify-between">
+                <div className="border-b-2 border-opacity-20 py-5 sm:flex sm:justify-between">
                     <Logo headerClass="text-xl " imageClass="w-8" />
                     <List className="flex flex-row gap-3 justify-center">
                         <Header>Follow us:</Header>
@@ -18,7 +18,7 @@ export default function Footer() {
                         <Icon icon="pinterest" color="groovy-red" />
                     </List>
                 </div>
-                <div className="text-center mt-7 space-y-12 sm:grid sm:space-y-0 sm:grid-cols-3">
+                <div className="text-center mt-5 space-y-5 sm:grid sm:space-y-0 sm:grid-cols-3">
                     <List>
                         <Header className="font-bold text-lg">
                             Information
@@ -54,7 +54,7 @@ export default function Footer() {
                     </List>
                 </div>
             </div>
-            <p className="text-center py-16">
+            <p className="text-center py-5 opacity-50 text-sm">
                 Made by Zachary Callahan. Copyright © 2023
             </p>
         </footer>

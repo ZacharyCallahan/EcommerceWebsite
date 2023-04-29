@@ -7,13 +7,13 @@ export default function Logo({ imageClass, headerClass, className }) {
         <Button
             link="/"
             className={`flex justce items-center flex-col ${className}`}>
-            <div className="flex items-center">
+            <div className="flex items-center mb-5 sm:mb-0">
                 <Image
                     src={logo}
                     alt="Logo"
                     width={1000}
                     height={1000}
-                    className={`w-12 mr-3 mb-5 sm:mb-0 ${imageClass}`}
+                    className={`w-12 mr-3 ${imageClass}`}
                 />
                 <h1 className={`text-2xl font-bold ${headerClass}`}>
                     GROOVY GEAR

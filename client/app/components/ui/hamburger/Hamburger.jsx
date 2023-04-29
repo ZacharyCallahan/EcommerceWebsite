@@ -12,7 +12,6 @@ export default function Hamburger({ onClick, hamRef }) {
 
     const handleClickInside = (e) => {
         if (hamRef.current && hamRef.current.contains(e.target)) {
-            console.log(e.target);
             setOpen(false);
         }
     };

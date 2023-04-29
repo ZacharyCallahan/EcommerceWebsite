@@ -32,11 +32,14 @@ const NavBar = () => {
     };
 
     useEffect(() => {
-        document.addEventListener("click", handleClickOutside);
-        return () => {
-            document.removeEventListener("click", handleClickOutside);
-        };
-    }, []);
+        if (!isMediumScreen) {
+
+            document.addEventListener("click", handleClickOutside);
+            return () => {
+                document.removeEventListener("click", handleClickOutside);
+            };
+        }
+    }, [isMediumScreen]);
 
     useEffect(() => {
         if (contactOpen) document.body.style.overflow = "hidden";

@@ -13,7 +13,7 @@ export default function Logo({ imageClass, headerClass, className }) {
                     alt="Logo"
                     width={1000}
                     height={1000}
-                    className={`w-12 mr-3 ${imageClass}`}
+                    className={`w-12 mr-3 mb-5 sm:mb-0 ${imageClass}`}
                 />
                 <h1 className={`text-2xl font-bold ${headerClass}`}>
                     GROOVY GEAR

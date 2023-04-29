@@ -16,7 +16,7 @@ const Womens = () => {
                 <SliderImage imageCSSClass="women-cover-4" />
             </Slider>
             <Trends />
-            <ProductSection />
+            <ProductSection category={ "womens" } />
             <Section>
                 <Product />
                 <Product />

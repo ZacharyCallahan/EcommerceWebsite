@@ -203,3 +203,20 @@
     transition: height 300ms ease-in-out, padding 300ms ease-in-out,
         opacity 150ms ease-in-out;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+    background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #D0515C;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #a33e47;
+}

@@ -1,6 +1,7 @@
 import ProductLogo from "../section/ProductLogo";
-const ProductSection = () => {
+const ProductSection = ({ category }) => {
     return (
+        
         <div className="grid grid-cols-product-fluid h-[720px] ">
             <div className="product-cover-3 h-full flex justify-center">
                 <ProductLogo headerContent={"All your essential needs"} />

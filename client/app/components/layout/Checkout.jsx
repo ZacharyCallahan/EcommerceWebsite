@@ -1,14 +1,15 @@
 const Checkout = () => {
     return (
         <section className="bg-gray-100  space-y-32 pb-32">
+            <h2 className="mb-5 font-bold text-2xl">
+                        Contact Information
+                    </h2>
+            <div className="bg-white p-4 rounded-md shadow-md">
             <form
                 action="/process_checkout"
                 method="post"
                 className="w-5/6 m-auto space-y-12 py-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-5">
                 <div>
-                    <h2 className="mb-5 font-bold text-2xl">
-                        Contact Information
-                    </h2>
                     <div>
                         <div className="border-b-2 mb-5 pb-5">
                             <div className="flex flex-col mb-5">
@@ -116,6 +117,7 @@ const Checkout = () => {
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
                 <div>
                     <h2 className="mb-5 font-bold text-2xl">Order summary</h2>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Button from "../ui/Button";
 import Logo from "../ui/Logo";
 import { useMediaQuery } from "@mui/material";
@@ -19,16 +19,34 @@ const NavBar = () => {
 
     const [hamOpen, setHamOpen] = useState(false);
     const [contactOpen, setContactOpen] = useState(false);
+    const hamRef = useRef(null);
+
+    const handleClickOutside = (e) => {
+        if (!hamRef.current.contains(e.target) && hamRef.current) {
+            setHamOpen(false);
+        }
+    };
+
+    const handleHamClick = () => {
+        setHamOpen(!hamOpen);
+    };
 
     useEffect(() => {
-        if (contactOpen)
-            document.body.style.overflow = "hidden";
-        else
-            document.body.style.overflow = "unset";
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (contactOpen) document.body.style.overflow = "hidden";
+        else document.body.style.overflow = "unset";
     }, [contactOpen]);
 
     return (
-        <nav className="bg-gray-100 rounded-bl-xl rounded-br-xl shadow-md">
+        <nav
+            className="bg-gray-100 rounded-bl-xl rounded-br-xl shadow-md"
+            ref={hamRef}>
             {/* What displays when the contact form is open */}
             {contactOpen && (
                 <Contact onClick={() => setContactOpen(!contactOpen)} />
@@ -53,6 +71,7 @@ const NavBar = () => {
                 <div className="py-4 flex justify-between items-center  ">
                     {isMediumScreen ? (
                         <>
+                            {hamOpen && setHamOpen(false)}
                             <List className="flex gap-6 ">
                                 <ListItem
                                     link="/category/womens"
@@ -83,7 +102,10 @@ const NavBar = () => {
                         </>
                     ) : (
                         <>
-                            <Hamburger onClick={() => setHamOpen(!hamOpen)} />
+                            <Hamburger
+                                onClick={handleHamClick}
+                                hamRef={hamRef}
+                            />
                             <List className="flex items-center gap-6 ">
                                 <ListItem>
                                     <Icon
@@ -112,7 +134,13 @@ const NavBar = () => {
                             hamOpen && "h-fit border-t-2 border-opacity-2 py-5"
                         }  flex justify-between `}>
                         <List className="flex flex-col gap-5 border-opacity-20">
-                            <ListItem link="/category/womens" name="WOMENS" />
+                            <ListItem
+                                link="/category/womens"
+                                name="WOMENS"
+                                onClick={() => {
+                                    setHamOpen(false);
+                                }}
+                            />
                             <ListItem link="/category/mens" name="MENS" />
                             <ListItem link="/category/kids" name="KIDS" />
                             <ListItem

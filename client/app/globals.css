@@ -79,8 +79,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+
     cursor: pointer;
 }
 
@@ -99,6 +98,7 @@
     height: 2px;
     background-color: #000;
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    
 }
 
 .hamburger span:nth-child(1) {

@@ -8,7 +8,7 @@ export default function Footer() {
     return (
         <footer className="bg-gray-100 rounded-tl-xl rounded-tr-xl shadow-md">
             <div className="w-5/6 m-auto">
-                <div className="border-b-2 border-opacity-20 py-5 sm:flex sm:justify-between">
+                <div className="border-b-2 border-opacity-20 py-5 sm:flex sm:justify-between sm:items-center">
                     <Logo headerClass="text-xl " imageClass="w-8" />
                     <List className="flex flex-row gap-3 justify-center">
                         <Header>Follow us:</Header>

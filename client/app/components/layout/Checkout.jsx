@@ -1,16 +1,11 @@
 const Checkout = () => {
     return (
         <section className="bg-gray-100  space-y-32 pb-32">
-            <h2 className="mb-5 font-bold text-2xl">
-                        Contact Information
-                    </h2>
-            <div className="bg-white p-4 rounded-md shadow-md">
             <form
                 action="/process_checkout"
                 method="post"
                 className="w-5/6 m-auto space-y-12 py-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-5">
                 <div>
-                    
                     <div className="bg-white p-5 rounded-md shadow-md gap-5 h-fit">
                         <h2 className="mb-5 font-bold text-2xl">
                             Contact Information

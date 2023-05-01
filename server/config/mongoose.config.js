@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 //This will create a database named "person" if one doesn't already exist (no need for mongo shell!):
-mongoose.connect("mongodb+srv://groovygear:9jUS0Y9p2pfGJ3II@groovygear.gm99cr5.mongodb.net/?retryWrites=true&w=majority", {
+mongoose.connect("mongodb://127.0.0.1:27017/groovygear", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })

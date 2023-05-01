@@ -10,7 +10,6 @@ import Hamburger from "../ui/hamburger/Hamburger";
 import LoginLogout from "../ui/LoginLogout";
 import ShoppingCart from "../ui/ShoppingCart";
 import Icon from "../ui/Icon";
-import PopupForm from "../ui/PopupForm";
 import Contact from "./contact/Contact";
 import { CSSTransition } from "react-transition-group";
 

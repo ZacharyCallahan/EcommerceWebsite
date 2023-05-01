@@ -7,7 +7,7 @@ export default function Logo({ imageClass, headerClass, className }) {
         <Button
             link="/"
             className={`flex justce items-center flex-col ${className}`}>
-            <div className="flex items-center mb-5 sm:mb-0">
+            <div className="flex items-center">
                 <Image
                     src={logo}
                     alt="Logo"

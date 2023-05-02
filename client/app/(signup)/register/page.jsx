@@ -69,7 +69,7 @@ const page = () => {
             return;
         }
         axios
-            .post("http://localhost:8000/api/register", formData)
+            .post("http://localhost:8000/api/register", formData, {withCredentials: true})
             .then((res) => {
                 console.log(res);
                 setErrors(res.data)

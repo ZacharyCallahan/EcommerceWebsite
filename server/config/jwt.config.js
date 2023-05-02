@@ -3,7 +3,7 @@ const secret = process.env.SECRET_KEY;
 // module.exports.secret = secret;
 
 module.exports.authenticate = (req, res, next) => {
-    jwt.verify(req.cookies.userToken, secret, (err, payload) => {
+    jwt.verify(req.cookies.userCookie, secret, (err, payload) => {
         
         console.log("payload: ", payload);
         

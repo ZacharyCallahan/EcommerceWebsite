@@ -4,7 +4,7 @@ const { authenticate } = require("../config/jwt.config");
 module.exports = app => {
     app.post('/api/register', Users.registerUser);
     app.post('/api/login', Users.loginUser);
-    app.get('/api/users/logout', Users.logout);
+    app.post('/api/users/logout', Users.logout);
 
     //check if user is logged in
     app.get("/api/users/loggedin", Users.isLoggedIn);

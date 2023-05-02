@@ -19,7 +19,7 @@ module.exports = {
                 console.log(req.body)
                 console.log(newUser._id)
                 //generates a jsonwebtoken string
-                const userToken = jwt.sign(
+                const userCookie = jwt.sign(
                     { _id: newUser._id, email: newUser.email }, //cookie payload for browser
                     secret, //this will be used as a key to verify cookie creation (jwt sign)
                     { expiresIn: '2h' } //browser will clear the cookie after two hours
@@ -28,9 +28,9 @@ module.exports = {
                 res
                     .status(201)
                     .cookie(
-                        'userToken',
-                        userToken,
-                        { httpOnly: true, maxAge: 2 * 60 * 60 * 1000, secure: true, path: '/' }) //sets to 72million seconds for cookie age
+                        'userCookie',
+                        userCookie,
+                        { httpOnly: true, maxAge: 2 * 60 * 60 * 1000 }) //sets to 72million seconds for cookie age
                     .json(newUser) //succesful creation of user and cookie
             }
         }
@@ -62,11 +62,11 @@ module.exports = {
             };
 
             // if we made it this far, the password was correct
-            const userToken = jwt.sign(payload, process.env.SECRET_KEY);
+            const userCookie = jwt.sign(payload, process.env.SECRET_KEY);
 
 
             // note that the response object allows chained calls to cookie and json
-            res.status(201).cookie("userToken", userToken, { httpOnly: true }).json(user);
+            res.status(201).cookie("userCookie", userCookie, { httpOnly: true }).json(user);
 
             console.log(res)
         } catch (err) {
@@ -78,13 +78,13 @@ module.exports = {
 
 
     logout: (req, res) => {
-        
-        res.clearCookie('userToken');
+    
+        res.clearCookie('userCookie');
         res.sendStatus(200);
     },
 
     isLoggedIn: (req, res) => {
-        const decodedJWT = jwt.decode(req.cookies.userToken, { complete: true });
+        const decodedJWT = jwt.decode(req.cookies.userCookie, { complete: true });
 
         User.findById(decodedJWT.payload.id)
             .then(user => res.json(user))
@@ -100,10 +100,10 @@ module.exports = {
                 //check to see if password entered matches password in DB
                 const passwordsMatch = await bcrypt.compare(req.body.password, user.password)
                 if (passwordsMatch) { //they match!
-                    //generate the userToken
-                    const userToken = jwt.sign({ _id: user._id, email: user.email }, secret, { expiresIn: '2h' })
+                    //generate the userCookie
+                    const userCookie = jwt.sign({ _id: user._id, email: user.email }, secret, { expiresIn: '2h' })
                     //log the user in
-                    res.status(201).cookie('userToken', userToken, { httpOnly: true, maxAge: 2 * 60 * 60 * 1000 }).json(user)
+                    res.status(201).cookie('userCookie', userCookie, { httpOnly: true, maxAge: 2 * 60 * 60 * 1000 }).json(user)
                 }
                 else { //passwords don't match but email does
                     res.status(400).json({ message: "Invalid email/password combination" })

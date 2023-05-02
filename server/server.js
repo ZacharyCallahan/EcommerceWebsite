@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(cookieParser());
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+app.use(cors({ credentials: true, origin: true }));
 require("./routes/clothing.routes")(app);
 require("./routes/user.routes")(app);
 

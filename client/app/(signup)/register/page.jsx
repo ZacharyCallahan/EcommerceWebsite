@@ -1,9 +1,9 @@
 "use client";
-import { useRouter } from "next/navigation";
 import Button from "../../components/ui/Button";
 import Logo from "../../components/ui/Logo";
 import axios from "axios";
 import { useState } from "react";
+
 
 const validateForm = (formData) => {
     const errors = {};
@@ -59,6 +59,8 @@ const page = () => {
 
     const [errors, setErrors] = useState({});
 
+
+
     const submitHandler = (e) => {
         e.preventDefault();
         const formErrors = validateForm(formData);
@@ -70,8 +72,8 @@ const page = () => {
             .post("http://localhost:8000/api/register", formData)
             .then((res) => {
                 console.log(res);
-                setErrors({});
-                useRouter().push("/");
+                setErrors(res.data)
+                window.location.href = "/";
             })
             .catch((err) => {
                 console.log(err);

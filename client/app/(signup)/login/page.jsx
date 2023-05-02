@@ -3,10 +3,11 @@ import axios from "axios";
 import Button from "../../components/ui/Button";
 import Logo from "../../components/ui/Logo";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 const validateForm = (formData) => {
     const errors = {};
+
+
 
     if (!formData.email) {
         errors.email = "Email is required";
@@ -35,7 +36,6 @@ const page = () => {
         email: "",
         password: "",
     });
-
     const [errors, setErrors] = useState({});
 
     const submitHandler = (e) => {
@@ -50,7 +50,7 @@ const page = () => {
             .then((res) => {
                 console.log(res);
                 setErrors({});
-                useRouter().push("/");
+                // window.location.href = "/";
             })
             .catch((err) => {
                 console.log(err);
@@ -69,13 +69,11 @@ const page = () => {
             <Logo headerClass="text-3xl" imageClass="w-16" />
             <form onSubmit={submitHandler} className="w-[400px]">
                 <div className="flex flex-col my-5">
-                    {
-                        errors.msg && (
-                            <p className="text-black text-sm font-bold mt-4">
-                                {errors.msg}
-                            </p>
-                        )
-                    }
+                    {errors.msg && (
+                        <p className="text-black text-sm font-bold mt-4">
+                            {errors.msg}
+                        </p>
+                    )}
                     <label htmlFor="email" className="font-bold">
                         Email address:
                     </label>

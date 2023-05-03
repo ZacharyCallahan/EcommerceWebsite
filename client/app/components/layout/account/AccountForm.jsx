@@ -109,7 +109,7 @@ export default function AccountForm() {
     };
 
     return isSmallScreen ? (
-        <div className="flex grow-[3] flex-col bg-white p-5 rounded-md shadow-md gap-5 h-fit">
+        <div className="flex grow-[3] flex-col bg-white p-5 rounded-md shadow-md gap-5 ">
             <Header className="space-y-2">
                 <h2 className="text-3xl">Account Details</h2>
                 <p className="font-normal opacity-75">
@@ -257,7 +257,7 @@ export default function AccountForm() {
             </form>
         </div>
     ) : (
-        <div className="flex grow-[3] flex-col bg-white p-5 rounded-md shadow-md gap-5 h-fit">
+        <div className="flex grow-[3] flex-col bg-white p-5 rounded-md shadow-md gap-5 ">
             <Header className="space-y-2">
                 <h2 className="text-3xl">Account Details</h2>
                 <p className="font-normal opacity-75">

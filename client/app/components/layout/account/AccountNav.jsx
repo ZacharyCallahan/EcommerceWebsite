@@ -4,7 +4,7 @@ import ListItem from "../../ui/lists/ListItem";
 
 export default function AccountNav() {
     return (
-        <List className=" sm:flex w-full sm:w-80 sm:flex-col space-y-5 bg-white rounded-md shadow-md p-5 ">
+        <List className="sm:flex w-full sm:w-80 sm:flex-col space-y-5 bg-white rounded-md shadow-md p-5 ">
             <ListItem
                 name={"Account"}
                 link="/account"

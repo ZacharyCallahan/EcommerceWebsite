@@ -7,7 +7,7 @@ const AccountPassword = () => {
         console.log("Submitted");
     };
     return (
-        <div className="flex grow-[3] flex-col bg-white p-5 rounded-md shadow-md gap-5 h-fit">
+        <div className="flex grow-[3] flex-col bg-white p-5 rounded-md shadow-md gap-5 h-[640px]">
             <Header className="space-y-2">
                 <h2 className="text-3xl">Account Password</h2>
                 <p className="font-normal opacity-75">

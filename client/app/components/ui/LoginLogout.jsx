@@ -11,7 +11,6 @@ export default function LoginLogout() {
                 withCredentials: true,
             })
             .then((res) => {
-                console.log(res);
                 setIsLoggedIn(true);
             })
             .catch((err) => {
@@ -24,7 +23,6 @@ export default function LoginLogout() {
         axios
             .post("http://localhost:8000/api/logout", {}, {withCredentials: true})
             .then((res) => {
-                console.log(res);
                 setIsLoggedIn(false);
             })
             .catch((err) => {

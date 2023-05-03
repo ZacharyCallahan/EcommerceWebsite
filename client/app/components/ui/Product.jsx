@@ -4,18 +4,10 @@ import { useContext } from "react";
 import { AppStateContext } from "../../AppStateContext";
 import Button from "./Button";
 
-export default function Product() {
-    
-    const product = {
-        _id: "1636381",
-        image: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-        productDisplayName: "placeholder title",
-        price: 25,
-    };
-
+export default function Product({ product }) {
     return (
         <div className="p-4 grid grid-cols-1 content-between h-full bg-gray-100 shadow-lg rounded-md gap-5">
-            <Button link="/product/id" className="flex justify-center ">
+            <Button link={`/product/${product._id}`} className="flex justify-center ">
                 <Image
                     src={product.image}
                     alt=""
@@ -31,7 +23,11 @@ export default function Product() {
                     method="post"
                     className="flex justify-between items-center">
                     <p className="font-bold text-xl">${product.price}</p>
-                    <input type="hidden" name="product_id" value={product._id} />
+                    <input
+                        type="hidden"
+                        name="product_id"
+                        value={product._id}
+                    />
                     <input
                         type="hidden"
                         name="product_price"

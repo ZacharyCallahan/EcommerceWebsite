@@ -5,6 +5,7 @@ import Footer from "../components/layout/Footer";
 import NavBar from "../components/layout/NavBar";
 import "../globals.css";
 import { AppStateProvider } from "../AppStateContext";
+import { Suspense } from "react";
 
 const rubik = Rubik({ subsets: ["cyrillic"] });
 
@@ -24,8 +25,8 @@ export default function RootLayout({ children }) {
                 <ThemeProvider theme={theme}>
                     <AppStateProvider>
                         <NavBar />
-                        {children}
-                        <Footer />
+                            {children}
+                            <Footer />
                     </AppStateProvider>
                 </ThemeProvider>
             </body>

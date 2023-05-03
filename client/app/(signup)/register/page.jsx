@@ -71,12 +71,10 @@ const page = () => {
         axios
             .post("http://localhost:8000/api/register", formData, {withCredentials: true})
             .then((res) => {
-                console.log(res);
                 setErrors(res.data)
                 window.location.href = "/";
             })
             .catch((err) => {
-                console.log(err);
                 setErrors(err.response.data);
             });
     };

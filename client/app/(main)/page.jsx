@@ -16,7 +16,7 @@ import SliderLogo from "../components/ui/slider/SliderLogo";
 import { AppStateContext } from "../AppStateContext";
 
 export default function Home() {
-    const { state, dispatch } = useContext(AppStateContext);
+    const { state } = useContext(AppStateContext);
     const { products } = state;
 
     return (
@@ -85,12 +85,18 @@ export default function Home() {
                 </div>
                 {/* <!-- * PRODUCT SECTION ONE --> */}
                 <Section name="New Arrivals">
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
+                    {products
+                        .filter(
+                            (product) =>
+                                product.season === "Summer" &&
+                                product.usage === "Casual" &&
+                                product.masterCategory === "Apparel" &&
+                                product.subCategory === "Topwear"
+                        )
+                        .slice(0, 12)
+                        .map((product) => (
+                            <Product key={product._id} product={product} />
+                        ))}
                 </Section>
                 {/* main product */}
 
@@ -130,13 +136,12 @@ export default function Home() {
                 </MainSection>
                 {/* <!-- * PRODUCT SECTION TWO --> */}
                 <Section name="Best Sellers">
-                            <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    <Product />
-                    </Section>
+                    {products
+                        .slice(0, 6)
+                        .map((product) => (
+                            <Product key={product._id} product={product} />
+                        ))}
+                </Section>
             </div>
         </main>
     );

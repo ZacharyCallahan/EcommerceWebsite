@@ -40,10 +40,8 @@ export default function AccountForm() {
     const submitHandler = (e) => {
         e.preventDefault();
         if (!validateForm()) {
-            console.log(errors);
             return;
         }
-        console.log(formData);
     };
 
     const validateForm = () => {

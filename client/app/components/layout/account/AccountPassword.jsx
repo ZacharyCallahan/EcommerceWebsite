@@ -4,7 +4,6 @@ import Header from "../../ui/Header";
 const AccountPassword = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Submitted");
     };
     return (
         <div className="flex grow-[3] flex-col bg-white p-5 rounded-md shadow-md gap-5 h-[640px]">

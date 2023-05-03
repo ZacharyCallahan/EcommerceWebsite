@@ -46,11 +46,11 @@ const page = () => {
             return;
         }
         axios
-            .post("http://localhost:8000/api/login", formData)
+            .post("http://localhost:8000/api/login", formData, {withCredentials: true})
             .then((res) => {
                 console.log(res);
                 setErrors({});
-                // window.location.href = "/";
+                window.location.href = "/";
             })
             .catch((err) => {
                 console.log(err);

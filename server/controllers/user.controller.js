@@ -84,12 +84,20 @@ module.exports = {
     },
 
     isLoggedIn: (req, res) => {
-        const decodedJWT = jwt.decode(req.cookies.userCookie, { complete: true });
-
-        User.findById(decodedJWT.payload.id)
-            .then(user => res.json(user))
-            .catch(err => res.json(err));
         
+        const userCookie = req.cookies.userCookie;
+        if (userCookie === undefined) {
+            return res.status(401).json({ message: "Unauthorized" });
+        }
+
+        jwt.verify(userCookie, secret, (err, payload) => {
+            if (err) {
+                return res.status(401).json({ message: "Unauthorized" });
+            }
+
+            // if we made it this far, the token decoded correctly and we can return the user object
+            res.json(payload);
+        });
     },
     
     loginUser: async (req, res) => {

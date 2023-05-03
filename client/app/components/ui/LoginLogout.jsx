@@ -22,7 +22,7 @@ export default function LoginLogout() {
     const logoutHandler = () => {
         console.log("logout");
         axios
-            .post("http://localhost:8000/api/users/logout", {}, {withCredentials: true})
+            .post("http://localhost:8000/api/logout", {}, {withCredentials: true})
             .then((res) => {
                 console.log(res);
                 setIsLoggedIn(false);
@@ -34,13 +34,17 @@ export default function LoginLogout() {
 
     return (
         <>
-            <Button className="flex items-center" onClick={() => logoutHandler()}>
-                LOGOUT
-            </Button>
-            <Button className="flex items-center" link="/login">
-                LOGIN
-            </Button>
-
+            {isloggedIn ? (
+                <Button
+                    className="flex items-center"
+                    onClick={() => logoutHandler()}>
+                    LOGOUT
+                </Button>
+            ) : (
+                <Button className="flex items-center" link="/login">
+                    LOGIN
+                </Button>
+            )}
         </>
     );
 }

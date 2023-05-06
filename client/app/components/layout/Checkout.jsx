@@ -1,4 +1,33 @@
+'use client'
+import { useContext } from "react";
+import { AppStateContext } from "../../AppStateContext";
+import Image from "next/image";
+
 const Checkout = () => {
+
+    const { state, dispatch } = useContext(AppStateContext);
+    
+    const products = state.cart
+
+    const handleCheckout = (e) => {
+        e.preventDefault();
+        dispatch({
+            type: "CLEAR_CART",
+        });
+    };
+
+    const handleRemoveFromCart = (e) => {
+        e.preventDefault();
+        dispatch({
+            type: "REMOVE_FROM_CART",
+            payload: {
+                product: {
+                    id: e.target.dataset.id,
+                },
+            },
+        });
+    };
+
     return (
         <section className="bg-gray-100  space-y-32 pb-32">
             <form
@@ -132,11 +161,16 @@ const Checkout = () => {
                     <ul className="space-y-5">
                         <li className="flex justify-between border-b-2 pb-5">
                             <div className="flex gap-5 h-fit">
-                                <img
-                                    src="{{item.image}}"
-                                    alt=""
-                                    className="w-20 rounded-md"
-                                />
+                            {products.map((product) => (
+                                    
+                                    <Image
+                                        src={product.image}
+                                        alt="product"
+                                        width={100}
+                                        height={100}
+                                        className="w-20 rounded-md"
+                                    />
+                                ))}
                                 <div className="w-1/2">
                                     <h3 className="font-bold text-lg">title</h3>
                                     <p className="text-sm text-gray-500">
@@ -180,6 +214,7 @@ const Checkout = () => {
             </form>
         </section>
     );
-};
+    };
+
 
 export default Checkout;

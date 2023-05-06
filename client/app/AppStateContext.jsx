@@ -2,9 +2,14 @@
 import axios from "axios";
 import React, { createContext, useReducer, useEffect, useState } from "react";
 
+const cartFromLocalStorage =
+    typeof window !== "undefined"
+        ? JSON.parse(localStorage.getItem("cart")) || []
+        : [];
+
 const initialState = {
     products: [],
-    cart: JSON.parse(localStorage.getItem("cart")) || [],
+    cart: cartFromLocalStorage,
 };
 
 const reducer = (state, action) => {
@@ -65,9 +70,9 @@ const reducer = (state, action) => {
                     cart: state.cart.map((product) =>
                         product.id === action.payload.product.id
                             ? {
-                                ...productExist,
-                                quantity: productExist.quantity - 1,
-                            }
+                                  ...productExist,
+                                  quantity: productExist.quantity - 1,
+                              }
                             : product
                     ),
                 };

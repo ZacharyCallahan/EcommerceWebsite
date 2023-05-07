@@ -1,14 +1,20 @@
-'use client'
-import { useContext } from "react";
+"use client";
+import { useContext, useEffect, useState } from "react";
 import { AppStateContext } from "../../AppStateContext";
 import Image from "next/image";
 
 const Checkout = () => {
-
     const { state, dispatch } = useContext(AppStateContext);
-    
-    const products = state.cart
-    console.log(products)
+
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        const cartStorage = JSON.parse(localStorage.getItem("cart"));
+        setProducts(cartStorage);
+    }, [
+        state.cart,
+        typeof window !== "undefined" && localStorage.getItem("cart"),
+    ]);
 
     const handleCheckout = (e) => {
         e.preventDefault();
@@ -50,7 +56,6 @@ const Checkout = () => {
                                         type="email"
                                         name="email"
                                         id="email"
-                                        value="{{ user.email or '' }}"
                                         placeholder="johndoe@gmail.com"
                                         className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                     />
@@ -62,7 +67,6 @@ const Checkout = () => {
                                         name="phone"
                                         id="phone"
                                         placeholder="123-456-7890"
-                                        value="{{ user.phone or '' }}"
                                         className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                     />
                                 </div>
@@ -76,7 +80,6 @@ const Checkout = () => {
                                         type="text"
                                         name="first_name"
                                         id="first_name"
-                                        value="{{ user.first_name or '' }}"
                                         placeholder="John"
                                         className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                     />
@@ -89,7 +92,6 @@ const Checkout = () => {
                                         type="text"
                                         name="last_name"
                                         id="last_name"
-                                        value="{{ user.last_name or '' }}"
                                         placeholder="Doe"
                                         className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                     />
@@ -101,7 +103,6 @@ const Checkout = () => {
                                     type="text"
                                     name="address"
                                     id="address"
-                                    value="{{ user.address or ''}}"
                                     placeholder="1234 Main St"
                                     className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                 />
@@ -113,7 +114,6 @@ const Checkout = () => {
                                         type="text"
                                         name="city"
                                         id="city"
-                                        value="{{ user.city or '' }}"
                                         placeholder="New York"
                                         className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                     />
@@ -124,7 +124,6 @@ const Checkout = () => {
                                         type="text"
                                         name="state"
                                         id="state"
-                                        value="{{ user.state or '' }}"
                                         placeholder="NY"
                                         className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                     />
@@ -135,7 +134,6 @@ const Checkout = () => {
                                         type="text"
                                         name="zip_code"
                                         id="zip_code"
-                                        value="{{ user.zip_code or '' }}"
                                         placeholder="10001"
                                         className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                     />
@@ -146,7 +144,6 @@ const Checkout = () => {
                                         type="text"
                                         name="country"
                                         id="country"
-                                        value="{{ user.country or '' }}"
                                         placeholder="United States"
                                         className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                     />
@@ -162,9 +159,9 @@ const Checkout = () => {
                     <ul className="space-y-5">
                         <li className="flex justify-between border-b-2 pb-5">
                             <div className="flex gap-5 h-fit">
-                            {products.map((product) => (
-                                    
+                                {products.map((product) => (
                                     <Image
+                                        key={product.id}
                                         src={product.image}
                                         alt="product"
                                         width={100}
@@ -215,7 +212,6 @@ const Checkout = () => {
             </form>
         </section>
     );
-    };
-
+};
 
 export default Checkout;

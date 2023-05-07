@@ -8,6 +8,7 @@ const Checkout = () => {
     const { state, dispatch } = useContext(AppStateContext);
     
     const products = state.cart
+    console.log(products)
 
     const handleCheckout = (e) => {
         e.preventDefault();

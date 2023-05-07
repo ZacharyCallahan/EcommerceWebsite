@@ -15,7 +15,7 @@ export default function ShoppingCart() {
     useEffect(() => {
         const cartStorage = JSON.parse(localStorage.getItem("cart"));
         setCart(cartStorage);
-    }, [state.cart, localStorage.getItem("cart")]);
+    }, [state.cart, typeof window !== "undefined" && localStorage.getItem("cart")]);
 
     return (
         <Button link="/checkout" className="relative">

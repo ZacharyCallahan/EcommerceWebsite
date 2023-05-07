@@ -3,8 +3,8 @@ import axios from "axios";
 import React, { createContext, useReducer, useEffect, useState } from "react";
 
 const cartFromLocalStorage =
-    typeof window !== "undefined"
-        ? JSON.parse(localStorage.getItem("cart")) || []
+    typeof window !== "undefined" && localStorage.getItem("cart")
+        ? JSON.parse(localStorage.getItem("cart"))
         : [];
 
 const initialState = {

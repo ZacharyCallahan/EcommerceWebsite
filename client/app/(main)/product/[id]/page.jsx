@@ -2,11 +2,12 @@
 import axios from "axios";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Button from "../../../components/ui/Button";
 import Rating from "../../../components/ui/rating/Rating";
 import Review from "../../../components/ui/rating/Review";
 import ReviewForm from "./../../../components/ui/rating/ReviewForm";
+import { AppStateContext } from "../../../AppStateContext";
 const page = () => {
     const { id } = useParams();
     const [activeSize, setActiveSize] = useState("M");
@@ -17,6 +18,20 @@ const page = () => {
         product_quantity: 1,
         product_size: "M",
     });
+    const { dispatch } = useContext(AppStateContext);
+
+    const handleAddToCart = (e) => {
+        e.preventDefault();
+        dispatch({
+            type: "ADD_TO_CART",
+            payload: {
+                product: product,
+                quantity: formData.product_quantity,
+                size: formData.product_size,
+            },
+        });
+
+    };
 
     useEffect(() => {
         axios
@@ -35,6 +50,14 @@ const page = () => {
             product_size: e.target.value,
         });
         setActiveSize(e.target.value);
+    };
+
+    const quantityHandler = (e) => {
+        setFormData({
+            ...formData,
+            product_quantity: e.target.value,
+        });
+        console.log(formData.product_quantity);
     };
 
     return (
@@ -89,7 +112,9 @@ const page = () => {
                                         117 reviews
                                     </Button>
                                 </div>
-                                <form className="w-full space-y-5">
+                                <form
+                                    onSubmit={handleAddToCart}
+                                    className="w-full space-y-5">
                                     <div className="flex flex-col">
                                         <label htmlFor="product_quantity">
                                             Quantity:
@@ -101,13 +126,7 @@ const page = () => {
                                             min="1"
                                             max="10"
                                             value={formData.product_quantity}
-                                            onChange={(e) => {
-                                                setFormData({
-                                                    ...formData,
-                                                    product_quantity:
-                                                        e.target.value,
-                                                });
-                                            }}
+                                            onChange={quantityHandler}
                                             className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 w-20 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                                         />
                                     </div>

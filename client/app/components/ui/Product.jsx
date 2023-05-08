@@ -14,6 +14,8 @@ export default function Product({ product }) {
             type: "ADD_TO_CART",
             payload: {
                 product: product,
+                size: "M",
+                quantity: 1,
             },
         });
     };

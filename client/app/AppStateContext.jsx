@@ -32,27 +32,41 @@ const reducer = (state, action) => {
                 products: action.payload,
             };
         case "ADD_TO_CART":
-            const exist = state.cart.find(
-                (product) => product.id === action.payload.product.id
+            const { product, size, quantity } = action.payload;
+
+            // Find the index of the existing item in the cart with the same product ID and size
+            const existingItemIndex = state.cart.findIndex(
+                (item) => item.id === product.id && item.size === size
             );
-            if (exist) {
-                return {
-                    ...state,
-                    cart: state.cart.map((product) =>
-                        product.id === action.payload.product.id
-                            ? { ...exist, quantity: exist.quantity + 1 }
-                            : product
-                    ),
+
+            // If the existing item is found
+            if (existingItemIndex !== -1) {
+                // Create a new object with updated quantity
+                const updatedItem = {
+                    ...state.cart[existingItemIndex],
+                    // If quantity is provided, parse it to an integer and add to existing quantity, otherwise add 1
+                    quantity:
+                        parseInt(state.cart[existingItemIndex].quantity) +
+                        (parseInt(quantity) || 1),
                 };
+
+                // Create a new cart array with the updated item
+                const updatedCart = [...state.cart];
+                updatedCart[existingItemIndex] = updatedItem;
+
+                // Return updated state with the new cart array
+                return { ...state, cart: updatedCart };
             } else {
-                return {
-                    ...state,
-                    cart: [
-                        ...state.cart,
-                        { ...action.payload.product, quantity: 1 },
-                    ],
+                // If the existing item is not found, create a new item object
+                const newItem = {
+                    ...product,
+                    size,
+                    quantity: parseInt(quantity) || 1,
                 };
+                // Return updated state with the new cart array containing the new item
+                return { ...state, cart: [...state.cart, newItem] };
             }
+
         case "REMOVE_FROM_CART":
             const productExist = state.cart.find(
                 (product) => product.id === action.payload.product.id
@@ -77,6 +91,7 @@ const reducer = (state, action) => {
                     ),
                 };
             }
+
         case "CLEAR_CART":
             return {
                 ...state,

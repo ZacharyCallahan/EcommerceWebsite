@@ -18,7 +18,9 @@ export default function Product({ product }) {
                 quantity: 1,
             },
         });
+        
     };
+    
 
     return (
         <div className="p-4 grid grid-cols-1 content-between h-full bg-gray-100 shadow-lg rounded-md gap-5">

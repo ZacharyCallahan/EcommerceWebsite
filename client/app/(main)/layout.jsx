@@ -25,8 +25,8 @@ export default function RootLayout({ children }) {
                 <ThemeProvider theme={theme}>
                     <AppStateProvider>
                         <NavBar />
-                            {children}
-                            <Footer />
+                        {children}
+                        <Footer />
                     </AppStateProvider>
                 </ThemeProvider>
             </body>

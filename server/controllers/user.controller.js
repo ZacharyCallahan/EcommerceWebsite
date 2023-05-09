@@ -20,11 +20,23 @@ module.exports = {
                 console.log(newUser._id)
                 //generates a jsonwebtoken string
                 const userCookie = jwt.sign(
-                    { _id: newUser._id, email: newUser.email }, //cookie payload for browser
+                    {
+                        _id: newUser._id,
+                        email: newUser.email,
+                        firstName: newUser.firstName,
+                        lastName: newUser.lastName,
+                        address: newUser.address,
+                        city: newUser.city,
+                        state: newUser.state,
+                        zipCode: newUser.zipCode,
+                        country: newUser.country,
+                        phone: user.phone,
+                        isAdmin: newUser.isAdmin
+                    }, //cookie payload for browser
                     secret, //this will be used as a key to verify cookie creation (jwt sign)
                     { expiresIn: '2h' } //browser will clear the cookie after two hours
                 )
-                
+
                 res
                     .status(201)
                     .cookie(
@@ -35,18 +47,18 @@ module.exports = {
             }
         }
         catch (err) { //bad request
-            res.status(400).json({message: "Something went wrong", error: err}) 
+            res.status(400).json({ message: "Something went wrong", error: err })
         }
     },
 
     logout: (req, res) => {
-    
+
         res.clearCookie('userCookie');
         res.sendStatus(200);
     },
 
     isLoggedIn: (req, res) => {
-        
+
         const userCookie = req.cookies.userCookie;
         if (userCookie === undefined) {
             return res.status(401).json({ message: "Unauthorized" });
@@ -58,11 +70,12 @@ module.exports = {
             }
 
             // if we made it this far, the token decoded correctly and we can return the user object
-            
+
+            console.log(payload);
             res.json(payload);
         });
     },
-    
+
     loginUser: async (req, res) => {
         try {
             //check if user exists
@@ -72,7 +85,20 @@ module.exports = {
                 const passwordsMatch = await bcrypt.compare(req.body.password, user.password)
                 if (passwordsMatch) { //they match!
                     //generate the userCookie
-                    const userCookie = jwt.sign({ _id: user._id, email: user.email }, secret, { expiresIn: '2h' })
+                    const userCookie = jwt.sign({
+                        _id: user._id,
+                        email: user.email,
+                        firstName: user.firstName,
+                        lastName: user.lastName,
+                        address: user.address,
+                        city: user.city,
+                        state: user.state,
+                        zipCode: user.zipCode,
+                        country: user.country,
+                        phone: user.phone,
+                        isAdmin: user.isAdmin,
+
+                    }, secret, { expiresIn: '2h' })
                     //log the user in
                     res.status(201).cookie('userCookie', userCookie, { httpOnly: true, maxAge: 2 * 60 * 60 * 1000 }).json(user)
                 }
@@ -91,7 +117,7 @@ module.exports = {
     },
 
     getAll: (req, res) => {
-        User.find()     
+        User.find()
             .then(users => res.json(users))
             .catch(err => res.json(err));
     },
@@ -100,7 +126,14 @@ module.exports = {
         User.findOne({ _id: req.params.id })
             .then(user => res.json(user))
             .catch(err => res.json(err));
-    }
+    },
+
+    update: (req, res) => {
+        User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
+            .then(updatedUser => res.json(updatedUser))
+            .catch(err => res.status(400).json(err));
+
+    },
 
 }
 

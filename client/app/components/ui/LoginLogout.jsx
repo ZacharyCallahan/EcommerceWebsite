@@ -7,18 +7,7 @@ export default function LoginLogout() {
 
     const { state, dispatch } = useContext(AppStateContext);
 
-    useEffect(() => {
-        axios
-            .get("http://localhost:8000/api/users/loggedin", {
-                withCredentials: true,
-            })
-            .then((res) => {
-                dispatch({ type: "LOGIN", payload: res.data });
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }, []);
+
 
     const logoutHandler = () => {
         axios

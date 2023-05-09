@@ -11,5 +11,7 @@ module.exports = app => {
     app.get('/api/users', authenticate, Users.getAll);
     app.get("/api/users/:id", authenticate, Users.getOne);
 
+    app.patch("/api/users/update/:id", authenticate, Users.update);
+
 
 }

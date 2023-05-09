@@ -1,30 +1,35 @@
 "use client";
 import { useMediaQuery } from "@mui/material";
-import { ReactEventHandler, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Header from "../../ui/Header";
+import { AppStateContext } from "../../../AppStateContext";
+import axios from "axios";
 
 export default function AccountForm() {
     const isSmallScreen = useMediaQuery("(min-width: 640px)");
+
+    const { state, dispatch } = useContext(AppStateContext);
+    const { user } = state;
     const [formData, setFormData] = useState({
-        email: "",
-        first_name: "",
-        last_name: "",
-        address: "",
-        city: "",
-        state: "",
-        zip_code: "",
-        country: "",
-        phone: "",
+        email: user?.email ,
+        firstName: user?.firstName || "",
+        lastName: user?.lastName || "",
+        address: user?.address || "",
+        city: user?.city || "",
+        state: user?.state || "",
+        zipCode: user?.zipCode || "",
+        country: user?.country || "",
+        phone: user?.phone || "",
     });
 
     const [errors, setErrors] = useState({
         email: "",
-        first_name: "",
-        last_name: "",
+        firstName: "",
+        lastName: "",
         address: "",
         city: "",
         state: "",
-        zip_code: "",
+        zipCode: "",
         country: "",
         phone: "",
     });
@@ -39,21 +44,30 @@ export default function AccountForm() {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        if (!validateForm()) {
-            return;
-        }
+
+        axios
+            .patch(`http://localhost:8000/api/users/update/${user._id}`, formData, {
+                withCredentials: true,
+            })
+            .then((res) => {
+                console.log(res.data);
+                dispatch({ type: "LOGIN", payload: res.data });
+            })
+            .catch((err) => {
+                setErrors(err.response.data);
+            });
     };
 
     const validateForm = () => {
         let isValid = true;
         const newErrors = {
             email: "",
-            first_name: "",
-            last_name: "",
+            firstName: "",
+            lastName: "",
             address: "",
             city: "",
             state: "",
-            zip_code: "",
+            zipCode: "",
             country: "",
             phone: "",
         };
@@ -63,13 +77,13 @@ export default function AccountForm() {
             isValid = false;
         }
 
-        if (!formData.first_name) {
-            newErrors.first_name = "First name is required";
+        if (!formData.firstName) {
+            newErrors.firstName = "First name is required";
             isValid = false;
         }
 
-        if (!formData.last_name) {
-            newErrors.last_name = "Last name is required";
+        if (!formData.lastName) {
+            newErrors.lastName = "Last name is required";
             isValid = false;
         }
 
@@ -88,8 +102,8 @@ export default function AccountForm() {
             isValid = false;
         }
 
-        if (!formData.zip_code) {
-            newErrors.zip_code = "Zip is required";
+        if (!formData.zipCode) {
+            newErrors.zipCode = "Zip is required";
             isValid = false;
         }
 
@@ -143,24 +157,24 @@ export default function AccountForm() {
                 </div>
                 <div className="flex items-center gap-5">
                     <div className="w-1/2 flex flex-col">
-                        <label htmlFor="first_name">First Name:</label>
+                        <label htmlFor="firstName">First Name:</label>
                         <input
                             type="text"
-                            name="first_name"
-                            id="first_name"
-                            value={formData.first_name}
+                            name="firstName"
+                            id="firstName"
+                            value={formData.firstName}
                             onChange={(e) => handleChange(e)}
                             placeholder="John"
                             className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                         />
                     </div>
                     <div className="w-1/2  flex flex-col">
-                        <label htmlFor="last_name">Last Name:</label>
+                        <label htmlFor="lastName">Last Name:</label>
                         <input
                             type="text"
-                            name="last_name"
-                            id="last_name"
-                            value={formData.last_name}
+                            name="lastName"
+                            id="lastName"
+                            value={formData.lastName}
                             onChange={(e) => handleChange(e)}
                             placeholder="Doe"
                             className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
@@ -195,12 +209,12 @@ export default function AccountForm() {
                         />
                     </div>
                     <div className="w-1/2  flex flex-col">
-                        <label htmlFor="zip_code">Zip Code:</label>
+                        <label htmlFor="zipCode">Zip Code:</label>
                         <input
                             type="text"
-                            name="zip_code"
-                            id="zip_code"
-                            value={formData.zip_code}
+                            name="zipCode"
+                            id="zipCode"
+                            value={formData.zipCode}
                             onChange={(e) => handleChange(e)}
                             placeholder="12345"
                             className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
@@ -289,24 +303,24 @@ export default function AccountForm() {
                 </div>
 
                 <div>
-                    <label htmlFor="first_name">First Name:</label>
+                    <label htmlFor="firstName">First Name:</label>
                     <input
                         type="text"
-                        name="first_name"
-                        id="first_name"
-                        value={formData.first_name}
+                        name="firstName"
+                        id="firstName"
+                        value={formData.firstName}
                         onChange={(e) => handleChange(e)}
                         placeholder="John"
                         className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
                     />
                 </div>
                 <div>
-                    <label htmlFor="last_name">Last Name:</label>
+                    <label htmlFor="lastName">Last Name:</label>
                     <input
                         type="text"
-                        name="last_name"
-                        id="last_name"
-                        value={formData.last_name}
+                        name="lastName"
+                        id="lastName"
+                        value={formData.lastName}
                         onChange={(e) => handleChange(e)}
                         placeholder="Doe"
                         className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
@@ -339,12 +353,12 @@ export default function AccountForm() {
                     />
                 </div>
                 <div>
-                    <label htmlFor="zip_code">Zip Code:</label>
+                    <label htmlFor="zipCode">Zip Code:</label>
                     <input
                         type="text"
-                        name="zip_code"
-                        id="zip_code"
-                        value={formData.zip_code}
+                        name="zipCode"
+                        id="zipCode"
+                        value={formData.zipCode}
                         onChange={(e) => handleChange(e)}
                         placeholder="12345"
                         className="w-full mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"

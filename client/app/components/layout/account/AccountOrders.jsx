@@ -1,6 +1,7 @@
 import Header from "../../ui/Header";
 
 const AccountOrders = () => {
+    
     return (
         <div className="flex grow-[3] flex-col bg-white p-5 rounded-md shadow-md gap-5 sm:h-[640px]">
             <Header className="space-y-2">
@@ -19,6 +20,7 @@ const AccountOrders = () => {
                     </tr>
                 </thead>
                 <tbody>
+
                     <tr className="text-center border-b-2 table-row hover:bg-gray-200">
                         <td className=" py-4">id</td>
                         <td className=" py-4">$price</td>

@@ -48,19 +48,20 @@ const validateForm = (formData) => {
 
 const CheckoutForm = () => {
     const { state, dispatch } = useContext(AppStateContext);
-
+    const { user } = state;
     const [errors, setErrors] = useState({});
     const [products, setProducts] = useState([]);
+
     const [formData, setFormData] = useState({
-        email: "",
-        phone: "",
-        firstName: "",
-        lastName: "",
-        address: "",
-        city: "",
-        state: "",
-        zipCode: "",
-        country: "",
+        email: user?.email,
+        firstName: user?.firstName || "",
+        lastName: user?.lastName || "",
+        address: user?.address || "",
+        city: user?.city || "",
+        state: user?.state || "",
+        zipCode: user?.zipCode || "",
+        country: user?.country || "",
+        phone: user?.phone || "",
     });
 
     const subtotal = products
@@ -129,7 +130,6 @@ const CheckoutForm = () => {
                     zipCode: "",
                     country: "",
                 });
-                
             })
             .catch((err) => console.log(err));
     };

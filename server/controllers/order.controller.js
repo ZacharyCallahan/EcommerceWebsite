@@ -44,10 +44,21 @@ const deleteOrder = (req, res) => {
         );
 }
 
+const getAllOrdersByUser = (req, res) => {
+    Order.find({ user: req.params.id })
+        .then((orders) => {
+            res.json(orders);
+        })
+        .catch((err) => {
+            res.status(400).json({ err });
+        });
+}
+
 
 module.exports = {
     createNewOrder,
     getAllOrders,
     getOneOrder,
-    deleteOrder
+    deleteOrder,
+    getAllOrdersByUser
 };

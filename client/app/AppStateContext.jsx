@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import React, { createContext, useReducer, useEffect, useState } from "react";
+import React, { createContext, useReducer, useEffect} from "react";
 
 const cartFromLocalStorage =
     typeof window !== "undefined" && localStorage.getItem("cart")
@@ -14,6 +14,7 @@ const initialState = {
 };
 
 const reducer = (state, action) => {
+
     switch (action.type) {
         case "ADD_PRODUCT":
             return {
@@ -100,10 +101,9 @@ const reducer = (state, action) => {
                 ...state,
                 cart: [],
             };
-        
+
         case "CHECKOUT":
 
-            
         case "LOGIN":
             return {
                 ...state,
@@ -123,6 +123,21 @@ export const AppStateContext = createContext();
 
 export const AppStateProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
+
+
+    useEffect(() => {
+        axios
+            .get("http://localhost:8000/api/users/loggedin", {
+                withCredentials: true,
+            })
+            .then((res) => {
+                dispatch({ type: "LOGIN", payload: res.data });
+            })
+            .catch((err) => {
+                console.log(err);
+                dispatch({ type: "LOGOUT" });
+            });
+    }, []);
 
     useEffect(() => {
         axios("http://localhost:8000/api/clothing")

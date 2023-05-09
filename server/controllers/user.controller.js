@@ -130,8 +130,39 @@ module.exports = {
 
     update: (req, res) => {
         User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
-            .then(updatedUser => res.json(updatedUser))
+            .then(updatedUser => {
+                const userCookie = jwt.sign(
+                    {
+                        _id: updatedUser._id,
+                        email: updatedUser.email,
+                        firstName: updatedUser.firstName,
+                        lastName: updatedUser.lastName,
+                        address: updatedUser.address,
+                        city: updatedUser.city,
+                        state: updatedUser.state,
+                        zipCode: updatedUser.zipCode,
+                        country: updatedUser.country,
+                        phone: updatedUser.phone,
+                        isAdmin: updatedUser.isAdmin
+                    }, //cookie payload for browser
+                    secret, //this will be used as a key to verify cookie creation (jwt sign)
+                    { expiresIn: '2h' } //browser will clear the cookie after two hours
+                )
+
+                res
+                    .status(201)
+                    .cookie(
+                        'userCookie',
+                        userCookie,
+                        { httpOnly: true, maxAge: 2 * 60 * 60 * 1000 }) //sets to 72million seconds for cookie age
+                    .json(updatedUser) //succesful creation of user and cookie
+
+
+            })
             .catch(err => res.status(400).json(err));
+
+        //update the user cookie if the user updates their info
+
 
     },
 

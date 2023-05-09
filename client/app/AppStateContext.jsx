@@ -102,13 +102,15 @@ const reducer = (state, action) => {
                 cart: [],
             };
 
-        case "CHECKOUT":
 
         case "LOGIN":
+
+            console.log(action.payload);
             return {
                 ...state,
                 user: action.payload,
             };
+        
         case "LOGOUT":
             return {
                 ...state,
@@ -131,6 +133,7 @@ export const AppStateProvider = ({ children }) => {
                 withCredentials: true,
             })
             .then((res) => {
+                console.log("data " + res.data);
                 dispatch({ type: "LOGIN", payload: res.data });
             })
             .catch((err) => {

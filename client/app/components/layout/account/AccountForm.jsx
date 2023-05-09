@@ -52,6 +52,7 @@ export default function AccountForm() {
             .then((res) => {
                 console.log(res.data);
                 dispatch({ type: "LOGIN", payload: res.data });
+                
             })
             .catch((err) => {
                 setErrors(err.response.data);

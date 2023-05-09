@@ -1,9 +1,11 @@
 import axios from "axios";
 import Button from "./Button";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AppStateContext } from "../../AppStateContext";
 
 export default function LoginLogout() {
-    const [isloggedIn, setIsLoggedIn] = useState(false);
+
+    const { state, dispatch } = useContext(AppStateContext);
 
     useEffect(() => {
         axios
@@ -11,7 +13,7 @@ export default function LoginLogout() {
                 withCredentials: true,
             })
             .then((res) => {
-                setIsLoggedIn(true);
+                dispatch({ type: "LOGIN", payload: res.data });
             })
             .catch((err) => {
                 console.log(err);
@@ -19,11 +21,10 @@ export default function LoginLogout() {
     }, []);
 
     const logoutHandler = () => {
-        console.log("logout");
         axios
             .post("http://localhost:8000/api/logout", {}, {withCredentials: true})
             .then((res) => {
-                setIsLoggedIn(false);
+                dispatch({ type: "LOGOUT", payload: res.data });
             })
             .catch((err) => {
                 console.log(err);
@@ -32,7 +33,7 @@ export default function LoginLogout() {
 
     return (
         <>
-            {isloggedIn ? (
+            {state.user ? (
                 <Button
                     className="flex items-center"
                     onClick={() => logoutHandler()}>

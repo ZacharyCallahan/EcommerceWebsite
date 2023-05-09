@@ -39,15 +39,17 @@ const UserSchema = new mongoose.Schema({
         type: String,
         minlength: [2, "State must be 2 characters"]
     },
-    zip_code: {
+    zipCode: {
         type: Number,
         minlength: [5, "Zip code must be 5 characters"]
     },
     country: {
-        type: String
+        type: String,
+        minlength: [2, "Country must be 2 characters"]
     },
     phone: {
-        type: Number
+        type: Number,
+        minlength: [10, "Phone number must be 10 characters"]
     },
     isAdmin: {
         type: Boolean,

@@ -57,7 +57,6 @@ const page = () => {
             ...formData,
             product_quantity: e.target.value,
         });
-        console.log(formData.product_quantity);
     };
 
     return (

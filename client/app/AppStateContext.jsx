@@ -10,6 +10,7 @@ const cartFromLocalStorage =
 const initialState = {
     products: [],
     cart: cartFromLocalStorage,
+    user: null,
 };
 
 const reducer = (state, action) => {
@@ -68,34 +69,50 @@ const reducer = (state, action) => {
             }
 
         case "REMOVE_FROM_CART":
-            const productExist = state.cart.find(
-                (product) => product.id === action.payload.product.id
+            const existingItem = state.cart.find(
+                (item) => item.id === action.payload
             );
-            if (productExist.quantity === 1) {
+
+            if (existingItem.quantity === 1) {
                 return {
                     ...state,
                     cart: state.cart.filter(
-                        (product) => product.id !== action.payload.product.id
+                        (item) => item.id !== action.payload
                     ),
                 };
             } else {
-                return {
-                    ...state,
-                    cart: state.cart.map((product) =>
-                        product.id === action.payload.product.id
-                            ? {
-                                  ...productExist,
-                                  quantity: productExist.quantity - 1,
-                              }
-                            : product
-                    ),
+                const updatedItem = {
+                    ...existingItem,
+                    quantity: existingItem.quantity - 1,
                 };
+
+                const updatedCart = [...state.cart];
+                const existingItemIndex = state.cart.findIndex(
+                    (item) => item.id === action.payload
+                );
+                updatedCart[existingItemIndex] = updatedItem;
+
+                return { ...state, cart: updatedCart };
             }
 
-        case "CLEAR_CART":
+        case "EMPTY_CART":
             return {
                 ...state,
                 cart: [],
+            };
+        
+        case "CHECKOUT":
+
+            
+        case "LOGIN":
+            return {
+                ...state,
+                user: action.payload,
+            };
+        case "LOGOUT":
+            return {
+                ...state,
+                user: null,
             };
         default:
             return state;

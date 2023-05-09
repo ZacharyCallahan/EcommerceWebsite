@@ -8,6 +8,8 @@ module.exports = app => {
 
     //check if user is logged in
     app.get("/api/users/loggedin", Users.isLoggedIn);
-
     app.get('/api/users', authenticate, Users.getAll);
+    app.get("/api/users/:id", authenticate, Users.getOne);
+
+
 }

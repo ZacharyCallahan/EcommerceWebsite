@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const clothingSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
     id: { type: Number, required: true },
     gender: { type: String, required: true },
     masterCategory: { type: String, required: true },
@@ -15,6 +15,6 @@ const clothingSchema = new mongoose.Schema({
     image: { type: String, required: true },
 });
 
-const Clothing = mongoose.model('Clothing', clothingSchema);
+const Product = mongoose.model('Clothing', productSchema);
 
-module.exports = Clothing;
+module.exports = Product;

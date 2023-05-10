@@ -53,7 +53,7 @@ const CheckoutForm = () => {
     const [products, setProducts] = useState([]);
 
     const [formData, setFormData] = useState({
-        email: user?.email,
+        email: user?.email || "",
         firstName: user?.firstName || "",
         lastName: user?.lastName || "",
         address: user?.address || "",
@@ -135,12 +135,11 @@ const CheckoutForm = () => {
     };
 
     const handleChange = (e) => {
-        setFormData((prevState) => {
-            return {
-                ...prevState,
-                [e.target.name]: e.target.value,
-            };
-        });
+        const { name, value } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
     };
 
     return (
@@ -160,7 +159,7 @@ const CheckoutForm = () => {
                                     type="email"
                                     name="email"
                                     id="email"
-                                    onChange={handleChange}
+                                    onChange={(e) => handleChange(e)}
                                     value={formData.email}
                                     placeholder="johndoe@gmail.com"
                                     className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
@@ -177,7 +176,7 @@ const CheckoutForm = () => {
                                     type="text"
                                     name="phone"
                                     id="phone"
-                                    onChange={handleChange}
+                                    onChange={(e) => handleChange(e)}
                                     value={formData.phone}
                                     placeholder="123-456-7890"
                                     className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
@@ -196,7 +195,7 @@ const CheckoutForm = () => {
                                     type="text"
                                     name="firstName"
                                     id="firstName"
-                                    onChange={handleChange}
+                                    onChange={(e) => handleChange(e)}
                                     value={formData.firstName}
                                     placeholder="John"
                                     className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
@@ -213,7 +212,7 @@ const CheckoutForm = () => {
                                     type="text"
                                     name="lastName"
                                     id="lastName"
-                                    onChange={handleChange}
+                                    onChange={(e) => handleChange(e)}
                                     value={formData.lastName}
                                     placeholder="Doe"
                                     className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
@@ -231,7 +230,7 @@ const CheckoutForm = () => {
                                 type="text"
                                 name="address"
                                 id="address"
-                                onChange={handleChange}
+                                onChange={(e) => handleChange(e)}
                                 value={formData.address}
                                 placeholder="1234 Main St"
                                 className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
@@ -249,7 +248,7 @@ const CheckoutForm = () => {
                                     type="text"
                                     name="city"
                                     id="city"
-                                    onChange={handleChange}
+                                    onChange={(e) => handleChange(e)}
                                     value={formData.city}
                                     placeholder="New York"
                                     className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
@@ -266,7 +265,7 @@ const CheckoutForm = () => {
                                     type="text"
                                     name="state"
                                     id="state"
-                                    onChange={handleChange}
+                                    onChange={(e) => handleChange(e)}
                                     value={formData.state}
                                     placeholder="NY"
                                     className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
@@ -283,7 +282,7 @@ const CheckoutForm = () => {
                                     type="text"
                                     name="zipCode"
                                     id="zipCode"
-                                    onChange={handleChange}
+                                    onChange={(e) => handleChange(e)}
                                     value={formData.zipCode}
                                     placeholder="10001"
                                     className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"
@@ -300,7 +299,7 @@ const CheckoutForm = () => {
                                     type="text"
                                     name="country"
                                     id="country"
-                                    onChange={handleChange}
+                                    onChange={(e) => handleChange(e)}
                                     value={formData.country}
                                     placeholder="United States"
                                     className="mt-2 text-slate-900 bg-white rounded-md px-3 h-10 shadow-md focus:outline-none focus:ring-2 focus:ring-groovy-red ring-1 ring-slate-200 appearance-none"

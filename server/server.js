@@ -4,6 +4,7 @@ const app = express();
 const cookieParser = require('cookie-parser');
 require("dotenv").config();
 require("./config/mongoose.config");
+const PORT = process.env.PORT || 8000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -14,6 +15,6 @@ require("./routes/product.routes")(app);
 require("./routes/user.routes")(app);
 require("./routes/order.routes")(app);
 
-app.listen(8000, () => {
-    console.log("Listening at Port 8000");
+app.listen(PORT, () => {
+    console.log(`Listening at Port ${PORT}`);
 });

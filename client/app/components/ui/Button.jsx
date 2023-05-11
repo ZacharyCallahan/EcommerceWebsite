@@ -1,14 +1,14 @@
 import Link from "next/link";
 
 export default function Button({ children, link, className, onClick }) {
-    //className is used to add additional classes to the button if needed
-    if (link) {
-        return (
-            <Link href={link} className={`text-lg ${className}`}>
-                {children}
-            </Link>
-        );
-    } else {
-        return <button onClick={onClick} className={`text-lg ${className}`}>{children}</button>;
-    }
+    const btnClassName = `text-lg ${className}`;
+    return link ? (
+        <Link href={link} className={btnClassName}>
+            {children}
+        </Link>
+    ) : (
+        <button className={btnClassName} onClick={onClick}>
+            {children}
+        </button>
+    );
 }

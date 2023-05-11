@@ -79,6 +79,7 @@ const CheckoutForm = () => {
     useEffect(() => {
         const cartStorage = JSON.parse(localStorage.getItem("cart"));
         setProducts(cartStorage);
+        console.log("Running effect")
     }, [
         state.cart,
         typeof window !== "undefined" && localStorage.getItem("cart"),

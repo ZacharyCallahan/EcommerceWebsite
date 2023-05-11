@@ -15,6 +15,8 @@ const initialState = {
 
 const reducer = (state, action) => {
 
+    console.log("reducer ran");
+
     switch (action.type) {
         case "ADD_PRODUCT":
             return {
@@ -127,6 +129,7 @@ export const AppStateProvider = ({ children }) => {
 
 
     useEffect(() => {
+        console.log("login check");
         axios
             .get("http://localhost:8000/api/users/loggedin", {
                 withCredentials: true,
@@ -141,15 +144,18 @@ export const AppStateProvider = ({ children }) => {
     }, []);
 
     useEffect(() => {
+        console.log("runing set products");
         axios("http://localhost:8000/api/clothing")
             .then((res) => {
                 dispatch({ type: "SET_PRODUCTS", payload: res.data });
+                
             })
             .catch((err) => console.log(err));
     }, []);
 
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(state.cart));
+        console.log("running cart");
     }, [state.cart]);
 
     return (

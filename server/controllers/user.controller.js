@@ -16,8 +16,7 @@ module.exports = {
             else {
                 //actually create user if they pass check
                 const newUser = await User.create(req.body)
-                console.log(req.body)
-                console.log(newUser._id)
+
                 //generates a jsonwebtoken string
                 const userCookie = jwt.sign(
                     {

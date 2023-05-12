@@ -29,7 +29,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(cookieParser());
-app.use(cors({ credentials: true, origin: true }));
+app.use(cors({
+    credentials: true,
+}));
 
 require("./routes/product.routes")(app);
 require("./routes/user.routes")(app);
@@ -49,10 +51,14 @@ const server = createServer((req, res) => {
 });
 
 const handler = (req, res) => {
-    if (req.url.startsWith("/api/")) {
-        return server(req, res);
-    } else {
-        return app(req, res);
+    try {
+        if (req.url.startsWith("/api/")) {
+            return server(req, res);
+        } else {
+            return app(req, res);
+        }
+    } catch (err) {
+        res.status(500).send(err.message);
     }
 };
 

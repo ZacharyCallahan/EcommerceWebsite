@@ -22,6 +22,7 @@
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -34,4 +35,25 @@ require("./routes/product.routes")(app);
 require("./routes/user.routes")(app);
 require("./routes/order.routes")(app);
 
-module.exports = app;
+const { createServer } = require("http");
+const { parse } = require("url");
+const next = require("next");
+
+const dev = process.env.NODE_ENV !== "production";
+const nextApp = next({ dev });
+const nextHandle = nextApp.getRequestHandler();
+
+const server = createServer((req, res) => {
+    const parsedUrl = parse(req.url, true);
+    nextHandle(req, res, parsedUrl);
+});
+
+const handler = (req, res) => {
+    if (req.url.startsWith("/api/")) {
+        return server(req, res);
+    } else {
+        return app(req, res);
+    }
+};
+
+module.exports = handler;

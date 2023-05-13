@@ -1,8 +1,8 @@
 "use client";
-import { useContext, useEffect, useState } from "react";
-import CheckoutSummary from "./CheckoutSummary";
-import { AppStateContext } from "../../../AppStateContext";
 import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { AppStateContext } from "../../../AppStateContext";
+import CheckoutSummary from "./CheckoutSummary";
 
 const validateForm = (formData) => {
     const errors = {};
@@ -79,7 +79,7 @@ const CheckoutForm = () => {
     useEffect(() => {
         const cartStorage = JSON.parse(localStorage.getItem("cart"));
         setProducts(cartStorage);
-        console.log("Running effect")
+        console.log("Running effect");
     }, [
         state.cart,
         typeof window !== "undefined" && localStorage.getItem("cart"),
@@ -116,7 +116,7 @@ const CheckoutForm = () => {
         };
 
         axios
-            .post("http://localhost:8000/api/checkout", payload)
+            .post(`${process.env.API_URL}/checkout`, payload)
             .then((res) => {
                 dispatch({ type: "EMPTY_CART" });
                 //clear form data

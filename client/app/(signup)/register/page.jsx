@@ -1,9 +1,8 @@
 "use client";
-import Button from "../../components/ui/Button";
-import Logo from "../../components/ui/Logo";
 import axios from "axios";
 import { useState } from "react";
-
+import Button from "../../components/ui/Button";
+import Logo from "../../components/ui/Logo";
 
 const validateForm = (formData) => {
     const errors = {};
@@ -59,8 +58,6 @@ const page = () => {
 
     const [errors, setErrors] = useState({});
 
-
-
     const submitHandler = (e) => {
         e.preventDefault();
         const formErrors = validateForm(formData);
@@ -69,9 +66,11 @@ const page = () => {
             return;
         }
         axios
-            .post("http://localhost:8000/api/register", formData, {withCredentials: true})
+            .post(`${process.env.API_URL}/register`, formData, {
+                withCredentials: true,
+            })
             .then((res) => {
-                setErrors(res.data)
+                setErrors(res.data);
                 window.location.href = "/";
             })
             .catch((err) => {

@@ -3,11 +3,11 @@ import axios from "axios";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
+import { AppStateContext } from "../../../AppStateContext";
 import Button from "../../../components/ui/Button";
 import Rating from "../../../components/ui/rating/Rating";
 import Review from "../../../components/ui/rating/Review";
 import ReviewForm from "./../../../components/ui/rating/ReviewForm";
-import { AppStateContext } from "../../../AppStateContext";
 const page = () => {
     const { id } = useParams();
     const [activeSize, setActiveSize] = useState("M");
@@ -30,12 +30,11 @@ const page = () => {
                 size: formData.product_size,
             },
         });
-
     };
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/api/clothing/${id}`)
+            .get(`${process.env.API_URL}/clothing/${id}`)
             .then((res) => {
                 setProduct(res.data);
             })

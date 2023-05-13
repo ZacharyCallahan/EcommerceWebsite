@@ -1,9 +1,9 @@
 "use client";
 import { useMediaQuery } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
-import Header from "../../ui/Header";
-import { AppStateContext } from "../../../AppStateContext";
 import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { AppStateContext } from "../../../AppStateContext";
+import Header from "../../ui/Header";
 
 export default function AccountForm() {
     const isSmallScreen = useMediaQuery("(min-width: 640px)");
@@ -11,7 +11,7 @@ export default function AccountForm() {
     const { state, dispatch } = useContext(AppStateContext);
     const { user } = state;
     const [formData, setFormData] = useState({
-        email: user?.email ,
+        email: user?.email,
         firstName: user?.firstName || "",
         lastName: user?.lastName || "",
         address: user?.address || "",
@@ -46,12 +46,15 @@ export default function AccountForm() {
         e.preventDefault();
 
         axios
-            .patch(`http://localhost:8000/api/users/update/${user._id}`, formData, {
-                withCredentials: true,
-            })
+            .patch(
+                `${process.env.API_URL}/users/update/${user._id}`,
+                formData,
+                {
+                    withCredentials: true,
+                }
+            )
             .then((res) => {
                 dispatch({ type: "LOGIN", payload: res.data });
-                
             })
             .catch((err) => {
                 setErrors(err.response.data);

@@ -1,13 +1,11 @@
 "use client";
 import axios from "axios";
+import { useState } from "react";
 import Button from "../../components/ui/Button";
 import Logo from "../../components/ui/Logo";
-import { useState } from "react";
 
 const validateForm = (formData) => {
     const errors = {};
-
-
 
     if (!formData.email) {
         errors.email = "Email is required";
@@ -41,12 +39,16 @@ const page = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         const formErrors = validateForm(formData);
+
         if (Object.keys(formErrors).length > 0) {
             setErrors(formErrors);
             return;
         }
+        
         axios
-            .post("http://localhost:8000/api/login", formData, {withCredentials: true})
+            .post(`${process.env.API_URL}/login`, formData, {
+                withCredentials: true,
+            })
             .then((res) => {
                 setErrors({});
                 window.location.href = "/";

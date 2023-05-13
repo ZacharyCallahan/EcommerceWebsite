@@ -12,6 +12,7 @@ const rubik = Rubik({ subsets: ["cyrillic"] });
 const theme = createTheme({});
 
 export default function RootLayout({ children }) {
+    console.log(process.env.API_URL);
     return (
         <html lang="en">
             <head>

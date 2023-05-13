@@ -1,17 +1,18 @@
 import axios from "axios";
-import Button from "./Button";
 import { useContext, useEffect, useState } from "react";
 import { AppStateContext } from "../../AppStateContext";
+import Button from "./Button";
 
 export default function LoginLogout() {
-
     const { state, dispatch } = useContext(AppStateContext);
-
-
 
     const logoutHandler = () => {
         axios
-            .post("http://localhost:8000/api/logout", {}, {withCredentials: true})
+            .post(
+                `${process.env.API_URL}/logout`,
+                {},
+                { withCredentials: true }
+            )
             .then((res) => {
                 dispatch({ type: "LOGOUT", payload: res.data });
             })

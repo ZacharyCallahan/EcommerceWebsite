@@ -128,7 +128,7 @@ export const AppStateProvider = ({ children }) => {
         console.log("login check");
 
         axios
-            .get(`/api/users/loggedin`, {
+            .get(`${process.env.NEXT_PUBLIC_API_URL}/users/loggedin`, {
                 withCredentials: true,
             })
             .then((res) => {
@@ -142,7 +142,7 @@ export const AppStateProvider = ({ children }) => {
 
     useEffect(() => {
         console.log("runing set products");
-        axios(`/api/clothing`)
+        axios(`${process.env.NEXT_PUBLIC_API_URL}/clothing`)
             .then((res) => {
                 dispatch({ type: "SET_PRODUCTS", payload: res.data });
             })

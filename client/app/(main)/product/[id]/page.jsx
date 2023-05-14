@@ -34,7 +34,7 @@ const page = () => {
 
     useEffect(() => {
         axios
-            .get(`/api/clothing/${id}`)
+            .get(`${process.env.NEXT_PUBLIC_API_URL}/clothing/${id}`)
             .then((res) => {
                 setProduct(res.data);
             })

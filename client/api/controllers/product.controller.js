@@ -31,6 +31,7 @@ const getOneProduct = (req, res) => {
 };
 
 
+
 module.exports = {
     createNewProduct,
     getAllProducts,

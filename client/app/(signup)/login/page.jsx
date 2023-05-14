@@ -46,7 +46,7 @@ const page = () => {
         }
 
         axios
-            .post(`/api/login`, formData, {
+            .post(`${process.env.NEXT_PUBLIC_API_URL}/login`, formData, {
                 withCredentials: true,
             })
             .then((res) => {

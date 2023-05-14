@@ -116,7 +116,7 @@ const CheckoutForm = () => {
         };
 
         axios
-            .post(`/api/checkout`, payload)
+            .post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, payload)
             .then((res) => {
                 dispatch({ type: "EMPTY_CART" });
                 //clear form data

@@ -1,18 +1,18 @@
 "use client";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Rubik } from "next/font/google";
+import { Suspense } from "react";
+import { AppStateProvider } from "../AppStateContext";
 import Footer from "../components/layout/Footer";
 import NavBar from "../components/layout/NavBar";
 import "../globals.css";
-import { AppStateProvider } from "../AppStateContext";
-import { Suspense } from "react";
 
 const rubik = Rubik({ subsets: ["cyrillic"] });
 
 const theme = createTheme({});
 
 export default function RootLayout({ children }) {
-    console.log(process.env.API_URL);
+    console.log(process.env.NEXT_PUBLIC_API_URL);
     return (
         <html lang="en">
             <head>

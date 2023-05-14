@@ -46,9 +46,13 @@ export default function AccountForm() {
         e.preventDefault();
 
         axios
-            .patch(`/api/users/update/${user._id}`, formData, {
-                withCredentials: true,
-            })
+            .patch(
+                `${process.env.NEXT_PUBLIC_API_URL}/users/update/${user._id}`,
+                formData,
+                {
+                    withCredentials: true,
+                }
+            )
             .then((res) => {
                 dispatch({ type: "LOGIN", payload: res.data });
             })

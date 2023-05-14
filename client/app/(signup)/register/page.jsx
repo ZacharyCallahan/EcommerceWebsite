@@ -66,9 +66,13 @@ const page = () => {
             return;
         }
         axios
-            .post(`/api/register`, formData, {
-                withCredentials: true,
-            })
+            .post(
+                `${process.env.NEXT_PUBLIC_API_URL}/register`,
+                formData,
+                {
+                    withCredentials: true,
+                }
+            )
             .then((res) => {
                 setErrors(res.data);
                 window.location.href = "/";

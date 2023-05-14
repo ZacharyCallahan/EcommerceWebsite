@@ -3,10 +3,10 @@ import axios from "axios";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
-import { AppStateContext } from "../../../AppStateContext";
 import Button from "../../../components/ui/Button";
 import Rating from "../../../components/ui/rating/Rating";
 import Review from "../../../components/ui/rating/Review";
+import { AppStateContext } from "../../AppStateContext";
 import ReviewForm from "./../../../components/ui/rating/ReviewForm";
 const page = () => {
     const { id } = useParams();

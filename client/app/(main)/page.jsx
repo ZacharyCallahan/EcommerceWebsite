@@ -13,12 +13,11 @@ import Section from "../components/ui/section/Section";
 import Slider from "../components/ui/slider/Slider";
 import SliderImage from "../components/ui/slider/SliderImage";
 import SliderLogo from "../components/ui/slider/SliderLogo";
-import { AppStateContext } from "../AppStateContext";
+import { AppStateContext } from "./AppStateContext";
 
 export default function Home() {
     const { state } = useContext(AppStateContext);
     const { products } = state;
-
 
     return (
         <main>
@@ -137,11 +136,9 @@ export default function Home() {
                 </MainSection>
                 {/* <!-- * PRODUCT SECTION TWO --> */}
                 <Section name="Best Sellers">
-                    {products
-                        .slice(0, 6)
-                        .map((product) => (
-                            <Product key={product._id} product={product} />
-                        ))}
+                    {products.slice(0, 6).map((product) => (
+                        <Product key={product._id} product={product} />
+                    ))}
                 </Section>
             </div>
         </main>

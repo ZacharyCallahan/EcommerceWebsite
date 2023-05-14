@@ -1,12 +1,12 @@
-'use client'
-import Trends from "./../../ui/category/Trends";
-import Slider from "../../ui/slider/Slider";
-import SliderImage from "../../ui/slider/SliderImage";
+"use client";
+import { useContext } from "react";
+import { AppStateContext } from "../../../(main)/AppStateContext";
 import Product from "../../ui/Product";
 import ProductSection from "../../ui/section/ProductSection";
 import Section from "../../ui/section/Section";
-import { useContext } from "react";
-import { AppStateContext } from "../../../AppStateContext";
+import Slider from "../../ui/slider/Slider";
+import SliderImage from "../../ui/slider/SliderImage";
+import Trends from "./../../ui/category/Trends";
 
 const Womens = () => {
     const { state } = useContext(AppStateContext);
@@ -29,7 +29,7 @@ const Womens = () => {
                         (product) =>
                             product.gender === "Women" &&
                             product.masterCategory === "Apparel"
-                )
+                    )
                     .slice(6, 40)
                     .map((product) => (
                         <Product key={product._id} product={product} />

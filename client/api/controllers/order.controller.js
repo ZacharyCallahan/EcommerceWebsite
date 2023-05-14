@@ -45,7 +45,7 @@ const deleteOrder = (req, res) => {
 }
 
 const getAllOrdersByUser = (req, res) => {
-    Order.find({ user: req.params.id })
+    Order.find({ "user.id": req.params.id })
         .then((orders) => {
             res.json(orders);
         })

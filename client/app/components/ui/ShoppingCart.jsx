@@ -1,21 +1,22 @@
-'use client'
+"use client";
 import Image from "next/image";
+import { useContext, useEffect, useState } from "react";
+import { AppStateContext } from "../../(main)/AppStateContext";
 import cartImage from "../../../public/shopping-cart.svg";
 import Button from "./Button";
-import { useEffect, useContext, useState } from "react";
-import { AppStateContext } from "../../AppStateContext";
 
 export default function ShoppingCart() {
-
     const [cart, setCart] = useState([]);
 
     const { state } = useContext(AppStateContext);
-    
 
     useEffect(() => {
         const cartStorage = JSON.parse(localStorage.getItem("cart"));
         setCart(cartStorage);
-    }, [state.cart, typeof window !== "undefined" && localStorage.getItem("cart")]);
+    }, [
+        state.cart,
+        typeof window !== "undefined" && localStorage.getItem("cart"),
+    ]);
 
     return (
         <Button link="/checkout" className="relative">

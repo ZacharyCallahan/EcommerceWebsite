@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { AppStateContext } from "../../AppStateContext";
+import { AppStateContext } from "../../(main)/AppStateContext";
 import Button from "./Button";
 
 export default function LoginLogout() {

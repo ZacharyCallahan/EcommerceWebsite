@@ -7,7 +7,7 @@ const secret = "ThisIsASecretKey";
 
 module.exports = {
 
-    registerUser: async (req, res) => { //use async await when you have a lot of logic
+    registerUser: (req, res) => { //use async await when you have a lot of logic
         const potentialUser = await User.findOne({ email: req.body.email })
         if (potentialUser) {
             res.status(400).json({ message: "Email Address is taken" })

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb+srv://groovygear:9jUS0Y9p2pfGJ3II@groovygear.gm99cr5.mongodb.net/?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://groovygear:9jUS0Y9p2pfGJ3II@groovygear.gm99cr5.mongodb.net/?retryWrites=true&w=majority/groovygear", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })

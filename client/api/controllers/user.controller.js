@@ -8,13 +8,13 @@ const secret = "ThisIsASecretKey";
 module.exports = {
 
     registerUser: (req, res) => { //use async await when you have a lot of logic
-        const potentialUser = await User.findOne({ email: req.body.email })
+        const potentialUser = User.findOne({ email: req.body.email })
         if (potentialUser) {
             res.status(400).json({ message: "Email Address is taken" })
         }
         else {
             //actually create user if they pass check
-            const newUser = await User.create(req.body)
+            const newUser = User.create(req.body)
 
             //generates a jsonwebtoken string
             const userCookie = jwt.sign(

@@ -16,8 +16,9 @@ require("./routes/user.routes")(app);
 require("./routes/order.routes")(app);
 
 if (process.env.API_PORT) {
-    app.listen(process.env.API_PORT);
-    
+    app.listen(process.env.API_PORT, () => {
+        console.log(`Listening at Port ${process.env.API_PORT}`);
+    });
 }
 
 module.exports = app;

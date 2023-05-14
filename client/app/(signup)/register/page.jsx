@@ -75,11 +75,12 @@ const page = () => {
                 }
             )
             .then((res) => {
+                setErrors({});
                 window.location.href = "/"; 
             
             })
             .catch((err) => {
-                setErrors(err.data);
+                setErrors(err);
             });
     };
 

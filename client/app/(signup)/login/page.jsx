@@ -54,7 +54,7 @@ const page = () => {
                 window.location.href = "/";
             })
             .catch((err) => {
-                setErrors(err.response.data);
+                setErrors(err);
             });
     };
 
@@ -69,9 +69,9 @@ const page = () => {
             <Logo headerClass="text-3xl" imageClass="w-16" />
             <form onSubmit={submitHandler} className="w-[400px]">
                 <div className="flex flex-col my-5">
-                    {errors.msg && (
+                    {errors.message && (
                         <p className="text-black text-sm font-bold mt-4">
-                            {errors.msg}
+                            {errors.message}
                         </p>
                     )}
                     <label htmlFor="email" className="font-bold">

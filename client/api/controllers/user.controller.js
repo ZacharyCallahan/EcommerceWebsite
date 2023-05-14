@@ -44,7 +44,7 @@ module.exports = {
                         { httpOnly: true, maxAge: 2 * 60 * 60 * 1000 }) //sets to 72million seconds for cookie age
                     .json(newUser) //succesful creation of user and cookie
             }
-        } 
+        }
         catch (err) {
             res.status(400).json({ message: "Something went wrong", error: err })
         }
@@ -166,6 +166,24 @@ module.exports = {
 
     },
 
+    updatePassword: async (req, res) => {
+
+        const user = await User.findOne({ _id: req.params.id })
+
+        const passwordsMatch = await bcrypt.compare(req.body.oldPassword, user.password)
+
+        if (passwordsMatch) {
+            const hashedPassword = await bcrypt.hash(req.body.newPassword, 10)
+            User.findOneAndUpdate({ _id: req.params.id }, { password: hashedPassword }, { new: true, runValidators: true, })
+                .then(updatedUser => {
+                    res.status(201).json({ message: "Password updated successfully" })
+                })
+                .catch(err => res.status(400).json(err));
+        }
+        else {
+            res.status(400).json({ message: "Invalid current password" })
+        }
+    }
 }
 
 

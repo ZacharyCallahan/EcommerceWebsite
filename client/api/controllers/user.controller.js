@@ -46,7 +46,7 @@ module.exports = {
             }
         } 
         catch (err) {
-            res.status(400).json(err)
+            res.status(400).json({ message: "Something went wrong", error: err })
         }
 
     },
@@ -71,7 +71,7 @@ module.exports = {
 
             // if we made it this far, the token decoded correctly and we can return the user object
 
-            console.log(payload);
+
             res.json(payload);
         });
     },

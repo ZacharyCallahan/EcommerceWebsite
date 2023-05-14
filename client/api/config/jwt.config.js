@@ -5,8 +5,6 @@ const secret = "ThisIsASecretKey";
 module.exports.authenticate = (req, res, next) => {
     jwt.verify(req.cookies.userCookie, secret, (err, payload) => {
         
-        console.log("payload: ", payload);
-        
         if (err) {
             res.status(401).json({ verified: false });
         } else {

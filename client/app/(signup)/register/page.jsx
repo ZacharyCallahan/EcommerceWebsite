@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import Button from "../../components/ui/Button";
 import Logo from "../../components/ui/Logo";
+import { redirect } from "next/navigation";
 
 const validateForm = (formData) => {
     const errors = {};
@@ -74,11 +75,11 @@ const page = () => {
                 }
             )
             .then((res) => {
-                setErrors(res.data);
-                window.location.href = "/";
+                window.location.href = "/"; 
+            
             })
             .catch((err) => {
-                setErrors(err.response.data);
+                setErrors(err.data);
             });
     };
 
@@ -94,9 +95,9 @@ const page = () => {
 
             <form onSubmit={submitHandler} className="w-[400px]">
                 <div className="flex flex-col my-5">
-                    {errors.msg && (
+                    {errors.message && (
                         <p className="text-black text-sm font-bold">
-                            {errors.msg}
+                            {errors.message}
                         </p>
                     )}
                     <label htmlFor="firstName" className="font-bold">

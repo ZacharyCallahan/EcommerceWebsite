@@ -34,7 +34,7 @@ const page = () => {
 
     useEffect(() => {
         axios
-            .get(`${process.env.API_URL}/clothing/${id}`)
+            .get(`/api/clothing/${id}`)
             .then((res) => {
                 setProduct(res.data);
             })

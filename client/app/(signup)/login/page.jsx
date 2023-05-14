@@ -44,9 +44,9 @@ const page = () => {
             setErrors(formErrors);
             return;
         }
-        
+
         axios
-            .post(`${process.env.API_URL}/login`, formData, {
+            .post(`/api/login`, formData, {
                 withCredentials: true,
             })
             .then((res) => {

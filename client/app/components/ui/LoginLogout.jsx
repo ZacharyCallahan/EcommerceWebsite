@@ -8,11 +8,7 @@ export default function LoginLogout() {
 
     const logoutHandler = () => {
         axios
-            .post(
-                `${process.env.API_URL}/logout`,
-                {},
-                { withCredentials: true }
-            )
+            .post(`/api/logout`, {}, { withCredentials: true })
             .then((res) => {
                 dispatch({ type: "LOGOUT", payload: res.data });
             })

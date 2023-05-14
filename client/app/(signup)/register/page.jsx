@@ -66,7 +66,7 @@ const page = () => {
             return;
         }
         axios
-            .post(`${process.env.API_URL}/register`, formData, {
+            .post(`/api/register`, formData, {
                 withCredentials: true,
             })
             .then((res) => {

@@ -1,14 +1,14 @@
 "use client";
-import { AppStateContext } from "@/app/(main)/AppStateContext";
+import { AppStateContext } from "@/app/AppStateContext";
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import Header from "../../ui/Header";
 import Link from "next/link";
+import { useContext, useEffect, useState } from "react";
 import Button from "../../ui/Button";
+import Header from "../../ui/Header";
 
 const AccountOrders = () => {
     const { state, dispatch } = useContext(AppStateContext);
-    const userID = state.user._id;
+    const userID = state.user?._id;
 
     const [orders, setOrders] = useState([]);
 
@@ -29,7 +29,7 @@ const AccountOrders = () => {
             .catch((err) => {
                 console.log(err);
             });
-    }, [state.user._id]);
+    }, [userID]);
 
     const reorder = (id) => {
         const order = orders.find((order) => order._id === id);
@@ -46,8 +46,6 @@ const AccountOrders = () => {
                 },
             });
         });
-        
-        
     };
 
     return (

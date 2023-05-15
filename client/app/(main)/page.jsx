@@ -2,6 +2,7 @@
 import React, { useContext } from "react";
 import watchOne from "../../public/watch-1.png";
 import watchTwo from "../../public/watch-2.png";
+import { AppStateContext } from "../AppStateContext";
 import Header from "../components/ui/Header";
 import Icon from "../components/ui/Icon";
 import Product from "../components/ui/Product";
@@ -13,7 +14,6 @@ import Section from "../components/ui/section/Section";
 import Slider from "../components/ui/slider/Slider";
 import SliderImage from "../components/ui/slider/SliderImage";
 import SliderLogo from "../components/ui/slider/SliderLogo";
-import { AppStateContext } from "./AppStateContext";
 
 export default function Home() {
     const { state } = useContext(AppStateContext);

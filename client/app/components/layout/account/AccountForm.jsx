@@ -2,7 +2,7 @@
 import { useMediaQuery } from "@mui/material";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { AppStateContext } from "../../../(main)/AppStateContext";
+import { AppStateContext } from "../../../AppStateContext";
 import Header from "../../ui/Header";
 
 const validate = (formData) => {

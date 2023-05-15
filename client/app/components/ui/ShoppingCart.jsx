@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
-import { AppStateContext } from "../../(main)/AppStateContext";
 import cartImage from "../../../public/shopping-cart.svg";
+import { AppStateContext } from "../../AppStateContext";
 import Button from "./Button";
 
 export default function ShoppingCart() {

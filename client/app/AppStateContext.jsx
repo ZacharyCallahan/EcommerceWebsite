@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import React, { createContext, useEffect, useReducer } from "react";
+import React, { createContext, useEffect, useReducer, useState } from "react";
 
 const cartFromLocalStorage =
     typeof window !== "undefined" && localStorage.getItem("cart")
@@ -122,10 +122,11 @@ const reducer = (state, action) => {
 export const AppStateContext = createContext();
 
 export const AppStateProvider = ({ children }) => {
+    const [loading, setLoading] = useState(true);
     const [state, dispatch] = useReducer(reducer, initialState);
 
     useEffect(() => {
-        console.log("login check");
+
 
         axios
             .get(`${process.env.NEXT_PUBLIC_API_URL}/users/loggedin`, {
@@ -141,7 +142,6 @@ export const AppStateProvider = ({ children }) => {
     }, []);
 
     useEffect(() => {
-        console.log("runing set products");
         axios(`${process.env.NEXT_PUBLIC_API_URL}/clothing`)
             .then((res) => {
                 dispatch({ type: "SET_PRODUCTS", payload: res.data });
@@ -151,12 +151,15 @@ export const AppStateProvider = ({ children }) => {
 
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(state.cart));
-        console.log("running cart");
     }, [state.cart]);
+
+    useEffect(() => {
+        setLoading(false);
+    }, []);
 
     return (
         <AppStateContext.Provider value={{ state, dispatch }}>
-            {children}
+            {!loading && children}
         </AppStateContext.Provider>
     );
 };

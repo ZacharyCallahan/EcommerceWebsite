@@ -1,8 +1,8 @@
 "use client";
+import { AppStateContext } from "@/app/AppStateContext";
 import axios from "axios";
-import Header from "../../ui/Header";
 import { useContext, useState } from "react";
-import { AppStateContext } from "@/app/(main)/AppStateContext";
+import Header from "../../ui/Header";
 
 const validate = (formData) => {
     const error = {};

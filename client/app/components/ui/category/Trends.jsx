@@ -1,6 +1,6 @@
 "use client";
 import { useContext } from "react";
-import { AppStateContext } from "../../../(main)/AppStateContext";
+import { AppStateContext } from "../../../AppStateContext";
 import Product from "./../Product";
 import Section from "./../section/Section";
 const Trends = () => {

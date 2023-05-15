@@ -1,20 +1,18 @@
-'use client'
-import { AppStateContext } from "@/app/(main)/AppStateContext";
+"use client";
+import { AppStateContext } from "@/app/AppStateContext";
 import axios from "axios";
+import Image from "next/image";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import Header from "../../ui/Header";
-import Link from "next/link";
-import Image from "next/image";
 
 const OrderView = () => {
-
     const [order, setOrder] = useState([]);
 
     const { id } = useParams();
 
-    const products = order.products || []
-
+    const products = order.products || [];
 
     useEffect(() => {
         axios
@@ -22,7 +20,9 @@ const OrderView = () => {
             .then((res) => {
                 const formattedOrder = {
                     ...res.data,
-                    createdAt: new Date(res.data.createdAt).toLocaleDateString("en-US"),
+                    createdAt: new Date(res.data.createdAt).toLocaleDateString(
+                        "en-US"
+                    ),
                 };
                 setOrder(formattedOrder);
             })
@@ -53,7 +53,7 @@ const OrderView = () => {
                     {products.map((product) => (
                         <tr className="text-center border-b-2 hover:bg-gray-200">
                             <td className=" py-4 flex justify-center">
-                                <Image 
+                                <Image
                                     src={product.image}
                                     width={100}
                                     height={100}
@@ -61,7 +61,9 @@ const OrderView = () => {
                                 />
                             </td>
                             <td className=" py-4">{product.id}</td>
-                            <td className=" py-4">{product.productDisplayName}</td>
+                            <td className=" py-4">
+                                {product.productDisplayName}
+                            </td>
                             <td className=" py-4">${product.price}</td>
                             <td className=" py-4 space-x-2">
                                 <Link

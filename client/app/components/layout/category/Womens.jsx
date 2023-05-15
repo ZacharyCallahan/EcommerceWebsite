@@ -1,6 +1,6 @@
 "use client";
 import { useContext } from "react";
-import { AppStateContext } from "../../../(main)/AppStateContext";
+import { AppStateContext } from "../../../AppStateContext";
 import Product from "../../ui/Product";
 import ProductSection from "../../ui/section/ProductSection";
 import Section from "../../ui/section/Section";

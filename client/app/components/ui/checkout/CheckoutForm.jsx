@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { AppStateContext } from "../../../(main)/AppStateContext";
+import { AppStateContext } from "../../../AppStateContext";
 import CheckoutSummary from "./CheckoutSummary";
 
 const validateForm = (formData) => {

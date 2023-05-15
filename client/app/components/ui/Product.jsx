@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useContext } from "react";
-import { AppStateContext } from "../../(main)/AppStateContext";
+import { AppStateContext } from "../../AppStateContext";
 import Button from "./Button";
 
 export default function Product({ product }) {

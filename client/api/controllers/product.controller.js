@@ -30,10 +30,23 @@ const getOneProduct = (req, res) => {
         });
 };
 
-
+// const delete5000Products = (req, res) => {
+//     Product.find().limit(1079)
+//         .then((products) => {
+//             const productIds = products.map((product) => product._id);
+//             return Product.deleteMany({ _id: { $in: productIds } });
+//         })
+//         .then((result) => {
+//             res.json(result);
+//         })
+//         .catch((err) => {
+//             res.status(400).json({ err });
+//         });
+// };
 
 module.exports = {
     createNewProduct,
     getAllProducts,
-    getOneProduct
+    getOneProduct,
+    // delete5000Products,
 };

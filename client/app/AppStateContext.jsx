@@ -14,7 +14,6 @@ const initialState = {
 };
 
 const reducer = (state, action) => {
-    console.log("reducer ran");
 
     switch (action.type) {
         case "ADD_PRODUCT":

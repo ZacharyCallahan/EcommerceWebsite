@@ -53,7 +53,7 @@ export default function AccountNav() {
                 className={`${
                     active === "Password" &&
                     "bg-groovy-red border-groovy-red border-l-4 shadow-md bg-opacity-20"
-                }  hover:bg-opacity-20  hover:border-groovy-red border-opacity-100 hover:bg-groovy-red hover:border-l-4 hover:shadow-md  rounded-r-lg w-full py-1 transition-all text-2xl flex items-center px-5`}>
+                }  hover:bg-opacity-20 hover:border-groovy-red border-opacity-100 hover:bg-groovy-red hover:border-l-4 hover:shadow-md rounded-r-lg w-full py-1 transition-all text-2xl flex items-center px-5`}>
                 <Icon icon="lock" size="2x" color="black" className="mr-3" />
             </ListItem>
         </List>

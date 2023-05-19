@@ -5,6 +5,7 @@ import Footer from "../components/layout/Footer";
 import NavBar from "../components/layout/NavBar";
 import "../globals.css";
 
+
 const rubik = Rubik({ subsets: ["cyrillic"] });
 
 const theme = createTheme({});

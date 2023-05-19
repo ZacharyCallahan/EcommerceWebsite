@@ -20,7 +20,7 @@ export default function Product({ product }) {
     };
 
     return (
-        <div className="p-4 grid grid-cols-1 content-between h-full bg-gray-100 shadow-lg rounded-md gap-5">
+        <div className="p-4 grid grid-cols-1 content-between h-full bg-gray-100 shadow-lg rounded-md gap-12">
             <Button
                 link={`/product/${product._id}`}
                 className="flex justify-center ">

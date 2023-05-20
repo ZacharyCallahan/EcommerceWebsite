@@ -1,10 +1,13 @@
+import Link from "next/link";
 import Header from "../ui/Header";
 import Icon from "../ui/Icon";
 import Logo from "../ui/Logo";
 import List from "../ui/lists/List";
 import ListItem from "../ui/lists/ListItem";
 
+
 export default function Footer() {
+
     return (
         <footer className="bg-gray-100 rounded-tl-xl rounded-tr-xl shadow-md">
             <div className="w-5/6 m-auto">
@@ -54,9 +57,25 @@ export default function Footer() {
                     </List>
                 </div>
             </div>
-            <p className="text-center py-5 opacity-50 text-sm">
-                Made by Zachary Callahan. Copyright © 2023
-            </p>
+            <div className="text-center py-5">
+                <p>
+                    Want to see the source code?{" "}
+                    <span className="hover:text-groovy-red-dark text-groovy-red text-lg">
+                        <Link
+                            href={
+                                "https://github.com/ZacharyCallahan/EcommerceWebsite"
+                            }
+                            onClick={openInNewTab}
+                        >
+                            Click me
+                        </Link>
+                    </span>
+                    !
+                </p>
+                <p className=" opacity-50 text-sm">
+                    Made by Zachary Callahan. Copyright © 2023
+                </p>
+            </div>
         </footer>
     );
 }

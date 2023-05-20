@@ -135,7 +135,7 @@ export const AppStateProvider = ({ children }) => {
                 dispatch({ type: "LOGIN", payload: res.data });
             })
             .catch((err) => {
-                console.log(err);
+                // console.log(err);
                 dispatch({ type: "LOGOUT" });
             });
     }, []);

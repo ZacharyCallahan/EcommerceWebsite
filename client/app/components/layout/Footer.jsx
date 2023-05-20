@@ -5,9 +5,7 @@ import Logo from "../ui/Logo";
 import List from "../ui/lists/List";
 import ListItem from "../ui/lists/ListItem";
 
-
 export default function Footer() {
-
     return (
         <footer className="bg-gray-100 rounded-tl-xl rounded-tr-xl shadow-md">
             <div className="w-5/6 m-auto">
@@ -64,9 +62,7 @@ export default function Footer() {
                         <Link
                             href={
                                 "https://github.com/ZacharyCallahan/EcommerceWebsite"
-                            }
-                            onClick={openInNewTab}
-                        >
+                            }>
                             Click me
                         </Link>
                     </span>

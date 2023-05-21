@@ -3,28 +3,19 @@ Features -
 2. Gamification 
     - Add fun elements such as a points system or leaderboards. Inorder to get customers to make more purchases.
     - Maybe check if the user hasnt been on the website in a little while it will show them a message to get on the leaderboards and get more points.
-3. Automatic Reordering (DONE)
-    - Make a user page so that users can see previous orders and reorder them.
-4. User page (DONE)
-    - add a basic user page with previous orders.
 5. Loyalty program
     - The points that people earn allow them to spend them for discounts, or free products, or other perks (free shipping)
 6. Birthday rewards
     - would need to redesign the registration page
 
-7. change footer bottom Information to about us and FAQs
 
 
 Task - 
 1. Admin page
     - Will allow the admin(s) to create discounts, edit the leaderboards. View all registered users and edit their profiles.
 
-QOL feature -
-1. Make it so when you add an item to cart it stays on the product page.
-
 
 TODO:
 2. Different pages (Womens, mens, kids, Accessories) then make the "Shop Now" work
 5. Add stripe support
 6. create admin pages
-7. make the front header switch between photos

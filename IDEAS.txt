@@ -19,3 +19,4 @@ TODO:
 2. Different pages (Womens, mens, kids, Accessories) then make the "Shop Now" work
 5. Add stripe support
 6. create admin pages
+7. finish contact and review system

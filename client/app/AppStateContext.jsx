@@ -144,6 +144,7 @@ export const AppStateProvider = ({ children }) => {
         axios(`${process.env.NEXT_PUBLIC_API_URL}/clothing`)
             .then((res) => {
                 dispatch({ type: "SET_PRODUCTS", payload: res.data });
+                setLoading(false);
             })
             .catch((err) => console.log(err));
     }, []);
@@ -151,10 +152,6 @@ export const AppStateProvider = ({ children }) => {
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(state.cart));
     }, [state.cart]);
-
-    useEffect(() => {
-        setLoading(false);
-    }, []);
 
     return (
         <AppStateContext.Provider value={{ state, dispatch }}>

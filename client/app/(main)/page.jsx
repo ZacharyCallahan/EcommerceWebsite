@@ -19,6 +19,8 @@ export default function Home() {
     const { state } = useContext(AppStateContext);
     const { products } = state;
 
+
+
     return (
         <main>
             <div className="bg-white space-y-32 mb-32 overflow-x-hidden">

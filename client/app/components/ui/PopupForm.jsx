@@ -8,7 +8,9 @@ const PopupForm = ({ children, onClick }) => {
                 <Button
                     className="absolute top-2 right-2 text-gray-500"
                     onClick={onClick}>
-                    <Icon icon="times" size="" />
+                    <i
+                        className={`fa fa-times`}
+                    />
                 </Button>
             </div>
         </div>

@@ -42,7 +42,6 @@ export default function ({ onClick }) {
         const formErrors = validateForm(formData);
         if (Object.keys(formErrors).length > 0) {
             setErrors(formErrors);
-            console.log(errors.fir);
             return;
         }
         axios

@@ -14,6 +14,7 @@ app.use(cors({ credentials: true, origin: true }));
 require("./routes/product.routes")(app);
 require("./routes/user.routes")(app);
 require("./routes/order.routes")(app);
+require("./routes/contact.routes")(app);
 
 if (process.env.API_PORT) {
     app.listen(process.env.API_PORT, () => {

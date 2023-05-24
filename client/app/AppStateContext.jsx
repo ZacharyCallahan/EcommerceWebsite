@@ -121,7 +121,6 @@ const reducer = (state, action) => {
 export const AppStateContext = createContext();
 
 export const AppStateProvider = ({ children }) => {
-    const [loading, setLoading] = useState(true);
     const [state, dispatch] = useReducer(reducer, initialState);
 
     useEffect(() => {
@@ -144,7 +143,7 @@ export const AppStateProvider = ({ children }) => {
         axios(`${process.env.NEXT_PUBLIC_API_URL}/clothing`)
             .then((res) => {
                 dispatch({ type: "SET_PRODUCTS", payload: res.data });
-                setLoading(false);
+
             })
             .catch((err) => console.log(err));
     }, []);
@@ -155,7 +154,7 @@ export const AppStateProvider = ({ children }) => {
 
     return (
         <AppStateContext.Provider value={{ state, dispatch }}>
-            {!loading && children}
+            {children}
         </AppStateContext.Provider>
     );
 };

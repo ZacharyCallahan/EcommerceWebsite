@@ -80,7 +80,7 @@ const AccountOrders = () => {
                                 <span>|</span>
                                 <Button
                                     onClick={() => reorder(order._id)}
-                                    className="text-groovy-red text-base">
+                                    className="text-groovy-red text-sm">
                                     Order Again
                                 </Button>
                             </td>

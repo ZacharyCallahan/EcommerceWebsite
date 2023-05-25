@@ -25,22 +25,22 @@ export default function Product({ product }) {
     };
 
     return (
-        <div className="p-4 grid grid-cols-1 content-between h-full bg-gray-100 shadow-lg rounded-md gap-12">
-            {!imageLoaded && (
-                <div className="flex justify-center items-center">
-                    <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-groovy-purple"></div>
-                </div>
-            )}
+        <div className={`p-4 grid grid-cols-1 content-between h-full ${!imageLoaded && 'h-96'} bg-gray-100 shadow-lg rounded-md gap-12`}>
             <Button
                 link={`/product/${product._id}`}
                 className="flex justify-center ">
+                {!imageLoaded && (
+                    <div className="absolute z-50" >
+                        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-groovy-purple"></div>
+                    </div>
+                )}
                 <Image
                     src={product.image}
                     alt=""
                     className="rounded-md "
                     width={1000}
                     height={1000}
-                    onLoad={handleImageLoad}
+                    onLoadingComplete={handleImageLoad}
                 />
             </Button>
             <div>

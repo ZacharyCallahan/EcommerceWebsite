@@ -21,25 +21,7 @@ const OrderSchema = new mongoose.Schema({
         },
         phone: {
             type: String,
-            required: true,
-        },
-    },
-    shippingAddress: {
-        address: {
-            type: String,
-            required: true,
-        },
-        city: {
-            type: String,
-            required: true,
-        },
-        state: {
-            type: String,
-            required: true,
-        },
-        zipCode: {
-            type: String,
-            required: true,
+            required: false,
         },
     },
     products: {
@@ -52,7 +34,7 @@ const OrderSchema = new mongoose.Schema({
     },
     numberOfItems: {
         type: Number,
-        required: true,
+        required: false,
     },
 
 }, { timestamps: true });

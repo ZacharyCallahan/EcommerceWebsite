@@ -1,4 +1,6 @@
+const { model } = require('mongoose');
 const Order = require('../models/orders.model');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const createNewOrder = (req, res) => {
     Order.create(req.body)
@@ -52,7 +54,23 @@ const getAllOrdersByUser = (req, res) => {
         .catch((err) => {
             res.status(400).json({ err });
         });
+    
+        
 }
+
+const createPaymentIntent = async (req, res) => {
+    try {
+        const { amount, products } = req.body;
+        const paymentIntent = await stripe.paymentIntents.create({
+            amount: amount,
+            currency: 'usd',
+        });
+        res.status(201).json({ clientSecret: paymentIntent.client_secret });
+    } catch (err) {
+        console.log("Error:", err.message); // log the error message to the console
+        res.status(500).json({ err });
+    }
+};
 
 
 module.exports = {
@@ -60,5 +78,6 @@ module.exports = {
     getAllOrders,
     getOneOrder,
     deleteOrder,
-    getAllOrdersByUser
+    getAllOrdersByUser,
+    createPaymentIntent
 };

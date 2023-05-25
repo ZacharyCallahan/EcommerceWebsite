@@ -11,6 +11,7 @@ app.use(express.json());
 
 app.use(cookieParser());
 app.use(cors({ credentials: true, origin: true }));
+
 require("./routes/product.routes")(app);
 require("./routes/user.routes")(app);
 require("./routes/order.routes")(app);

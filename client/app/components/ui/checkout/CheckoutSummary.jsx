@@ -24,17 +24,7 @@ const CheckoutSummary = ({
                     <p className="font-bold text-lg">${total}</p>
                 </div>
 
-                {totalItems !== 0 ? (
-                    <button
-                        type="submit"
-                        className="py-2 bg-groovy-red rounded-md w-full shadow-md text-white">
-                        Checkout
-                    </button>
-                ) : (
-                    <p className="text-center text-lg text-slate-900">
-                        Your cart is empty! We can't checkout nothing!
-                    </p>
-                )}
+
             </div>
         </div>
     );

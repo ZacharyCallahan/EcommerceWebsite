@@ -12,7 +12,6 @@ module.exports = {
     },
 
     getAllReviewsForProduct: (req, res) => {
-        console.log(req.params);
         Review.find({ product: req.params.id })
             .then((reviews) => {
                 res.json({ reviews });

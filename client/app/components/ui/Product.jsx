@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppStateContext } from "../../AppStateContext";
 import Button from "./Button";
 
 export default function Product({ product }) {
     const { dispatch } = useContext(AppStateContext);
+    const [imageLoaded, setImageLoaded] = useState(false);
 
     const handleAddToCart = (e) => {
         e.preventDefault();
@@ -19,8 +20,17 @@ export default function Product({ product }) {
         });
     };
 
+    const handleImageLoad = () => {
+        setImageLoaded(true);
+    };
+
     return (
         <div className="p-4 grid grid-cols-1 content-between h-full bg-gray-100 shadow-lg rounded-md gap-12">
+            {!imageLoaded && (
+                <div className="flex justify-center items-center">
+                    <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-groovy-purple"></div>
+                </div>
+            )}
             <Button
                 link={`/product/${product._id}`}
                 className="flex justify-center ">
@@ -30,6 +40,7 @@ export default function Product({ product }) {
                     className="rounded-md "
                     width={1000}
                     height={1000}
+                    onLoad={handleImageLoad}
                 />
             </Button>
             <div>

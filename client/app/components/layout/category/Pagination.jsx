@@ -28,10 +28,10 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
                     currentPage === 1
                         ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                         : " bg-groovy-red text-white  hover:bg-groovy-red-dark"
-                } p-2 rounded-r shadow-md font-bold w-fit text-center`}
+                } py-2 rounded-r shadow-md font-bold w-14 text-center`}
                 onClick={() => handlePageClick(currentPage - 1)}
                 disabled={currentPage === 1}>
-                Previous
+                Prev
             </button>
             <p className="text-lg font-bold">
                 Page {currentPage} of {totalPages}
@@ -41,7 +41,7 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
                     currentPage === totalPages
                         ? "bg-gray-300 text-gray-500 cursor-not-allowed"
                         : " bg-groovy-red text-white  hover:bg-groovy-red-dark"
-                } p-2 rounded-l shadow-md font-bold w-fit text-center`}
+                } py-2 rounded-l shadow-md font-bold w-14 text-center`}
                 onClick={() => handlePageClick(currentPage + 1)}
                 disabled={currentPage === totalPages}>
                 Next

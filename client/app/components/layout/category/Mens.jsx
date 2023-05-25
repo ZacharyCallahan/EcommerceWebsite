@@ -9,19 +9,17 @@ import SliderImage from "../../ui/slider/SliderImage";
 import Trends from "./../../ui/category/Trends";
 import Pagination from "./Pagination";
 
-const Womens = () => {
+const Mens = () => {
     const { state } = useContext(AppStateContext);
     const { products } = state;
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = 20;
 
-    const womensApparelProducts = products.filter(
+    const menApparelProducts = products.filter(
         (product) =>
-            (product.gender === "Women" &&
-                product.masterCategory === "Apparel") ||
-            product.masterCategory === "Footwear"
+            product.gender === "Men" && product.masterCategory === "Apparel"
     );
-    const currentProducts = womensApparelProducts.slice(
+    const currentProducts = menApparelProducts.slice(
         (currentPage - 1) * productsPerPage,
         currentPage * productsPerPage
     );
@@ -29,26 +27,25 @@ const Womens = () => {
     return (
         <div className="bg-white mb-32 space-y-32 overflow-x-hidden">
             <Slider>
-                <SliderImage imageCSSClass="women-cover-1" />
-                <SliderImage imageCSSClass="women-cover-2" />
-                <SliderImage imageCSSClass="women-cover-3" />
-                <SliderImage imageCSSClass="women-cover-4" />
+                <SliderImage imageCSSClass="men-cover-1" />
+                <SliderImage imageCSSClass="men-cover-2" />
+                <SliderImage imageCSSClass="men-cover-3" />
             </Slider>
             <Trends
                 accessories={false}
-                gender={"Women"}
+                gender={"Men"}
                 masterCategory={"Apparel"}
-                name={"Most Popular Womens Clothing"}
+                name={"Most Popular Mens Clothing"}
             />
             <ProductSection
-                pictureOne={"product-cover-3"}
-                pictureTwo={"product-cover-2"}
-                pictureThree={"product-cover-1"}
-                pictureFour={"product-cover-4"}
-                productOneContent={"All your essential needs"}
-                productTwoContent={"The glasses made by Gucci"}
-                productThreeContent={"The handbag they'll all be wanting"}
-                productFourContent={"Accessories"}
+                pictureOne={"men-product-cover-3"}
+                pictureTwo={"men-product-cover-2"}
+                pictureThree={"men-product-cover-1"}
+                pictureFour={"men-product-cover-4"}
+                productOneContent={"All things a man needs"}
+                productTwoContent={"The watch made by Rolex"}
+                productThreeContent={"The glasses they could all be wanting"}
+                productFourContent={"A handbag made for men"}
             />
             <Section id="products-page">
                 {currentProducts.map((product) => (
@@ -57,11 +54,11 @@ const Womens = () => {
             </Section>
             <Pagination
                 itemsPerPage={productsPerPage}
-                totalItems={womensApparelProducts.length}
+                totalItems={menApparelProducts.length}
                 paginate={setCurrentPage}
             />
         </div>
     );
 };
 
-export default Womens;
+export default Mens;

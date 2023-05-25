@@ -49,40 +49,48 @@ const AccountOrders = () => {
     };
 
     return (
-        <div className="flex grow-[3] flex-col bg-white p-5 rounded-md shadow-md gap-5 sm:h-[640px]">
+        <div className="flex grow-[3] flex-col bg-white p-5 rounded-md shadow-md gap-5 ">
             <Header className="space-y-2">
                 <h1 className="text-3xl">Order History</h1>
                 <p>Shows all of your orders that you've place.</p>
                 <hr />
             </Header>
 
-            <table className="">
+            <table className="w-full sm:text-xs md:text-base">
                 <thead className="border-b-2">
                     <tr className="">
-                        <th className=" py-4">Order Number</th>
-                        <th className=" py-4">Total</th>
-                        <th className=" py-4">Date Ordered</th>
-                        <th className=" py-4">Actions</th>
+                        <th className="py-4 sm:px-2 md:px-4 lg:px-6 xl:px-8">
+                            Total
+                        </th>
+                        <th className="py-4 sm:px-2 md:px-4 lg:px-6 xl:px-8">
+                            Date Ordered
+                        </th>
+                        <th className="py-4 sm:px-2 md:px-4 lg:px-6 xl:px-8">
+                            Actions
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     {orders.map((order) => (
                         <tr className="text-center border-b-2 table-row hover:bg-gray-200">
-                            <td className=" py-4">{order._id}</td>
-                            <td className=" py-4">${order.subtotal}</td>
-                            <td className=" py-4">{order.createdAt}</td>
-                            <td className=" py-4 space-x-2">
+                            <td className="py-4 sm:px-2 md:px-4 lg:px-6 xl:px-8">
+                                ${order.subtotal}
+                            </td>
+                            <td className="py-4 sm:px-2 md:px-4 lg:px-6 xl:px-8">
+                                {order.createdAt}
+                            </td>
+                            <td className="py-4 sm:px-2 md:px-4 lg:px-6 xl:px-8">
                                 <Link
                                     href={`/account/orders/${order._id}`}
-                                    className="text-groovy-red">
+                                    className="text-groovy-red  ">
                                     View Order
                                 </Link>
-                                <span>|</span>
-                                <Button
+                                <br />
+                                <button
                                     onClick={() => reorder(order._id)}
-                                    className="text-groovy-red text-sm">
+                                    className="text-groovy-red sm:text-xs md:text-base">
                                     Order Again
-                                </Button>
+                                </button>
                             </td>
                         </tr>
                     ))}

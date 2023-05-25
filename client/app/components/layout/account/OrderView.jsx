@@ -39,12 +39,12 @@ const OrderView = () => {
                 <hr />
             </Header>
 
-            <table className="">
+            <table className="w-full">
                 <thead className="border-b-2">
                     <tr className="">
                         <th>Image</th>
                         <th className=" py-4">Item ID</th>
-                        <th className=" py-4">Name</th>
+                        <th className=" py-4 hidden lg:table-cell">Name</th>
                         <th className=" py-4">Price</th>
                         <th className=" py-4">Quantity</th>
                     </tr>
@@ -61,7 +61,7 @@ const OrderView = () => {
                                 />
                             </td>
                             <td className=" py-4">{product.id}</td>
-                            <td className=" py-4">
+                            <td className=" py-4 hidden lg:table-cell">
                                 {product.productDisplayName}
                             </td>
                             <td className=" py-4">${product.price}</td>

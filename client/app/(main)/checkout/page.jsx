@@ -20,7 +20,7 @@ const Page = () => {
             return accumulator + product.price * product.quantity;
         }, 2)
         .toFixed(2);
-    const total = parseInt((subtotal * 1.13).toFixed(2));
+    const total = (subtotal * 1.13).toFixed(2) * 100;
     useEffect(() => {
         const cartStorage = JSON.parse(localStorage.getItem("cart"));
         setProducts(cartStorage);
